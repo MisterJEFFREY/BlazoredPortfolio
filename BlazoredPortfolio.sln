@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazoredPortfolio", "BlazoredPortfolio.csproj", "{B27B73FD-0A86-4AFF-9AFD-79B3947665BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B27B73FD-0A86-4AFF-9AFD-79B3947665BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B27B73FD-0A86-4AFF-9AFD-79B3947665BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B27B73FD-0A86-4AFF-9AFD-79B3947665BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B27B73FD-0A86-4AFF-9AFD-79B3947665BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B05C3CF1-2E9D-4EA4-BE02-98F353655138}
+	EndGlobalSection
+EndGlobal

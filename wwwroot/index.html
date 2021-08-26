@@ -4,22 +4,76 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BlazoredPortfolio</title>
-    <base href="/" />
+    <title>Contact The Jeff</title>
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
+    <link href="color_themes.css" rel="stylesheet" />
     <link href="BlazoredPortfolio.styles.css" rel="stylesheet" />
+
+    <!--////////////////////////////////////////////////////////-->
+    <!--<link rel="stylesheet" href="css/fontawesome/css/all.min.css" />-->
+    <script src="https://kit.fontawesome.com/d141bc10e1.js" crossorigin="anonymous"></script>
+
+
+    <!-- Script for Contact Form requires jQuery and jquery-form plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <div id="app">Loading...</div>
 
-    <div id="blazor-error-ui">
+    <div id="app">
+        <!--EMPTY NAV BAR SO USER SEES SOME LAYOUT BEFORE THE APP FINISHES BEING BUILT-->
+        <!--NOTE: BS Navbar needs navbar-dark class, otherwise, the toggle button won't show up on smaller screens.-->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 fixed-top">
+            <div class="container ml-0">
+                <a class="navbar-brand text-light" style="visibility:hidden;" asp-area="" asp-page="/Index">Top Menu</a>
+            </div>
+        </nav>
+
+        <!--PROTOTYPE BOOTSTRAP SPINNER SECTION-->
+        <!--TODO: CHANGE THIS UP TO CONTAIN FUN FACTS FOR 'SLOWER' DEVICES-->
+        <div class="col-md-11 mx-auto" style="padding-top:20vh; padding-bottom:20vh;">
+            <div class="text-center">
+                <h2>LOADING WEB APP</h2>
+                <h5>Load Speed is dependent on device's resources...</h5>
+                <div class="spinner-border text-success" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<div id="app">Loading...</div>-->
+
+    <!--<div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
-    </div>
+    </div>-->
     <script src="_framework/blazor.webassembly.js"></script>
+
+    <!--SCRIPT INTENDED TO COMMUNICATE FROM CONTACT FORM TO G SERVICE-->
+    <script>
+        $('#bootstrapForm').submit(function (event) {
+            event.preventDefault()
+            var extraData = {}
+            $('#bootstrapForm').ajaxSubmit({
+                data: extraData,
+                dataType: 'jsonp',  // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
+                error: function () {
+                    // Submit of form should be successful but JSONP callback will fail because Google Forms
+                    // does not support it, so this is handled as a failure.
+                    alert('Form Submitted. Thanks.')
+                    // You can also redirect the user to a custom thank-you page:
+                    // window.location = 'http://www.mydomain.com/thankyoupage.html'
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
