@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Counter.razor" />
+    <Content Remove="Pages\FetchData.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Shared\MainLayout.razor.css" />
     <None Remove="Shared\NavMenu.razor.css" />
   </ItemGroup>

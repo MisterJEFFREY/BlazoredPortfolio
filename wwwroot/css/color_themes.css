@@ -1,21 +1,52 @@
-﻿/*Update these vars accordingly*/
+﻿/*////////////////////////////////////////////////*/
+/*Update these vars in root only!*/
+/*////////////////////////////////////////////////*/
 :root {
     /*BODY COLOR VARS*/
-    --light-body-color:         #BFBFBF;
-    --dark-body-color:          #000000;
+    --light-body-color:                 #BFBFBF;
+    --dark-body-color:                  #000000;
     /*NAVBAR COLOR VARS*/
-    --nav-light-color-start:    #2f7225;
-    --nav-light-color-end:      #275b1f;
+    --nav-light-color-start:            #49b03a;
+    --nav-light-color-end:              #3d9431;
+    --nav-dark-color-start:             #2f7225;
+    --nav-light-color-end:              #275b1f;
     /*TEXT COLORS*/
-    --general-light-text-color: #000000;
-    --general-dark-text-color:  #c4bfbf;
+    --general-light-text-color:         #000000;
+    --general-dark-text-color:          #c4bfbf;
+    /*BORDER COLORS*/
+    --general-light-border-color-start: #121212;
+    --general-light-border-color-end:   #000000;
+    --general-dark-border-color-start:  #494848;
+    --general-dark-border-color-end:    #333333;
 }
-
-
+/*////////////////////////////////////////////////*/
 /*LIGHT Color Themes*/
-
-
-
-
-
+.light_nav {
+    background-image: linear-gradient(180deg, var(--nav-light-color-start), var(--nav-light-color-end));
+}
+.light_body{
+    background-color: var(--light-body-color);
+}
+.light_general_text{
+    color: var(--general-light-text-color);
+}
+/*TODO: not sure if this will work as intended*/
+.dark_border {
+    background-image: linear-gradient(180deg, var(--general-dark-border-color-start), var(--general-dark-border-color-end));
+}
+/*////////////////////////////////////////////////*/
 /*DARK Color Themes*/
+.dark_nav {
+    background-image: linear-gradient(180deg, var(--nav-dark-color-start), var(--nav-dark-color-end));
+}
+.dark_body {
+    background-color: var(--dark-body-color);
+}
+.dark_general_text {
+    color: var(--general-dark-text-color);
+}
+/*TODO: not sure if this will work as intended*/
+.dark_border {
+    background-image: linear-gradient(180deg, var(--general-dark-border-color-start), var(--general-dark-border-color-end));
+}
+/*////////////////////////////////////////////////*/

@@ -19,6 +19,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
 
+
+    <!--SCRIPT INTENDED TO CHECK FOR JS COOKIES & RECIEVE VALUE IF EXISTED-->
+    <script>
+        //LET THIS BECOME THE GLOBAL VARIABLE...
+        let InitialColorTheme = getCookie("ColorThemeChoice");
+        CheckForJSCookies();
+
+        function CheckForJSCookies() {
+            //let InitialColorTheme = getCookie("ColorThemeChoice");
+            //IF COLOR THEME COOKIE DOES EXIST...
+            if (InitialColorTheme != "") {
+                console.log("Found Color Theme Cookie!\nIt is:" + InitialColorTheme);
+            } else {
+                //IF COLOR THEME COOKIE DOESN'T EXIST...
+                console.log("Did Not Find the Color Theme Cookie!\nWho ate my cookie?");
+                //DEFAULT THAT COLOR THEME COOKIE TO LIGHT THEME!
+                setCookie("ColorThemeChoice", InitialColorTheme, "Light Theme");
+            }
+    </script>
 </head>
 
 <body>
