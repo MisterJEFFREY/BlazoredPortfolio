@@ -7,7 +7,7 @@
     <title>Contact The Jeff</title>
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
-    <link href="color_themes.css" rel="stylesheet" />
+    <link href="css/color_themes.css" rel="stylesheet" />
     <link href="BlazoredPortfolio.styles.css" rel="stylesheet" />
 
     <!--////////////////////////////////////////////////////////-->
@@ -21,7 +21,8 @@
 
 
     <!--SCRIPT INTENDED TO CHECK FOR JS COOKIES & RECIEVE VALUE IF EXISTED-->
-    <script>
+    <!--TODO: I DON'T THIS THIS SCRIPT IS BEING EXECUTED AT ALL...WHY?-->
+    <!--<script>
         //LET THIS BECOME THE GLOBAL VARIABLE...
         let InitialColorTheme = getCookie("ColorThemeChoice");
         CheckForJSCookies();
@@ -37,7 +38,7 @@
                 //DEFAULT THAT COLOR THEME COOKIE TO LIGHT THEME!
                 setCookie("ColorThemeChoice", InitialColorTheme, "Light Theme");
             }
-    </script>
+    </script>-->
 </head>
 
 <body>
@@ -67,13 +68,20 @@
 
 
     <!--<div id="app">Loading...</div>-->
-
     <!--<div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>-->
     <script src="_framework/blazor.webassembly.js"></script>
+
+    <!--SINCE BLAZOR DOESN'T CHANGE HTML COLORS DIRECTLY, I'LL HAVE TO RESORT TO THIS WAY...-->
+    <!--SRC:https://stackoverflow.com/a/58281171 -->
+    <script>
+        window.applyStyleForBody = function (style) {
+            document.documentElement.style[style.attrib] = style.value;
+        }
+    </script>
 
     <!--SCRIPT INTENDED TO COMMUNICATE FROM CONTACT FORM TO G SERVICE-->
     <script>
@@ -93,6 +101,8 @@
             })
         })
     </script>
+
+
 </body>
 
 </html>

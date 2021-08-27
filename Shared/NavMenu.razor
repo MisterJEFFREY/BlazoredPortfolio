@@ -1,36 +1,36 @@
 ﻿
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top">
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark @(ColorTheme == "Light" ? "light_nav" : "dark_nav") bg-dark border-bottom box-shadow mb-3 fixed-top">
     <div class="container">
-        <a class="navbar-brand text-light" asp-area="" asp-page="/Index">Contact The Jeff</a>
+        <a class="navbar-brand @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" asp-area="" asp-page="/Index">Contact The Jeff</a>
         <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse" @onclick="CollapseNavMenu">
             <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="" Match="NavLinkMatch.All">Home</a>
+                <li class="nav-item ml-auto">
+                    <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="" Match="NavLinkMatch.All">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="blog">Blog</a>
+                    <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="blog">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="coding">Coding</a>
+                    <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="coding">Coding</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="bounties">Bounties</a>
+                    <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="bounties">Bounties</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="resume">Resume</a>
+                    <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="resume">Resume</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="contact">Contact</a>
+                    <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="contact">Contact</a>
                 </li>
                 <!--THEME TOGGLE SWITCH-->
-                <li class=" ml-auto">
+                <li class="nav-item ml-auto">
                     <div class="form-check form-switch nav-link">
                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @onchange="eventArgs => { ToggleThemeSwitch(eventArgs.Value.ToString()); }">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">@ColorThemeDisplayText Theme</label> @*@ColorThemeDisplayText*@
+                        <label class="form-check-label @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" for="flexSwitchCheckDefault">@ColorThemeDisplayText Theme</label> @*@ColorThemeDisplayText*@
                     </div>
                 </li>
 

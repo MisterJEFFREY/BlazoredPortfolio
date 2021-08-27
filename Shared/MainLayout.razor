@@ -1,19 +1,22 @@
 @inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
 
 
-<body>
-    <NavMenu @bind-colorTheme="MainColorTheme"/>
+
+@*class="@(MainColorTheme == "Light" ? "light_body" : "dark_body")"*@
+<body class="@(MainColorTheme == "Light" ? "light_body" : "dark_body")" style="min-height:95vh;">
+    <NavMenu @bind-colorTheme="MainColorTheme" />
 
     <div class="container" style="padding-top:20vh; padding-bottom:20vh;">
         @Body
     </div>
 </body>
 
-<footer class="border-top footer text-muted fixed-bottom">
-    <div class="container mt-4 mb-4">
-        &copy; 2019 - Blazor-Top-Menu
-    </div>
-</footer>
+<footer class="border-top footer">
+        <div class="container mt-4 mb-4">
+            &copy; 2019 - Blazor-Top-Menu
+        </div>
+    </footer>
 
 
 @*<div class="page">

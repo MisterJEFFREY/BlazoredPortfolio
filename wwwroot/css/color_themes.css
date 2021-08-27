@@ -11,8 +11,8 @@
     --nav-dark-color-start:             #2f7225;
     --nav-light-color-end:              #275b1f;
     /*TEXT COLORS*/
-    --general-light-text-color:         #000000;
-    --general-dark-text-color:          #c4bfbf;
+    --general-light-text-color:         #000000 !important;
+    --general-dark-text-color:          #ded9d9 !important; /*#c4bfbf*/
     /*BORDER COLORS*/
     --general-light-border-color-start: #121212;
     --general-light-border-color-end:   #000000;
@@ -37,7 +37,7 @@
 /*////////////////////////////////////////////////*/
 /*DARK Color Themes*/
 .dark_nav {
-    background-image: linear-gradient(180deg, var(--nav-dark-color-start), var(--nav-dark-color-end));
+    background-image: linear-gradient(180deg, var(--nav-dark-color-start), var(--nav-light-color-end));
 }
 .dark_body {
     background-color: var(--dark-body-color);
