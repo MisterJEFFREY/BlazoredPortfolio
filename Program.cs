@@ -9,7 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 //Intended for cookie purposes
-using Blazored.SessionStorage;
+//using Blazored.SessionStorage;
+using Blazored.LocalStorage;
 
 namespace BlazoredPortfolio
 {
@@ -22,7 +23,8 @@ namespace BlazoredPortfolio
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             //Intended for cookie purposes via Blazor
-            builder.Services.AddBlazoredSessionStorage();
+            //builder.Services.AddBlazoredSessionStorage();
+            builder.Services.AddBlazoredLocalStorage();
             //HELP SRC:https://www.syncfusion.com/faq/blazor/web-api/how-do-i-store-session-data-in-blazor-webassembly
             await builder.Build().RunAsync();
         }

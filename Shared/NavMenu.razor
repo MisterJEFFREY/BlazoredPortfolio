@@ -1,45 +1,51 @@
-﻿
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark @(ColorTheme == "Light" ? "light_nav" : "dark_nav") bg-dark border-bottom box-shadow mb-3 fixed-top">
+﻿@inject Blazored.LocalStorage.ILocalStorageService localStore
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark @(ColorTheme == "Light" ? "light_nav" : "dark_nav") box-shadow mb-3 fixed-top">
+    @*bg-dark*@
     <div class="container">
-        <a class="navbar-brand @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" asp-area="" asp-page="/Index">Contact The Jeff</a>
-        <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text") cursor-pointer" asp-area="" asp-page="/Index" href="/" Match="NavLinkMatch.All">Contact The Jeff</a>
+        <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse" @onclick="CollapseNavMenu">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item ml-auto">
+        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse " @onclick="CollapseNavMenu">
+            <ul class="navbar-nav flex-grow-1  justify-content-around">
+                @*<li class="nav-item">
                     <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="" Match="NavLinkMatch.All">Home</a>
-                </li>
+                </li>*@
                 <li class="nav-item">
                     <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="blog">Blog</a>
                 </li>
-                <li class="nav-item">
+                <!--TEST TO SEE IF I CAN CONTROL THE COLOR THEMES WHEN USING NAVLINK TAG-->
+                <li class="nav-item text-center">
+                    <NavLink href="blog" class="nav-link " >
+                        <span class="@(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")">Blog2</span>
+                    </NavLink>
+                </li>
+                
+                <li class="nav-item text-center">
                     <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="coding">Coding</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item text-center">
                     <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="bounties">Bounties</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item text-center">
                     <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="resume">Resume</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item text-center">
                     <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="contact">Contact</a>
                 </li>
-                <!--THEME TOGGLE SWITCH-->
-                <li class="nav-item ml-auto">
-                    <div class="form-check form-switch nav-link">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @onchange="eventArgs => { ToggleThemeSwitch(eventArgs.Value.ToString()); }">
-                        <label class="form-check-label @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" for="flexSwitchCheckDefault">@ColorThemeDisplayText Theme</label> @*@ColorThemeDisplayText*@
-                    </div>
-                </li>
 
-                @*<li class="nav-item">
-            <a class="nav-link text-light" href="counter">Counter</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-light" href="fetchdata">Fetch data</a>
-        </li>*@
+
+                <!--THEME TOGGLE SWITCH-->
+                <li class="nav-item ">
+                    <input type="checkbox" class="btn-check d-none" id="btn-check" autocomplete="off" checked="@ColorThemeInitiallyChecked" @onchange="eventArgs => {ToggleThemeSwitch(eventArgs.Value.ToString() );}">
+                    <label class="btn my-auto @(ColorTheme == "Light" ? "light_general_text btn-outline-light" : "dark_general_text btn-outline-dark") cursor-pointer" for="btn-check">@ColorThemeDisplayText <span class="invisible">@(ColorTheme == "Light" ? "" : "i")</span>Theme</label>
+                    <!--PREVIOUS VERSION OF THEME CHECKBOX-->
+                    <!--<div class="form-check form-switch nav-link">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="@ColorThemeInitiallyChecked" @onchange="eventArgs => {ToggleThemeSwitch(eventArgs.Value.ToString() );}">
+                        <label class="form-check-label @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" for="flexSwitchCheckDefault">@ColorThemeDisplayText Theme</label>--> @*@ColorThemeDisplayText*@
+                    <!--</div>-->
+                </li>
             </ul>
         </div>
     </div>
@@ -47,18 +53,18 @@
 
 
 @*@code {
-    bool collapseNavMenu = true;
+        bool collapseNavMenu = true;
 
-    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+        string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    void ToggleNavMenu() {
-        collapseNavMenu = !collapseNavMenu;
-    }
+        void ToggleNavMenu() {
+            collapseNavMenu = !collapseNavMenu;
+        }
 
-    void CollapseNavMenu() {
-        collapseNavMenu = true;
-    }
-}*@
+        void CollapseNavMenu() {
+            collapseNavMenu = true;
+        }
+    }*@
 
 
 <!--
@@ -90,11 +96,11 @@
 </div>
 -->
 @*@code {
-    private bool collapseNavMenu = true;
+        private bool collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+        private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu() {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}*@
+        private void ToggleNavMenu() {
+            collapseNavMenu = !collapseNavMenu;
+        }
+    }*@

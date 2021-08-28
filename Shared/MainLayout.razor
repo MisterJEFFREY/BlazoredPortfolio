@@ -1,22 +1,82 @@
 @inherits LayoutComponentBase
-@inject IJSRuntime JSRuntime
-
-
-
+@*@inject IJSRuntime JSRuntime*@
+@*@inject Blazored.SessionStorage.ISessionStorageService sessionStorage*@
+@inject Blazored.LocalStorage.ILocalStorageService localStore
+@*NOTE: If I'm having any issues with css not updating, delete/stop cache*@
 @*class="@(MainColorTheme == "Light" ? "light_body" : "dark_body")"*@
 <body class="@(MainColorTheme == "Light" ? "light_body" : "dark_body")" style="min-height:95vh;">
+    <!--NOW YOU ARE ON TOP INSTEAD OF THE LEFT SIDE!-->
     <NavMenu @bind-colorTheme="MainColorTheme" />
 
     <div class="container" style="padding-top:20vh; padding-bottom:20vh;">
         @Body
     </div>
+
 </body>
 
-<footer class="border-top footer">
-        <div class="container mt-4 mb-4">
-            &copy; 2019 - Blazor-Top-Menu
+<!--IF THERE'S NO SESSION COOKIE FOUND, SHOW THIS MESSAGE-->
+@if (ShowCookieNotification == true) {
+    <div class="fixed-bottom light_nav light_general_text py-3">
+        <div class="row mx-auto">
+            <!--CANCEL SECTION-->
+            <div class="col-md text-right mx-auto">
+                <i class="far fa-times-circle cursor-pointer fa-3x" @onclick="(()=>On_ShowCookieNotificationChanged(false))"></i>
+            </div>
         </div>
-    </footer>
+        
+        <div class="row mx-auto">
+            <!--COOKIE MESSAGE SECTION-->
+            <div class="col-md-11 text-center mx-auto">
+                <div class="row mx-auto">
+                    <div class="col-md mx-auto">
+                        <h4>Please note that this application uses cookies for the following reasons:</h4>
+                    </div>
+                </div>
+
+                <div class="row mx-auto justify-content-center">
+                    <div class="col-md-5 ">
+                        <ul>
+                            <li><h4>To Remember which Color Theme you've picked.</h4></li>
+                            <li><h4>To Communicate between pages.</h4></li>
+                        </ul>
+                    </div>
+                <!--COOKIE ICON SECTION-->
+                    <div class="col-md-1 my-auto">
+                        <i class="fa fa-solid fa-cookie-bite fa-3x fa-spin"></i>
+                    </div>
+                </div>
+
+                <div class="row mx-auto">
+                    <div class="col-md mx-auto">
+                        <h4 class="border-bottom mx-auto" style="width:fit-content;">
+                            By using this application, you constent with these delicious cookies.
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="row mx-auto">
+                    <div class="col-md mx-auto">
+                        <h5>
+                            If you see this message repeately, this means that you have cookies disabled...
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+//END COOKIE MESSAGE SECTION
+}
+
+<!--FOOTER SECTION-->
+<footer class="@(MainColorTheme == "Light" ? "light_nav" : "dark_nav") py-3 ">
+    <div class="text-center">
+        <p class="my-auto @(MainColorTheme == "Light" ? "light_general_text" : "dark_general_text")">
+            I am the footer footer and I want a fruit by the foot.
+        </p>
+    </div>
+</footer>
 
 
 @*<div class="page">

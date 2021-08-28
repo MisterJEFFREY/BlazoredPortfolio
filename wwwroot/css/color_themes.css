@@ -7,9 +7,9 @@
     --dark-body-color:                  #000000;
     /*NAVBAR COLOR VARS*/
     --nav-light-color-start:            #49b03a;
-    --nav-light-color-end:              #3d9431;
+    --nav-light-color-end:              #3a8c2d;
     --nav-dark-color-start:             #2f7225;
-    --nav-light-color-end:              #275b1f;
+    --nav-dark-color-end:               #1f4c18;
     /*TEXT COLORS*/
     --general-light-text-color:         #000000 !important;
     --general-dark-text-color:          #ded9d9 !important; /*#c4bfbf*/
@@ -22,13 +22,15 @@
 /*////////////////////////////////////////////////*/
 /*LIGHT Color Themes*/
 .light_nav {
-    background-image: linear-gradient(180deg, var(--nav-light-color-start), var(--nav-light-color-end));
+    background-image: linear-gradient(180deg, var(--nav-light-color-start), var(--nav-light-color-end)) !important;
+    border-top: 3px solid var(--general-light-text-color);
+    border-bottom: 3px solid var(--general-light-text-color);
 }
 .light_body{
     background-color: var(--light-body-color);
 }
-.light_general_text{
-    color: var(--general-light-text-color);
+.light_general_text {
+    color: var(--general-light-text-color) !important; /* !important*/
 }
 /*TODO: not sure if this will work as intended*/
 .dark_border {
@@ -37,13 +39,15 @@
 /*////////////////////////////////////////////////*/
 /*DARK Color Themes*/
 .dark_nav {
-    background-image: linear-gradient(180deg, var(--nav-dark-color-start), var(--nav-light-color-end));
+    background-image: linear-gradient(180deg, var(--nav-dark-color-start), var(--nav-dark-color-end));
+    border-top: 3px solid var(--general-dark-text-color);
+    border-bottom: 3px solid var(--general-dark-text-color);
 }
 .dark_body {
     background-color: var(--dark-body-color);
 }
 .dark_general_text {
-    color: var(--general-dark-text-color);
+    color: var(--general-dark-text-color) !important;
 }
 /*TODO: not sure if this will work as intended*/
 .dark_border {
