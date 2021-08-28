@@ -7,13 +7,24 @@
 }
 
 .fa-times-circle:hover {
-    color: white;
+    color: red;
 }
 
 .nav-link.active {
+    border: 1px solid var(--general-dark-text-color);
+    border-radius: 10px;
+}
+/*WORKAROUND TO PREVENT NAVBAR FROM INCREASING/DECREASING 1px IN HEIGHT*/
+.nav-link:not(.active) {
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.nav-link:not(.active):hover {
     border: 1px solid var(--general-light-text-color);
     border-radius: 10px;
 }
+
 /*////////////////////////////////////////////////////////////////////*/
 html, body {
     /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/

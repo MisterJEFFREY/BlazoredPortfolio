@@ -11,7 +11,7 @@ namespace BlazoredPortfolio.Shared {
     public partial class MainLayout {
         #region Fields
         public string _mainColorTheme; /*= "Light"*/
-        public bool _showCookieNotification;
+        public bool _showCookieNotification; //TODO: Remove TRUE AFTER DEBUGGING.
         #endregion (Fields)
 
 

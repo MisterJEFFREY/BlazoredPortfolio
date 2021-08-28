@@ -16,49 +16,49 @@
 
 <!--IF THERE'S NO SESSION COOKIE FOUND, SHOW THIS MESSAGE-->
 @if (ShowCookieNotification == true) {
-    <div class="fixed-bottom light_nav light_general_text py-3">
-        <div class="row mx-auto">
+    <div class="fixed-bottom pt-1 @(MainColorTheme == "Light" ? "light_nav light_general_text" : "dark_nav dark_general_text")">
+        <div class="row mx-auto @(MainColorTheme == "Light" ? "cookie-msg-icon-light-border" : "cookie-msg-icon-dark-border")">
             <!--CANCEL SECTION-->
             <div class="col-md text-right mx-auto">
-                <i class="far fa-times-circle cursor-pointer fa-3x" @onclick="(()=>On_ShowCookieNotificationChanged(false))"></i>
+                <i class="far fa-times-circle cursor-pointer fa-2x" @onclick="(()=>On_ShowCookieNotificationChanged(false))"></i>
             </div>
         </div>
         
         <div class="row mx-auto">
             <!--COOKIE MESSAGE SECTION-->
-            <div class="col-md-11 text-center mx-auto">
+            <div class="col-md-5 text-center mx-auto  ">
                 <div class="row mx-auto">
-                    <div class="col-md mx-auto">
-                        <h4>Please note that this application uses cookies for the following reasons:</h4>
+                    <div class="col-md mx-auto mt-2">
+                        <p class="mb-1">Please note that this application uses cookies for the following reasons:</p>
                     </div>
                 </div>
 
                 <div class="row mx-auto justify-content-center">
-                    <div class="col-md-5 ">
+                    <div class="col-md-9 ">
                         <ul>
-                            <li><h4>To Remember which Color Theme you've picked.</h4></li>
-                            <li><h4>To Communicate between pages.</h4></li>
+                            <li><p class="mb-0">To Remember which Color Theme you've picked.</p></li>
+                            <li><p>To Communicate between pages.</p></li>
                         </ul>
                     </div>
                 <!--COOKIE ICON SECTION-->
                     <div class="col-md-1 my-auto">
-                        <i class="fa fa-solid fa-cookie-bite fa-3x fa-spin"></i>
+                        <i class="fa fa-solid fa-cookie-bite fa-2x fa-spin"></i>
                     </div>
                 </div>
 
                 <div class="row mx-auto">
                     <div class="col-md mx-auto">
-                        <h4 class="border-bottom mx-auto" style="width:fit-content;">
+                        <p class="border-bottom mx-auto" style="width:fit-content;">
                             By using this application, you constent with these delicious cookies.
-                        </h4>
+                        </p>
                     </div>
                 </div>
 
                 <div class="row mx-auto">
                     <div class="col-md mx-auto">
-                        <h5>
+                        <p class="mb-1">
                             If you see this message repeately, this means that you have cookies disabled...
-                        </h5>
+                        </p>
                     </div>
                 </div>
 
