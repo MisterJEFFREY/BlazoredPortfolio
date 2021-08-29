@@ -8,15 +8,26 @@ using Microsoft.AspNetCore.Components;
 
 namespace BlazoredPortfolio.Pages {
     public partial class Index {
+
         #region Fields
 
         #endregion (Fields)
 
 
         #region Methods
-        protected override void OnInitialized() {
+        //protected override void OnInitialized() {
+        //    test_recieved_string = Layout.MainColorTheme;
+        //}
+
+        protected override async Task OnInitializedAsync() {
+            OnParametersSet();
+        }
+
+
+        protected override void OnParametersSet() {
             test_recieved_string = Layout.MainColorTheme;
         }
+
         #endregion (Methods)
 
 

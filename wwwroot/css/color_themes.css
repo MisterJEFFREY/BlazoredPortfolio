@@ -11,13 +11,15 @@
     --nav-dark-color-start:             #2f7225;
     --nav-dark-color-end:               #1f4c18;
     /*TEXT COLORS*/
-    --general-light-text-color:         #000000 !important;
-    --general-dark-text-color:          #ded9d9 !important; /*#c4bfbf*/
+    --general-light-text-color:         #000000;
+    --general-dark-text-color:          #ded9d9; /*#c4bfbf*/
     /*BORDER COLORS*/
     --general-light-border-color-start: #121212;
     --general-light-border-color-end:   #000000;
     --general-dark-border-color-start:  #494848;
     --general-dark-border-color-end:    #333333;
+    /*BOX SHADOW COLOR(S)*/
+    --general-r-b-dark-shadow:          #565555;
 }
 /*////////////////////////////////////////////////*/
 /*LIGHT Color Themes*/
@@ -42,9 +44,9 @@
     border-radius: 20px;
 }
 
-.r-b-corner-dark-shadow {
-    box-shadow: 1.5vh .5vh var(--general-light-text-color);
-    /*border-radius: 20px;*/
+.r-b-corner-light-shadow {
+    box-shadow: 1vh 1vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
+    border-radius: 20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
 }
 
 .cookie-msg-icon-light-border {
@@ -78,6 +80,12 @@
     border: 3px solid var(--general-dark-text-color);
     border-radius: 20px;
 }
+
+.r-b-corner-dark-shadow {
+    box-shadow: 1vh 1vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
+    border-radius: 20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
+}
+
 
 .cookie-msg-icon-dark-border {
     border-bottom: 3px solid var(--general-dark-text-color);
