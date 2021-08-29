@@ -33,8 +33,18 @@
     color: var(--general-light-text-color) !important; /* !important*/
 }
 /*TODO: not sure if this will work as intended*/
-.dark_border {
+/*.dark_border {
     background-image: linear-gradient(180deg, var(--general-dark-border-color-start), var(--general-dark-border-color-end));
+}*/
+
+.outline-light-border {
+    border: 3px solid var(--general-light-text-color);
+    border-radius: 20px;
+}
+
+.r-b-corner-dark-shadow {
+    box-shadow: 1.5vh .5vh var(--general-light-text-color);
+    /*border-radius: 20px;*/
 }
 
 .cookie-msg-icon-light-border {
@@ -44,6 +54,8 @@
     border-left: 3px solid var(--general-light-text-color);
     border-right: 3px solid var(--general-light-text-color);
 }*/
+
+
 /*////////////////////////////////////////////////*/
 /*DARK Color Themes*/
 .dark_nav {
@@ -58,8 +70,13 @@
     color: var(--general-dark-text-color) !important;
 }
 /*TODO: not sure if this will work as intended*/
-.dark_border {
+/*.dark_border {
     background-image: linear-gradient(180deg, var(--general-dark-border-color-start), var(--general-dark-border-color-end));
+}*/
+
+.outline-dark-border {
+    border: 3px solid var(--general-dark-text-color);
+    border-radius: 20px;
 }
 
 .cookie-msg-icon-dark-border {
