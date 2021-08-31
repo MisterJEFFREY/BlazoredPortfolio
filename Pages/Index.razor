@@ -1,4 +1,7 @@
 ﻿@page "/"
+
+@inject NavigationManager NavManager
+
 <!--LANDING INTRODUCTION SECTION-->
 <div class="col-md-11 mx-auto mb-5">
     <div class="row mx-auto text-center">
@@ -62,12 +65,16 @@
         <!--CARD OVERALL SECTION-->
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
             <!--BULK MAIL ICON SECTION-->
-            <div class="col-md-1 mx-auto my-auto py-3">
-                <i class="fas fa-mail-bulk fa-3x"></i>
-            </div>
+            @*<div class="col-md-1 mx-auto my-auto py-3">
+                    <i class="fas fa-mail-bulk fa-3x"></i>
+                </div>*@
 
             <!--TEXT ROWS SECTION-->
             <div class="col-md-10 mx-auto px-0">
+                <!--BULK MAIL ICON SECTION-->
+                <div class="row mx-auto">
+                    <i class="py-3 mx-auto fas fa-mail-bulk fa-3x"></i>
+                </div>
                 <div class="row mx-auto">
                     <p class="mx-auto text-center mb-0 p-2">
                         Legitimate Employment Opportunities?
@@ -95,7 +102,7 @@
         <!--CARD FOOTER SECTION-->
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
             <div class="col-md mx-auto py-3">
-                <button type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Contact Me!</button>
+                <button @onclick="NavToContact" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Contact Me!</button>
             </div>
         </div>
 
@@ -104,7 +111,64 @@
 <!--END CONTACT PUSH CARD SECTION-->
 <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-
+<!--ACADEMIC SECTION-->
+<div class="col-md-11 mx-auto text-center mb-5">
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Academic Experiences
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+            @if (IndexAcademicButtonText == "Hide Academic Info") {
+                <BlazoredPortfolio.Pages.index_components.CmpAcademics @bind-Color_Theme_Recieved="Color_Theme_Recieved"></BlazoredPortfolio.Pages.index_components.CmpAcademics>
+            }
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+        <!--CARD FOOTER SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="col-md mx-auto py-3">
+                <button @onclick="ChangeAcademicSection" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                    @IndexAcademicButtonText
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END ACADEMIC SECTION-->
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--DONATION PUSH SECTION-->
+<div class="col-md-11 mx-auto text-center mb-5">
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Want to donate towards my causes?
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+            @if (DonationButtonText == "Hide Donation Links") {
+                <BlazoredPortfolio.Pages.index_components.CmpDonation @bind-Color_Theme_Recieved="Color_Theme_Recieved"></BlazoredPortfolio.Pages.index_components.CmpDonation>
+            }
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+        <!--CARD FOOTER SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="col-md mx-auto py-3">
+                <button @onclick="ChangeDonationSection" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                    @DonationButtonText
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END DONATION PUSH SECTION-->
 <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 <!--RESUME PUSH SECTION SECTION-->
@@ -128,7 +192,8 @@
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
             <div class="col-md mx-auto py-3">
                 <button @onclick="ChangeIndexResumeSection" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
-                @IndexResumeButtonText</button>
+                    @IndexResumeButtonText
+                </button>
             </div>
         </div>
     </div>
@@ -150,7 +215,7 @@
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
 
             <!--TEXT ROWS COMPONENT SECTION-->
-            @if(SiteAlterationLogButtonText == "Hide Site Logs") {
+            @if (SiteAlterationLogButtonText == "Hide Site Logs") {
                 <BlazoredPortfolio.Pages.index_components.CmpSiteLog></BlazoredPortfolio.Pages.index_components.CmpSiteLog>
             }
             <!--END CARD BODY CONTENTS!-->
@@ -160,7 +225,8 @@
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
             <div class="col-md mx-auto py-3">
                 <button @onclick="ChangeSiteLogSection" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
-                @SiteAlterationLogButtonText </button>
+                    @SiteAlterationLogButtonText
+                </button>
             </div>
         </div>
 

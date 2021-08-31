@@ -15,17 +15,39 @@ namespace BlazoredPortfolio.Pages {
 
 
         #region Methods
-        //protected override void OnInitialized() {
-        //    test_recieved_string = Layout.MainColorTheme;
-        //}
-
+        ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
         protected override async Task OnInitializedAsync() {
             OnParametersSet();
         }
 
-
+        //THIS WILL RECIEVE THE LIGHT/DARK COLOR THEME VALUE
+        //DYNAMICALLY AND WORKS W/OUT COOKIES.
         protected override void OnParametersSet() {
             Color_Theme_Recieved = Layout.MainColorTheme;
+        }
+        //////////////////////////////////////////////////////////////
+        public void NavToContact() {
+            NavManager.NavigateTo("/contact");
+        }
+
+        public void ChangeAcademicSection() {
+            if (IndexAcademicButtonText != "Show Academic Info") {
+                IndexAcademicButtonText = "Show Academic Info";
+                return;
+            } else if (IndexAcademicButtonText == "Show Academic Info") {
+                IndexAcademicButtonText = "Hide Academic Info";
+                return;
+            }
+        }
+
+        public void ChangeDonationSection() {
+            if(DonationButtonText != "Show Donation Links") {
+                DonationButtonText = "Show Donation Links";
+                return;
+            } else if (DonationButtonText == "Show Donation Links") {
+                DonationButtonText = "Hide Donation Links";
+                return;
+            }
         }
 
         public void ChangeIndexResumeSection() {
@@ -57,9 +79,10 @@ namespace BlazoredPortfolio.Pages {
         public MainLayout Layout { get; set; }
         public string Color_Theme_Recieved { get; set; }
 
-
+        public string IndexAcademicButtonText { get; set; }     = "Show Academic Info";
+        public string IndexResumeButtonText { get; set; }       = "Show Resume Link";
+        public string DonationButtonText { get; set; }          = "Show Donation Links";
         public string SiteAlterationLogButtonText { get; set; } = "Show Site Logs";
-        public string IndexResumeButtonText { get; set; } = "Show Resume Link";
 
         #endregion (Properties)
     }

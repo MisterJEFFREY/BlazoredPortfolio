@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace BlazoredPortfolio.Pages.index_components {
-    public partial class CmpResume {
+    public partial class CmpAcademics {
+
         #region Fields
 
         #endregion (Fields)
 
 
         #region Methods
-        public void NavToResume() {
-            NavManager.NavigateTo("/resume");
-        }
+
         #endregion (Methods)
 
 

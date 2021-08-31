@@ -1,7 +1,114 @@
 ﻿@page "/resume"
 
-<h3>Resume</h3>
+@inject NavigationManager NavManager
+<!--RESUME STOCK IMAGE SECTION-->
+<div class="col-md-11 mx-auto text-center mb-5">
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <!--THIS STOCK IMAGE DOESN'T NEED ONE SO IT'S SET TO NO DISPLAY-->
+        <div class="d-none row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Resume Image
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+            <img class="img-fluid" style="min-width:100%; border-radius:15px 15px 0px 0px;"
+                 src="images/resume/stock_resume_image.jpg" />
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+        <!--CARD FOOTER SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="mx-auto py-1">
+                <p class="mx-auto text-center mb-0 py-2">
+                    Image Credit to: <a href="https://www.freeimages.com/photographer/ssva-78584">Ssva</a>
+                    <i class="mx-3 fas fa-external-link-alt fa-1x"></i>
+                </p>
+            </div>
 
-@code {
+        </div>
+    </div>
+</div>
 
-}
+
+<!--RESUME NOTICE SECTION-->
+<div class="@(AttemptResumeAccess == false ? "": "d-none") col-md-11 mx-auto text-center mb-5">
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Resume Notice
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+            <div class="col-md mx-auto px-0">
+                <!--NOTICE ICON SECTION-->
+                @*<div class="row mx-auto">
+                    <i class="mx-auto py-3 fa-3x fas fa-exclamation-triangle"></i>
+                </div>*@
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        We live in a technological age with wealths of easily accessible informations. However, not everyone should be having access to every sensitive details.
+                        To increase the quality of potential employment offers/materials, my resume is currently by behind rotating password protection.
+                    </p>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Please contact me first regarding your job offers to request a temporary password. Thank you for your understanding.
+                    </p>
+                </div>
+                <!--JOB DISCLAIMER SECTION-->
+                <div class="row mx-auto">
+                    <i class="mx-auto py-3 fa-3x fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Please note the following that I'm not accepting employment offers/materials that contain either of the following:
+                    </p>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Minimum or Undercutted Wages, Fake Jobs, BrewDogging, Irrelevant Duties.
+                    </p>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Skill 'Tests' and/or Interview processes that require large amounts of time & resources can be billed to you as not all services can be frequently provided for free.
+                    </p>
+                </div>
+                <!--LAST UPDATED SECTION-->
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        [Last Updated: 8/31/21]
+                    </p>
+                </div>
+            </div>
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+        <!--CARD FOOTER SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="col-md mx-auto py-3">
+                <button @onclick="PasswordResumeAccess" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                    Access Resume with Password
+                </button>
+            </div>
+
+            <div class="col-md mx-auto py-3">
+                <button @onclick="ResumeContact" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                    Request short term password
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--IF USER WANTS TO ACCESS MY RESUME WITH PASSWORD-->
+<!--TODO: UPDATE RESUME & TEMP URL TO INCLUDE MY SITE LINK-->
+<div class="@(AttemptResumeAccess == true ? "": "d-none") col-md-11 mx-auto text-center mb-5">
+    <div class="@(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <iframe src="https://www.temporary-url.com/65089" frameborder="0" scrolling="yes" style="border-radius:15px 15px 15px 15px; width:100%; height:70vh;"></iframe>
+    </div>
+</div>
