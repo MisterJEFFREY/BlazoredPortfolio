@@ -10,9 +10,17 @@
     color: red;
 }
 
+.nav-link {
+   padding: 0.150rem .75rem !important;
+}
+
 .nav-link.active {
     border: 1px solid var(--general-dark-text-color);
-    border-radius: 10px;
+    border-radius: 20px;
+    /*border-radius: 10px;*/
+
+    box-shadow: 0.5vh 0.5vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
+    border-radius: 20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
 }
 /*WORKAROUND TO PREVENT NAVBAR FROM INCREASING/DECREASING 1px IN HEIGHT*/
 .nav-link:not(.active) {
@@ -21,8 +29,14 @@
 }
 
 .nav-link:not(.active):hover {
+    /*border: 1px solid var(--general-light-text-color);
+    border-radius: 10px;*/
+
     border: 1px solid var(--general-light-text-color);
-    border-radius: 10px;
+    border-radius: 20px;
+
+    box-shadow: 0.5vh 0.5vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
+    border-radius: 20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
 }
 
 /*////////////////////////////////////////////////////////////////////*/

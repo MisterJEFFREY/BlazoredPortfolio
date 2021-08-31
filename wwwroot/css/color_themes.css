@@ -20,56 +20,89 @@
     --general-dark-border-color-end:    #333333;
     /*BOX SHADOW COLOR(S)*/
     --general-r-b-dark-shadow:          #565555;
+    /*CARD COLORS*/
+    --card-footer-light-color:          #848383;
+    --card-footer-dark-color:           #3c3b3b;
 }
-/*////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*LIGHT Color Themes*/
 .light_nav {
-    background-image: linear-gradient(180deg, var(--nav-light-color-start), var(--nav-light-color-end)) !important;
-    border-top: 3px solid var(--general-light-text-color);
-    border-bottom: 3px solid var(--general-light-text-color);
+    background-image:       linear-gradient(180deg, var(--nav-light-color-start), var(--nav-light-color-end)) !important;
+    border-top:             3px solid var(--general-light-text-color);
+    border-bottom:          3px solid var(--general-light-text-color);
 }
 .light_body{
-    background-color: var(--light-body-color);
+    background-color:       var(--light-body-color);
 }
 .light_general_text {
-    color: var(--general-light-text-color) !important; /* !important*/
+    color:                  var(--general-light-text-color) !important; /* !important*/
 }
 /*TODO: not sure if this will work as intended*/
 /*.dark_border {
     background-image: linear-gradient(180deg, var(--general-dark-border-color-start), var(--general-dark-border-color-end));
 }*/
 
+/*//////////////////////CONTENT DIV STYLES/////////////////////////*/
 .outline-light-border {
-    border: 3px solid var(--general-light-text-color);
-    border-radius: 20px;
+    border:                 3px solid var(--general-light-text-color);
+    border-radius:          20px;
 }
 
 .r-b-corner-light-shadow {
-    box-shadow: 1vh 1vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
-    border-radius: 20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
+    box-shadow:             1vh 1vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
+    border-radius:          20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
 }
 
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .cookie-msg-icon-light-border {
-    border-bottom: 3px solid var(--general-light-text-color);
+    border-bottom:          3px solid var(--general-light-text-color);
 }
+
+/*/////////////////////CARDS STYLE (LIGHT)//////////////////////*/
+.card-title-light-style {
+    background-image:       linear-gradient(180deg, var(--nav-light-color-start), var(--nav-light-color-end)) !important;
+    border-radius:          15px 15px 0px 0px;
+    border-bottom:          3px solid var(--general-light-text-color);
+}
+
+.card-body-light-style{
+    /*padding-left:   1em;
+    padding-right:  1em;*/
+}
+
+.card-footer-light-style {
+    background-color:       var(--card-footer-light-color);
+    border-top:             3px solid var(--general-light-text-color);
+    border-radius:          0px 0px 15px 15px;
+    font-size:              0.75em;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 /*.cookie-msg-text-div-light-border {
     border-left: 3px solid var(--general-light-text-color);
     border-right: 3px solid var(--general-light-text-color);
 }*/
-
-
-/*////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*DARK Color Themes*/
 .dark_nav {
-    background-image: linear-gradient(180deg, var(--nav-dark-color-start), var(--nav-dark-color-end));
-    border-top: 3px solid var(--general-dark-text-color);
-    border-bottom: 3px solid var(--general-dark-text-color);
+    background-image:       linear-gradient(180deg, var(--nav-dark-color-start), var(--nav-dark-color-end));
+    border-top:             3px solid var(--general-dark-text-color);
+    border-bottom:          3px solid var(--general-dark-text-color);
 }
 .dark_body {
-    background-color: var(--dark-body-color);
+    background-color:       var(--dark-body-color);
 }
 .dark_general_text {
-    color: var(--general-dark-text-color) !important;
+    color:                  var(--general-dark-text-color) !important;
 }
 /*TODO: not sure if this will work as intended*/
 /*.dark_border {
@@ -77,21 +110,41 @@
 }*/
 
 .outline-dark-border {
-    border: 3px solid var(--general-dark-text-color);
-    border-radius: 20px;
+    border:                 3px solid var(--general-dark-text-color);
+    border-radius:          20px;
 }
 
 .r-b-corner-dark-shadow {
-    box-shadow: 1vh 1vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
-    border-radius: 20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
+    box-shadow:             1vh 1vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
+    border-radius:          20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
 }
 
 
 .cookie-msg-icon-dark-border {
-    border-bottom: 3px solid var(--general-dark-text-color);
+    border-bottom:          3px solid var(--general-dark-text-color);
 }
 /*.cookie-msg-text-div-dark-border {
     border-left: 3px solid var(--general-dark-text-color);
     border-right: 3px solid var(--general-dark-text-color);
 }*/
-/*////////////////////////////////////////////////*/
+/*/////////////////////CARDS STYLE (DARK)//////////////////////*/
+.card-title-dark-style {
+    background-image:       linear-gradient(180deg, var(--nav-dark-color-start), var(--nav-dark-color-end));
+    border-radius:          15px 15px 0px 0px;
+    border-bottom:          3px solid var(--general-dark-text-color);
+}
+
+.card-body-dark-style {
+    /*padding-left:   1em;
+    padding-right:  1em;*/
+}
+
+.card-footer-dark-style {
+    background-color:       var(--card-footer-dark-color);
+    border-top:             3px solid var(--general-dark-text-color);
+    border-radius:          0px 0px 15px 15px;
+    font-size:              0.75em;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/

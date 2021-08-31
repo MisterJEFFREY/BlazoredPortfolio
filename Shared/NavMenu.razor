@@ -51,7 +51,7 @@
                 <li class="nav-item text-center my-auto py-2">
                     <input type="checkbox" class="btn-check d-none" id="btn-check" autocomplete="off" checked="@ColorThemeInitiallyChecked" @onchange="eventArgs => {ToggleThemeSwitch(eventArgs.Value.ToString() );}">
                     <!--NOTE: THIS BUTTON'S STYLE HAS BEEN ALTERED TO PREVENT ITS BORDER FROM CLIPPING W/ CONTACT OUTLINE WHEN NAVBAR IS COLLAPSED-->
-                    <label class="btn my-auto @(ColorTheme == "Light" ? "light_general_text btn-outline-light" : "dark_general_text btn-outline-light") cursor-pointer" for="btn-check" style="padding: 0.150rem .75rem !important;">
+                    <label class="btn my-auto @(ColorTheme == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow") cursor-pointer" for="btn-check" style="padding: 0.150rem .75rem !important;">
                     @ColorThemeDisplayText <span class="invisible">@(ColorTheme == "Light" ? "" : "i")</span>Theme</label>
                     <!--PREVIOUS VERSION OF THEME CHECKBOX-->
                     <!--<div class="form-check form-switch nav-link">
