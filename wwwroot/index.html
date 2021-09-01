@@ -44,10 +44,11 @@
 
 <body>
 
-    <div id="app">
+    <div id="app" class="light_body" style="height:100vh;">
         <!--EMPTY NAV BAR SO USER SEES SOME LAYOUT BEFORE THE APP FINISHES BEING BUILT-->
         <!--NOTE: BS Navbar needs navbar-dark class, otherwise, the toggle button won't show up on smaller screens.-->
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 fixed-top">
+        <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 fixed-top">-->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark dark_nav" ) box-shadow mb-3 fixed-top">
             <div class="container ml-0">
                 <a class="navbar-brand text-light" style="visibility:hidden;" asp-area="" asp-page="/Index">Top Menu</a>
             </div>
@@ -56,15 +57,35 @@
         <!--PROTOTYPE BOOTSTRAP SPINNER SECTION-->
         <!--TODO: CHANGE THIS UP TO CONTAIN FUN FACTS FOR 'SLOWER' DEVICES-->
         <div class="col-md-11 mx-auto" style="padding-top:20vh; padding-bottom:20vh;">
-            <div class="text-center">
-                <h2>LOADING WEB APP</h2>
-                <h5>Load Speed is dependent on device's resources...</h5>
-                <div class="spinner-border text-success" role="status">
-                    <span class="sr-only">Loading...</span>
+
+            <!--'CARD' INTRO TEXT SECTION-->
+            <div class="col-md-5 mx-auto px-0 light_general_text outline-light-border r-b-corner-light-shadow">
+                <!--CARD TITLE SECTION-->
+                <div class="row mx-auto">
+                    <p class="col-md mx-auto text-center mb-0 py-2 card-title-light-style">
+                        Currently Loading Web App
+                    </p>
+                </div>
+
+                <!--CARD OVERALL SECTION-->
+                <div class="row mx-auto card-body-light-style">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Load Speed is dependent on device's resources...
+                    </p>
+                </div>
+                <div class="row mx-auto text-center py-3">
+                    <div class="mx-auto spinner-border text-success" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
+                <!--CARD FOOTER SECTION-->
+                <div class="row mx-auto card-footer-light-style">
+                    <p class="col-md mx-auto text-center mb-0 py-2">
+                        &nbsp; &nbsp; &nbsp;
+                    </p>
                 </div>
             </div>
-        </div>
-    </div>
 
 
 

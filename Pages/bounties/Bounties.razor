@@ -1,7 +1,132 @@
 ﻿@page "/bounties"
+<!--BOUNTIES STOCK IMAGE SECTION-->
+<div class="col-md-11 mx-auto text-center mb-5">
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <!--THIS STOCK IMAGE DOESN'T NEED ONE SO IT'S SET TO NO DISPLAY-->
+        <div class="d-none row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Bounty Image
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+            <img class="img-fluid" style="min-width:100%; border-radius:15px 15px 0px 0px; @(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")"
+                 src="images/bounty/bounty_land_image.png" />
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+        <!--CARD FOOTER SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="mx-auto py-1">
+                <p class="mx-auto text-center mb-0 py-2">
+                    Picture Credit to: <a href="https://unsplash.com/helloimnik">helloimnik</a>
+                    <i class="mx-3 fas fa-external-link-alt fa-1x"></i>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END BOUNTIES STOCK IMAGE SECTION-->
+<!--///////////////////////////////////////////////////////////////////////////-->
+<!--BOUNTY LANDING MESSAGE-->
+<div class="col-md-11 mx-auto text-center mb-5">
 
-<h3>Bounties</h3>
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Back to the Past!
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
 
-@code {
+            <!--TEXT ROWS SECTION-->
+            <div class="col-md-10 mx-auto px-0">
+                <!--CAMERA RETRO ICON SECTION-->
+                <div class="row mx-auto">
+                    <i class="py-3 mx-auto fa-3x fas fa-camera-retro"></i>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        We are moving towards the future so fast that some media gets quickly forgotten.
+                        Everything must be flashy and complex, and the media of the past is often left buried and forgotten.
+                    </p>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        We should take a moment to slow down and appreciate the pieces of media that has been forgotten in time.
+                    </p>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Bring me a bounty and you will be rewarded!
+                    </p>
+                </div>
+            </div>
+            <!--END CARD BODY CONTENTS!-->
+        </div>
 
-}
+        <!--CARD FOOTER SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="col-md mx-auto py-1">
+                <p class="mx-auto text-center mb-0 p-2">
+                    Bounties will be processed as: FIFO!
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--END BOUNTY LANDING MESSAGE-->
+
+<!--BOUNTY CARD LIST SECTION-->
+<div class="col-md-11 mx-auto text-center mb-5">
+
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <div class="row mx-auto">
+            <p class="d-none col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Back to the Past!
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+
+            <!--TEXT ROWS SECTION-->
+            <div class="col-md-10 mx-auto px-0">
+                <!--NOTICE ICON SECTION-->
+                <div class="row mx-auto">
+                    <i class="py-3 mx-auto fa-3x fas fa-exclamation-circle" style="color:darkred;"></i>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Sorry, but there's currently no bounties available at this moment.
+                    </p>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Please come back at another time.
+                    </p>
+                </div>
+
+            </div>
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+
+        <!--CARD FOOTER SECTION-->
+        @*<div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="col-md mx-auto py-3">
+                <p class="mx-auto text-center mb-0 p-2">
+                    Bounties will be processed as: FIFO!
+                </p>
+            </div>
+        </div>*@
+
+    </div>
+
+</div>
+<!--END BOUNTY CARD LIST SECTION-->

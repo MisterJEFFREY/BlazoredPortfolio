@@ -40,6 +40,16 @@ namespace BlazoredPortfolio.Pages {
             }
         }
 
+        public void ChangeVolitionalSection() {
+            if (IndexVolitionalButtonText != "Show Volitional Info") {
+                IndexVolitionalButtonText = "Show Volitional Info";
+                return;
+            } else if (IndexVolitionalButtonText == "Show Volitional Info") {
+                IndexVolitionalButtonText = "Hide Volitional Info";
+                return;
+            }
+        }
+
         public void ChangeDonationSection() {
             if(DonationButtonText != "Show Donation Links") {
                 DonationButtonText = "Show Donation Links";
@@ -83,6 +93,7 @@ namespace BlazoredPortfolio.Pages {
         public string IndexResumeButtonText { get; set; }       = "Show Resume Link";
         public string DonationButtonText { get; set; }          = "Show Donation Links";
         public string SiteAlterationLogButtonText { get; set; } = "Show Site Logs";
+        public string IndexVolitionalButtonText { get; set; }   = "Show Volitional Info";
 
         #endregion (Properties)
     }

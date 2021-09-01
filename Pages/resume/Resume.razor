@@ -14,7 +14,7 @@
         </div>
         <!--CARD OVERALL SECTION-->
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
-            <img class="img-fluid" style="min-width:100%; border-radius:15px 15px 0px 0px;"
+            <img class="img-fluid" style="min-width:100%; border-radius:15px 15px 0px 0px; @(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")"
                  src="images/resume/stock_resume_image.jpg" />
             <!--END CARD BODY CONTENTS!-->
         </div>
@@ -62,7 +62,7 @@
                 </div>
                 <!--JOB DISCLAIMER SECTION-->
                 <div class="row mx-auto">
-                    <i class="mx-auto py-3 fa-3x fas fa-exclamation-triangle"></i>
+                    <i class="mx-auto py-3 fa-3x fas fa-exclamation-triangle" style="color:darkred;"></i>
                 </div>
                 <div class="row mx-auto">
                     <p class="mx-auto text-center mb-0 p-2">
@@ -109,6 +109,6 @@
 <!--TODO: UPDATE RESUME & TEMP URL TO INCLUDE MY SITE LINK-->
 <div class="@(AttemptResumeAccess == true ? "": "d-none") col-md-11 mx-auto text-center mb-5">
     <div class="@(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
-        <iframe src="https://www.temporary-url.com/65089" frameborder="0" scrolling="yes" style="border-radius:15px 15px 15px 15px; width:100%; height:70vh;"></iframe>
+        <iframe src="https://www.temporary-url.com/65089" frameborder="0" scrolling="yes" style="border-radius:15px 15px 15px 15px; width:100%; height:80vh; @(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(70%);")"></iframe>
     </div>
 </div>
