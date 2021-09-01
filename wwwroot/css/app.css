@@ -40,6 +40,12 @@
 }
 
 /*////////////////////////////////////////////////////////////////////*/
+/*TODO: TEMPORARY FIX OF PREVENTING SCROLLING TO RIGHT. 
+    FIND THAT PESKY ELEMENT AND REMOVE THIS ATTRIBUTE WHEN FINISHED.
+*/
+html {
+    overflow-x:hidden;
+}
 html, body {
     /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
     font-family: 'Courier New', Helvetica Neue, Helvetica, Arial, sans-serif;
