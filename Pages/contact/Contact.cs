@@ -50,6 +50,7 @@ namespace BlazoredPortfolio.Pages.contact {
 
         async Task BlazorFormCheck() {
             //string Log; 
+            //Log = System.Text.Json.JsonSerializer.Serialize(testformref) + "\r\n";
             //Check if all input fields are not empty
             if (!String.IsNullOrEmpty(ContactName) && !String.IsNullOrEmpty(ContactEmail)
                 && !String.IsNullOrEmpty(ContactSubject) && !String.IsNullOrEmpty(ContactMessage)) {
