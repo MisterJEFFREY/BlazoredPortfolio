@@ -3,8 +3,66 @@
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
     <NotFound>
+
+
         <LayoutView Layout="@typeof(MainLayout)">
-            <p>Sorry, there's nothing at this address.</p>
-        </LayoutView>
+            <!--'CARD' INTRO TEXT SECTION-->
+            <div class="col-md-5 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+                <!--CARD TITLE SECTION-->
+                <div class="row mx-auto">
+                    <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                        Page Routing Error
+                    </p>
+
+                    <!--CARD OVERALL SECTION-->
+                    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+                        <div class="row mx-auto">
+                            <i class="py-3 mx-autofas fa-exclamation-triangle fa-3x mx-auto" style="color:darkred;"></i>
+                        </div>
+
+                        <p class="mx-auto text-center mb-0 p-2">
+                            Sorry, there's nothing found at this address.
+                        </p>
+                    </div>
+                    <!--CARD FOOTER SECTION-->
+                    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+                        <div class="col-md mx-auto py-1">
+                            <p class="mx-auto text-center mb-0 p-2">
+                                Please Check the URL and try again!
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+</LayoutView>
     </NotFound>
 </Router>
+
+@code{
+
+    #region Methods
+    ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
+    protected override async Task OnInitializedAsync() {
+        OnParametersSet();
+    }
+
+    //THIS WILL RECIEVE THE LIGHT/DARK COLOR THEME VALUE
+    //DYNAMICALLY AND WORKS W/OUT COOKIES.
+    protected override void OnParametersSet() {
+        Color_Theme_Recieved = Layout.MainColorTheme;
+    }
+    #endregion (Methods)
+    //////////////////////////////////////////////////////////////
+
+
+    #region Fields
+
+    #endregion (Fields)
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+    public string Color_Theme_Recieved { get; set; }
+
+
+}

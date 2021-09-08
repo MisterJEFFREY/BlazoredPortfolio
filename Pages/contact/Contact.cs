@@ -15,12 +15,19 @@ namespace BlazoredPortfolio.Pages.contact {
         public string _contactEmail;
         public string _contactSubject;
         public string _contactMessage;
+
+        //public bool _casualChecked;
         #endregion (Fields)
 
 
         #region Methods
         ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
         protected override async Task OnInitializedAsync() {
+
+            //_contactMessage = "Test Autofill message";
+            //_casualChecked = true;
+            //On_AutoCheckSubject("Casual Conversation(s)");
+
             OnParametersSet();
         }
 
@@ -46,11 +53,14 @@ namespace BlazoredPortfolio.Pages.contact {
         public void On_ContactMessageChanged(string tsInput) {
             _contactMessage = tsInput;
         }
+        /////AUTOFILL METHODS
+        //public void On_AutoCheckSubject(string tsAutoSubjectInput) {
+        //    _contactSubject = tsAutoSubjectInput;
+        //}
 
 
         async Task BlazorFormCheck() {
             //string Log; 
-            //Log = System.Text.Json.JsonSerializer.Serialize(testformref) + "\r\n";
             //Check if all input fields are not empty
             if (!String.IsNullOrEmpty(ContactName) && !String.IsNullOrEmpty(ContactEmail)
                 && !String.IsNullOrEmpty(ContactSubject) && !String.IsNullOrEmpty(ContactMessage)) {
@@ -94,6 +104,9 @@ namespace BlazoredPortfolio.Pages.contact {
         public string ContactEmail { get => _contactEmail; set => On_ContactEmailChanged(value); }
         public string ContactSubject { get => _contactSubject; set => _contactSubject = value; }
         public string ContactMessage { get => _contactMessage; set => On_ContactMessageChanged(value); }
+
+        //Testing for auto filling data on contact Form
+        //public bool CasualChecked { get => _casualChecked; set => _casualChecked = value; }
         #endregion (Properties)
 
     }
