@@ -16,7 +16,7 @@ namespace BlazoredPortfolio.Pages.resume {
 
 
         #region Methods
-        protected override async Task OnInitializedAsync() {
+        protected override async Task OnInitialized() {
             OnParametersSet();
         }
         //THIS WILL RECIEVE THE LIGHT/DARK COLOR THEME VALUE

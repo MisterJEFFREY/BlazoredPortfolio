@@ -1,23 +1,16 @@
-﻿using System;
+﻿using BlazoredPortfolio.Shared;
+using Microsoft.AspNetCore.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using BlazoredPortfolio.Shared;
-using Microsoft.AspNetCore.Components;
-
-namespace BlazoredPortfolio.Pages.coding {
-    public partial class Coding {
-
-
-        #region Fields
-
-        #endregion (Fields)
-
+namespace BlazoredPortfolio {
+    public partial class App {
 
         #region Methods
         ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
-        protected override async Task OnInitialized() {
+        protected override void OnInitialized() {
             OnParametersSet();
         }
 
@@ -26,16 +19,17 @@ namespace BlazoredPortfolio.Pages.coding {
         protected override void OnParametersSet() {
             Color_Theme_Recieved = Layout.MainColorTheme;
         }
-        //////////////////////////////////////////////////////////////
         #endregion (Methods)
+        //////////////////////////////////////////////////////////////
 
 
-        #region Properties
+        #region Fields
+
+        #endregion (Fields)
         [CascadingParameter]
         public MainLayout Layout { get; set; }
         public string Color_Theme_Recieved { get; set; }
 
-        #endregion (Properties)
 
     }
 }

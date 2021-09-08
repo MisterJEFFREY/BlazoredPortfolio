@@ -18,7 +18,7 @@ namespace BlazoredPortfolio.Shared {
         #region Methods
         ///SESSION COOKIES TO AUTOMATICALLY SET COLOR THEME UPON APP INITILIAZING... 
         ///HLP SRC: https://www.syncfusion.com/faq/blazor/web-api/how-do-i-store-session-data-in-blazor-webassembly
-        protected override async Task OnInitializedAsync() {
+        protected override async Task OnInitialized() {
             var CheckSessionCookie = await localStore.GetItemAsync<string>("SAVED_COLOR_THEME");
             //await localStore.GetItemAsync
             if (!string.IsNullOrEmpty(CheckSessionCookie)) {

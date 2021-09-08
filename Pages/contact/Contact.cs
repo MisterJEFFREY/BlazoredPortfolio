@@ -22,7 +22,7 @@ namespace BlazoredPortfolio.Pages.contact {
 
         #region Methods
         ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
-        protected override async Task OnInitializedAsync() {
+        protected override async Task OnInitialized() {
 
             //_contactMessage = "Test Autofill message";
             //_casualChecked = true;

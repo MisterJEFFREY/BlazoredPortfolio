@@ -17,7 +17,7 @@ namespace BlazoredPortfolio.Pages.bounties {
 
         #region Methods
         ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
-        protected override async Task OnInitializedAsync() {
+        protected override async Task OnInitialized() {
             OnParametersSet();
         }
 

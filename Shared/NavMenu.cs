@@ -17,7 +17,7 @@ namespace BlazoredPortfolio.Shared {
         #region Methods
 
         //IF COOKIE WAS FOUND AND IT IS DARK, PLEASE AUTO CHECK THE CHECKBOX UPON PAGE LOAD...
-        protected override async Task OnInitializedAsync() {
+        protected override async Task OnInitialized() {
             var CheckSessionCookie = await localStore.GetItemAsync<string>("SAVED_COLOR_THEME");
             if (!string.IsNullOrEmpty(CheckSessionCookie)) {
                 Console.WriteLine("\nCHECKED FOR SESSION SESSION COOKIE AND IT IS: " + CheckSessionCookie);
