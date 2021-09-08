@@ -17,7 +17,7 @@ namespace BlazoredPortfolio.Pages.coding {
 
         #region Methods
         ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
-        protected override async Task OnInitialized() {
+        protected override async Task OnInitializedAsync() {
             OnParametersSet();
         }
 

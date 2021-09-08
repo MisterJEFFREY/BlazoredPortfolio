@@ -15,19 +15,12 @@ namespace BlazoredPortfolio.Pages.contact {
         public string _contactEmail;
         public string _contactSubject;
         public string _contactMessage;
-
-        //public bool _casualChecked;
         #endregion (Fields)
 
 
         #region Methods
         ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
-        protected override void OnInitialized() {
-
-            //_contactMessage = "Test Autofill message";
-            //_casualChecked = true;
-            //On_AutoCheckSubject("Casual Conversation(s)");
-
+        protected override async Task OnInitializedAsync() {
             OnParametersSet();
         }
 
@@ -53,10 +46,6 @@ namespace BlazoredPortfolio.Pages.contact {
         public void On_ContactMessageChanged(string tsInput) {
             _contactMessage = tsInput;
         }
-        /////AUTOFILL METHODS
-        //public void On_AutoCheckSubject(string tsAutoSubjectInput) {
-        //    _contactSubject = tsAutoSubjectInput;
-        //}
 
 
         async Task BlazorFormCheck() {
@@ -106,7 +95,7 @@ namespace BlazoredPortfolio.Pages.contact {
         public string ContactMessage { get => _contactMessage; set => On_ContactMessageChanged(value); }
 
         //Testing for auto filling data on contact Form
-        //public bool CasualChecked { get => _casualChecked; set => _casualChecked = value; }
+
         #endregion (Properties)
 
     }
