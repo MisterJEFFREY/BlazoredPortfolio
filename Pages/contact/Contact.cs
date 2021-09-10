@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +14,13 @@ namespace BlazoredPortfolio.Pages.contact {
         public string _contactEmail;
         public string _contactSubject;
         public string _contactMessage;
+
+        public bool _autoCheckCC = false;
+        public bool _autoCheckEM = false;
+        public bool _autoCheckBS = false;
+        public bool _autoCheckFB = false;
+        public bool _autoCheckD = false;
+
         #endregion (Fields)
 
 
@@ -27,9 +33,77 @@ namespace BlazoredPortfolio.Pages.contact {
         //THIS WILL RECIEVE THE LIGHT/DARK COLOR THEME VALUE
         //DYNAMICALLY AND WORKS W/OUT COOKIES.
         protected override void OnParametersSet() {
+
+            //LASTLY, UPDATE THE COLOR THEME ON THE FLY!
             Color_Theme_Recieved = Layout.MainColorTheme;
         }
+
+        public async override Task SetParametersAsync(ParameterView parameters) {
+            await base.SetParametersAsync(parameters);
+            //TODO: IF TESTING SUCESSFUL, CHANGE COMMENTS
+            if (!string.IsNullOrEmpty(UrlData)) {
+                UrlData = UrlData.ToLower() ?? "";
+                //////
+                CheckUrlDataContext(UrlData);
+            }
+        }
         //////////////////////////////////////////////////////////////
+
+        public void CheckUrlDataContext(string tsUrlData) {
+            ///CHECK THE CONTEXT OF URL DATA AS LONG AS IT'S NOT EMPTY...
+            if (!string.IsNullOrEmpty(tsUrlData)) {
+                //CASUAL CONVERSATION RELATED SUBJECTS
+                //IF USER CAME FROM YOUTUBE...
+                if (tsUrlData.Contains("youtube")) {
+                    _autoCheckCC = true;
+                    var final_tsUrlData = tsUrlData.Substring(tsUrlData.IndexOf('e') + 1);
+                    //int index = tsUrlData.LastIndexOf("e");
+                    //if (index > 0) {tsUrlData = tsUrlData.Substring(0, index);}
+                    _contactSubject = "Casual Conversation(s)";
+                    _contactMessage = "Hello there!\nI've came across your Youtube Video #" + final_tsUrlData + "\nand [INSERT YOUR MESSAGE HERE]";
+                }
+                ///////////////////////////////////////////////////////
+                //IF USER WAS ON WEB APP AND REQUESTED RESUME PASSWORD...
+                if (tsUrlData.Contains("rsmpwdreq")) {
+                    _autoCheckEM = true;
+                    _contactSubject = "Employment Material(s)";
+                    _contactMessage = "Hello there!\nI would like to converse about your resume\nand [INSERT YOUR MESSAGE HERE]";
+                }
+                ///////////////////////////////////////////////////////
+                //IF USER HAS SOMETHING BOUNTY RELATED...
+                if (tsUrlData.Contains("bounty")) {
+                    _autoCheckBS = true;
+                    var final_tsUrlData = tsUrlData.Substring(tsUrlData.IndexOf('y') + 1);
+                    _contactSubject = "Bounty Submission(s)";
+                    //TODO: SHOULD I CHECK WHICH BOUNTIES IT RELATES TO OR RESORT TO A NUMBER?
+                    _contactMessage = "Hey, Jeffrey.\nI have a bounty submission for\nbounty #" + final_tsUrlData;
+                }
+                ///////////////////////////////////////////////////////
+                //IF USER HAS SOME FEEDBACKS...
+                if (tsUrlData.Contains("feedback")) {
+                    _autoCheckFB = true;
+                    _contactSubject = "Feedback(s)";
+                    _contactMessage = "Hey, Jeff!\nI had some thoughts and want to give you some feedback.\n[INSERT YOUR MESSAGE HERE]";
+                }
+                ///////////////////////////////////////////////////////
+                //IF USER HAS SOMETHING DONATION RELATED...
+                if (tsUrlData.Contains("donation")) {
+                    _autoCheckD = true;
+                    _contactSubject = "Donations(s)";
+                    _contactMessage = "Aye, Jeffrey.\n I had some thoughts about donating to you.\n[INSERT YOUR MESSAG HERE]";
+                }
+                ///////////////////////////////////////////////////////
+                //IF USER ...
+                //if (tsUrlData.Contains("")) {
+                //}
+
+                /////////////////////////////////////////////////////////////////
+                ///USER CLICKED ON URL THAT HAS NO INTENDED CONTEXT OR MISTYPED URL...
+            } else {
+                //TODO: COMPLETE THIS SECTION BY WARNING USER THAT THE LINK GIVEN TO THEM WAS INCORRECT.
+                Console.Write("USER CLICKED ON INCORRECT LINK THAT HAD WRONG DATA!");
+            }
+        }
 
         public void On_ContactNameChanged(string tsInput) {
             _contactName = tsInput;
@@ -54,25 +128,25 @@ namespace BlazoredPortfolio.Pages.contact {
             //Check if all input fields are not empty
             if (!String.IsNullOrEmpty(ContactName) && !String.IsNullOrEmpty(ContactEmail)
                 && !String.IsNullOrEmpty(ContactSubject) && !String.IsNullOrEmpty(ContactMessage)) {
-                ContactFormSubmitText           = "Loading";
-                ContactFormSubmitting           = true;
-                var random_delay                = new Random();
-                int random_delay_amount         = random_delay.Next(3000, 6000); // Between 3-6 seconds to allow for slower connections
+                ContactFormSubmitText = "Loading";
+                ContactFormSubmitting = true;
+                var random_delay = new Random();
+                int random_delay_amount = random_delay.Next(3000, 6000); // Between 3-6 seconds to allow for slower connections
                 //It feels like the form data is sent a lil slower than anticipated...
-                await Task.Delay(random_delay_amount); 
+                await Task.Delay(random_delay_amount);
                 //Will this allow the data to be sent before changing components?
-                ContactFormSubmitted            = true;
+                ContactFormSubmitted = true;
                 //await test_numChanged.InvokeAsync(tiValue);
             }
         }
 
         public void NavToContact() {
-            _contactName            = "";
-            _contactEmail           = "";
-            _contactSubject         = "";
-            _contactMessage         = "";
-            ContactFormSubmitting   = false;
-            ContactFormSubmitted    = false;
+            _contactName = "";
+            _contactEmail = "";
+            _contactSubject = "";
+            _contactMessage = "";
+            ContactFormSubmitting = false;
+            ContactFormSubmitted = false;
             //uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
             //StateHasChanged();
             //NavManager.NavigateTo("/contact", true);
@@ -81,22 +155,27 @@ namespace BlazoredPortfolio.Pages.contact {
 
 
         #region Properties
+        //VARIABLES MEANT FOR COLOR THEME SWITCHING
         [CascadingParameter]
         public MainLayout Layout { get; set; }
         public string Color_Theme_Recieved { get; set; }
-
-
+        //VARS MEANT FOR CONTACT FORM
         public bool ContactFormSubmitted { get; set; } = false;
         public bool ContactFormSubmitting { get; set; } = false;
         public string ContactFormSubmitText { get; set; } = "Submit";
-        //See if this grabs values from the contact form and if we can do validations before sending data...
         public string ContactName { get => _contactName; set => On_ContactNameChanged(value); }
         public string ContactEmail { get => _contactEmail; set => On_ContactEmailChanged(value); }
         public string ContactSubject { get => _contactSubject; set => _contactSubject = value; }
         public string ContactMessage { get => _contactMessage; set => On_ContactMessageChanged(value); }
+        //Testing for auto filling data on contact Form based on URL
+        [Parameter]
+        public string? UrlData { get; set; }
 
-        //Testing for auto filling data on contact Form
-
+        public bool AutoCheckCC { get => _autoCheckCC; set => _autoCheckCC = value; }
+        public bool AutoCheckEM { get => _autoCheckEM; set => _autoCheckEM = value; }
+        public bool AutoCheckBS { get => _autoCheckBS; set => _autoCheckBS = value; }
+        public bool AutoCheckFB { get => _autoCheckFB; set => _autoCheckFB = value; }
+        public bool AutoCheckD { get => _autoCheckD; set => _autoCheckD = value; }
         #endregion (Properties)
 
     }

@@ -30,6 +30,10 @@ namespace BlazoredPortfolio.Pages {
             NavManager.NavigateTo("/contact");
         }
 
+        public void TestUrlData() {
+            NavManager.NavigateTo("/autofillcontact/youtube5");
+        }
+
         public void ChangeAcademicSection() {
             if (IndexAcademicButtonText != "Show Academic Info") {
                 IndexAcademicButtonText = "Show Academic Info";

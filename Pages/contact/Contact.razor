@@ -1,6 +1,11 @@
-﻿@page "/contact"
+﻿@*Meant for Contact.razor*@
 
-@inject NavigationManager NavManager
+@page "/autofillcontact/{UrlData?}"
+@page "/contact"
+@* ^Can't believe that I'm having issues with navigation because of this parameter! *@
+@* SRC: https://blazor-university.com/routing/optional-route-parameters/ *@
+@* SRC: https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-5.0#route-parameters-1 *@
+
 
 <div class="text-center px-0 col-md-12 mx-auto @(ContactFormSubmitted == false ? "" : "d-none") @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
     <!--EMPTY IFRAME TO PREVENT GOOGLE FORM'S AUTO FORM RESPONSE-->
@@ -44,31 +49,31 @@
             <div class="form-group mx-auto text-center">
                 <div class="radio">
                     <label>
-                        <input type="radio" name="entry.784052716" value="Casual Conversation(s)" @onchange="On_ContactSubjectChanged" required>
+                        <input type="radio" name="entry.784052716" value="Casual Conversation(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckCC" required>
                         Casual Conversation(s)
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="entry.784052716" value="Employment Material(s)" @onchange="On_ContactSubjectChanged" required>
+                        <input type="radio" name="entry.784052716" value="Employment Material(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckEM" required>
                         Employment Material(s)
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="entry.784052716" value="Bounty Submission(s)" @onchange="On_ContactSubjectChanged" required>
+                        <input type="radio" name="entry.784052716" value="Bounty Submission(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckBS" required>
                         Bounty Submission(s)
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="entry.784052716" value="Feedback(s)" @onchange="On_ContactSubjectChanged" required>
+                        <input type="radio" name="entry.784052716" value="Feedback(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckFB" required>
                         Feedback(s)
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="entry.784052716" value="Donations(s)" @onchange="On_ContactSubjectChanged" required>
+                        <input type="radio" name="entry.784052716" value="Donations(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckD" required>
                         Donations(s)
                     </label>
                 </div>
@@ -87,7 +92,11 @@
             <legend class="mx-auto text-center" for="1080509416">Message:</legend>
             <div class="form-group">
                 <textarea id="1726805860" name="entry.1726805860" class="form-control
-                          @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")" @bind="ContactMessage" required></textarea>
+                          @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")" @bind="ContactMessage"
+                          required></textarea>
+                <!--TODO: WANT THIS TEXTAREA TO AUTO ADJUST ITS HEIGHT UPON PAGE LOAD & INPUT-->
+                @*oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"
+                    onload="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"*@
             </div>
         </fieldset>
 
@@ -159,10 +168,10 @@
 
         <!--CARD FOOTER SECTION-->
         @*<div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
-            <div class="col-md mx-auto py-3">
-                <button @onclick="NavToContact" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Return To Form</button>
-            </div>
-        </div>*@
+                <div class="col-md mx-auto py-3">
+                    <button @onclick="NavToContact" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Return To Form</button>
+                </div>
+            </div>*@
 
     </div>
 </div>
