@@ -8,14 +8,14 @@
         <!--TODO:FIX UP THIS PROTOTYPE STYLING-->
         <div class="col-md-5 mx-auto mb-3">
             @*<div style="height:90%; width:90%;">
-                    <img class="img-fluid" src="images/landing/landing_image_11_9_20.png" />
-                </div>*@
+            <img class="img-fluid" src="images/landing/landing_image_11_9_20.png" />
+        </div>*@
             <div class="">
                 <img class="img-fluid @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" ) "
                      src="images/landing/landing_image_11_9_20.png"
-                     @onclick="TestUrlData"
                      style="@(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")" />
             </div>
+            @*@onclick="TestUrlData"*@
 
         </div>
         <!--'CARD' INTRO TEXT SECTION-->

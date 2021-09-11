@@ -31,7 +31,7 @@ namespace BlazoredPortfolio.Pages {
         }
 
         public void TestUrlData() {
-            NavManager.NavigateTo("/autofillcontact/youtube5");
+            NavManager.NavigateTo("/contact/youtube5");
         }
 
         public void ChangeAcademicSection() {
