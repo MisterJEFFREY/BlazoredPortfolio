@@ -67,8 +67,8 @@
         <fieldset class="col-md-6 mx-auto">
             <legend class="mx-auto text-center" for="1853799674">Name:</legend>
             <div class="form-group">
-                <input id="1535074244" type="text" name="entry.1535074244" class="form-control
-                       @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")" @bind="ContactName" required>
+                <input id="1535074244" type="text" name="entry.1535074244" class="form-control text-center
+                       @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")" @bind="ContactName" required>
             </div>
         </fieldset>
 
@@ -77,8 +77,8 @@
         <fieldset class="col-md-6 mx-auto">
             <legend class="mx-auto text-center" for="393217484">Email:</legend>
             <div class="form-group">
-                <input id="126409047" type="text" name="entry.126409047" class="form-control
-                       @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")" @bind="ContactEmail" required>
+                <input id="126409047" type="text" name="entry.126409047" class="form-control text-center
+                       @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")" @bind="ContactEmail" required>
             </div>
         </fieldset>
 
@@ -121,7 +121,7 @@
                     <label>
                         <input type="radio" name="entry.784052716" value="__other_option__" @onchange="On_ContactSubjectChanged" required>
                     </label>
-                    <input type="text" name="entry.784052716.other_option_response" placeholder="Other Subject" class="@(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")">
+                    <input type="text" name="entry.784052716.other_option_response" placeholder="Other Subject" class="text-center @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")">
                 </div>
             </div>
         </fieldset>
@@ -132,32 +132,47 @@
             <legend class="mx-auto text-center" for="1080509416">Message:</legend>
             <div class="form-group">
                 <textarea id="1726805860" name="entry.1726805860" class="form-control
-                          @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")" @bind="ContactMessage"
-                          required></textarea>
+                          @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")" @bind="ContactMessage"
+                          required disabled="@ContactFormSubmitted"></textarea>
                 <!--TODO: WANT THIS TEXTAREA TO AUTO ADJUST ITS HEIGHT UPON PAGE LOAD & INPUT-->
                 @*oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"
-                    onload="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"*@
+                onload="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"*@
             </div>
         </fieldset>
 
         <input type="hidden" name="fvv" value="1">
         <input type="hidden" name="fbzx" value="-877935654251790784">
         <!--
-            CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
-            This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
-            Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
-            We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
-        -->
+        CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
+        This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
+        Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
+        We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
+    -->
         <input type="hidden" name="pageHistory" value="0">
 
-        <input class="my-3 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="submit" value="Submit" @onclick="@(() => BlazorFormCheck())">
+        <!--CARD FOOTER SECTION-->
+        <div class="mt-4 row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="mx-auto py-1">
+                <input class="my-2 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="submit" value="Submit" @onclick="@(() => BlazorFormCheck())">
 
-        @if (ContactFormSubmitting == true) {
+                @if (ContactFormSubmitting == true) {
+                    <button class="my-2 btn @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Sending Data...
+                    </button>
+                }
+            </div>
+
+        </div>
+
+        @*<input class="my-3 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="submit" value="Submit" @onclick="@(() => BlazorFormCheck())">*@
+
+        @*@if (ContactFormSubmitting == true) {
             <button class="my-3 btn @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Sending Data...
             </button>
-        }
+        }*@
     </form>
 </div>
 

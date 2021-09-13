@@ -32,10 +32,12 @@ namespace BlazoredPortfolio.Pages.resume {
         }
 
         public void ResumeContact() {
-            //TODO: SET BLAZOR COOKIE HERE 
+            //TODO: SET BLAZOR COOKIE HERE? 
             //AND IF USER HAS COOKIES DISABLED, USER CAN STILL
             //ACCESS THE CONTACT PAGE
-            NavManager.NavigateTo("/contact");
+
+            //TODO: ACTUALLY ADD THE PROPER NAVIGATION TEXT
+            NavManager.NavigateTo("/contact/rsmpwdreq");
         }
         #endregion (Methods)
 

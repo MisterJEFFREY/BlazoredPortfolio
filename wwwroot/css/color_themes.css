@@ -20,6 +20,7 @@
     --general-dark-border-color-end:    #333333;
     /*BOX SHADOW COLOR(S)*/
     --general-r-b-dark-shadow:          #565555;
+    --contact-dark-r-b-dark-shadow:     #347a8a;
     /*CARD COLORS*/
     --card-footer-light-color:          #848383;
     --card-footer-dark-color:           #3c3b3b;
@@ -146,6 +147,11 @@
     border-top:             3px solid var(--general-dark-text-color);
     border-radius:          0px 0px 15px 15px;
     font-size:              0.75em;
+}
+
+.contact-input-outline-style {
+    border: 3px solid var(--contact-dark-r-b-dark-shadow);
+    border-radius: 20px;
 }
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 

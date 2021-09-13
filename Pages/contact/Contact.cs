@@ -31,7 +31,7 @@ namespace BlazoredPortfolio.Pages.contact {
             //TODO: IF TESTING SUCESSFUL, CHANGE COMMENTS
             if (!string.IsNullOrEmpty(UrlData)) {
                 UrlData = UrlData.ToLower() ?? "";
-                //////
+                ////
                 CheckUrlDataContext(UrlData);
             }
             OnParametersSet();

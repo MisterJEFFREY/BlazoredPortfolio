@@ -1,4 +1,5 @@
-﻿@page "/bounties"
+﻿@page "/bounties/{UrlData?}"
+@page "/bounties"
 <!--BOUNTIES STOCK IMAGE SECTION-->
 <div class="col-md-11 mx-auto text-center mb-5">
     <!--'CARD' INTRO TEXT SECTION-->
@@ -81,7 +82,55 @@
     </div>
 </div>
 <!--END BOUNTY LANDING MESSAGE-->
+<!--///////////////////////////////////////////////////////////////////////////-->
+<!--URLDATA ERROR MESSAGE-->
+@if (UrlDataValid == false) {
+    <div class="col-md-11 mx-auto text-center mb-5 px-0  @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Url Data Warning
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+            <!--TEXT ROWS SECTION-->
+            <div class="col-md-10 mx-auto px-0">
+                <!--BULK MAIL ICON SECTION-->
+                <div class="row mx-auto">
+                    <i class="py-3 mx-auto fas fa-exclamation-triangle fa-3x mx-auto" style="color:darkred;"></i>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        The Url Data recieved is not valid for autofilling portions of this contact form!
+                    </p>
+                </div>
+                @if (!String.IsNullOrEmpty(UrlDataErrorMsg)) {
+                    <div class="row mx-auto">
+                        <p class="mx-auto text-center mb-0 p-2" style="color:red;">
+                            Error Specific(s):
+                        </p>
+                    </div>
+                    <div class="row mx-auto">
+                        <p class="mx-auto text-center mb-0 p-2" style="color:red;">
+                            @UrlDataErrorMsg
+                        </p>
+                    </div>
+                }
+            </div>
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+        <!--CARD FOOTER SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="col-md mx-auto py-3">
+                <button @onclick="InvalidUrlDataAck" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Acknowledged!</button>
+            </div>
+        </div>
+    </div>
+}
 
+<!--END URLDATA ERROR MESSAGE-->
+<!--///////////////////////////////////////////////////////////////////////////-->
 <!--BOUNTY CARD LIST SECTION-->
 <div class="col-md-11 mx-auto text-center mb-5">
 
@@ -119,14 +168,15 @@
 
         <!--CARD FOOTER SECTION-->
         @*<div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
-            <div class="col-md mx-auto py-3">
-                <p class="mx-auto text-center mb-0 p-2">
-                    Bounties will be processed as: FIFO!
-                </p>
-            </div>
-        </div>*@
+                <div class="col-md mx-auto py-3">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Bounties will be processed as: FIFO!
+                    </p>
+                </div>
+            </div>*@
 
     </div>
 
 </div>
 <!--END BOUNTY CARD LIST SECTION-->
+<!--///////////////////////////////////////////////////////////////////////////-->
