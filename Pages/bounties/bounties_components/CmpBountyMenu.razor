@@ -1,0 +1,144 @@
+﻿@inject NavigationManager NavManager
+@*<div class="col-md-11 mx-auto text-center mb-5">*@
+
+<!--'CARD' INTRO TEXT SECTION-->
+<div class="col-md-4 my-4 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow")" style=" height: fit-content;">
+    <!--CARD TITLE SECTION-->
+    <div class="row mx-auto">
+        <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+            Bounty Number 1
+        </p>
+    </div>
+    <!--CARD OVERALL SECTION-->
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="background-image:url(images/bounty/edited-vintage-grunge-paper-background.jpg)">
+
+        <!--TEXT ROWS SECTION-->
+        <div class="col-md-10 mx-auto px-0 light_general_text">
+            <!--NOTICE ICON SECTION-->
+            @*<div class="row mx-auto">
+                    <i class="py-3 mx-auto fa-3x fas fa-exclamation-circle" style="color:darkred;"></i>
+                </div>*@
+            <div class="row mx-auto">
+                <h2 class="mx-auto text-center mb-0 p-2">
+                    <b>
+                        -WANTED-
+                    </b>
+                </h2>
+            </div>
+            <div class="row mx-auto">
+                <h3 class="mx-auto text-center mb-0 p-2">
+                    <b>
+                        Zombieville Sprites
+                    </b>
+                </h3>
+            </div>
+            <div class="row mx-auto px-5">
+                <img class="img-fluid @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" ) "
+                     src="images/bounty/bounty_specific/zombieville_box_img_1.jpg"
+                     style="@(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")" />
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mt-3 mb-0 p-2">
+                    <b>
+                        The bounty: Rip character sprites from the game.
+                    </b>
+                </p>
+            </div>
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    <b>
+                        BOUNTY REWARD: <span style="@(Color_Theme_Recieved == "Light" ? "color:green;" : "color:darkgreen; filter: brightness(80%);")">$ USD</span>
+                    </b>
+                </p>
+            </div>
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    WARNING: VIEWER DISCRECTION IS ADVISED!
+                </p>
+            </div>
+        </div>
+        <!--END CARD BODY CONTENTS!-->
+    </div>
+
+    @*CARD FOOTER SECTION*@
+    <div class="text-center row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+        <div class="col-md mx-auto py-3">
+            @*@onclick="Test_Bounty_Select"*@
+            <button type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">More Info about this bounty coming soon!</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!--'CARD' INTRO TEXT SECTION-->
+<div class="col-md-4 my-4 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow")" style=" height: fit-content;">
+    <!--CARD TITLE SECTION-->
+    <div class="row mx-auto">
+        <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+            Bounty Number 2
+        </p>
+    </div>
+    <!--CARD OVERALL SECTION-->
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="background-image:url(images/bounty/edited-vintage-grunge-paper-background.jpg)">
+
+        <!--TEXT ROWS SECTION-->
+        <div class="col-md-10 mx-auto px-0 light_general_text">
+            <!--NOTICE ICON SECTION-->
+            @*<div class="row mx-auto">
+                    <i class="py-3 mx-auto fa-3x fas fa-exclamation-circle" style="color:darkred;"></i>
+                </div>*@
+            <div class="row mx-auto">
+                <h2 class="mx-auto text-center mb-0 p-2">
+                    <b>
+                        -WANTED-
+                    </b>
+                </h2>
+            </div>
+            <div class="row mx-auto">
+                <h3 class="mx-auto text-center mb-0 p-2">
+                    <b>
+                       Dummy Bounty
+                    </b>
+                </h3>
+            </div>
+            <div class="row mx-auto px-5">
+                <img class="img-fluid @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" ) "
+                     src="images/bounty/bounty_specific/zombieville_box_img_1.jpg"
+                     style="@(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")" />
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mt-3 mb-0 p-2">
+                    <b>
+                        The bounty: Rip character sprites from the game.
+                    </b>
+                </p>
+            </div>
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    <b>
+                        BOUNTY REWARD: <span style="@(Color_Theme_Recieved == "Light" ? "color:green;" : "color:darkgreen; filter: brightness(80%);")">$ USD</span>
+                    </b>
+                </p>
+            </div>
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    WARNING: VIEWER DISCRECTION IS ADVISED!
+                </p>
+            </div>
+        </div>
+        <!--END CARD BODY CONTENTS!-->
+    </div>
+
+    @*CARD FOOTER SECTION*@
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+        <div class="text-center col-md mx-auto py-3">
+            @*@onclick="Test_Bounty_Select"*@
+            <button type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">More Info about this bounty</button>
+        </div>
+    </div>
+
+</div>
+@*</div>*@

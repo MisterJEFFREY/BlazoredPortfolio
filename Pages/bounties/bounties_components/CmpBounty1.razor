@@ -1,0 +1,22 @@
+﻿@page "/bounties/bountynum1"
+
+
+<div class="col-md-12 mx-auto text-center mb-5">
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <!--THIS STOCK IMAGE DOESN'T NEED ONE SO IT'S SET TO NO DISPLAY-->
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Bounty Number 1
+            </p>
+        </div>
+
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+            <img class="img-fluid" style="min-width:100%; border-radius:15px 15px 0px 0px; @(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")"
+                 src="images/bounty/bounty_specific/zombieville_box_img_1.jpg" />
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+    </div>
+</div>

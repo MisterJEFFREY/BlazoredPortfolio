@@ -15,12 +15,15 @@ namespace BlazoredPortfolio.Pages.bounties {
 
         public string _urlDataErrorMsg;
 
+        public string _bountySelection;
+
         #endregion (Fields)
 
 
         #region Methods
         ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
         protected override async Task OnInitializedAsync() {
+            //THIS MUST BE HERE INSTEAD OF PARAMETERSASYNC METHOD TO PREVENT MULTI-CHECKING
             if (!string.IsNullOrEmpty(UrlData)) {
                 UrlData = UrlData.ToLower() ?? "";
                 ////
@@ -28,7 +31,7 @@ namespace BlazoredPortfolio.Pages.bounties {
             }
             OnParametersSet();
         }
-
+        //////////////////////////////////////////////////////////////
 
         //public async override Task SetParametersAsync(ParameterView parameters) {
         //    await base.SetParametersAsync(parameters);
@@ -39,7 +42,7 @@ namespace BlazoredPortfolio.Pages.bounties {
         //        CheckUrlDataContext(UrlData);
         //    }
         //}
-
+        //////////////////////////////////////////////////////////////
         //THIS WILL RECIEVE THE LIGHT/DARK COLOR THEME VALUE
         //DYNAMICALLY AND WORKS W/OUT COOKIES.
         protected override void OnParametersSet() {
@@ -112,6 +115,11 @@ namespace BlazoredPortfolio.Pages.bounties {
                 _urlDataValid = true;
             }
         }
+        //////////////////////////////////////////////////////////////
+        public void On_BountySelectionChanged(string tsUrlData) { 
+
+        }
+        //////////////////////////////////////////////////////////////
         #endregion (Methods)
 
 
@@ -127,6 +135,7 @@ namespace BlazoredPortfolio.Pages.bounties {
         public int BountyAmount             { get; set; } = 1;  //# of Bounties so far
         public string UrlDataErrorMsg       { get => _urlDataErrorMsg; set => _urlDataErrorMsg = value; }
 
+        public string BountySelection       { get => _bountySelection; set => On_BountySelectionChanged(value); }
         #endregion (Properties)
 
     }

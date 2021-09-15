@@ -131,15 +131,43 @@
 
 <!--END URLDATA ERROR MESSAGE-->
 <!--///////////////////////////////////////////////////////////////////////////-->
-<!--BOUNTY CARD LIST SECTION-->
+<!--ACTIVE BOUNTY CARD LIST SECTION-->
+<!--<div class="col-md-11 mx-auto text-center mb-5">-->
+
+    <!--'CARD' INTRO TEXT SECTION-->
+    <!--<div class="col-md-11 my-5 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">-->
+        <!--CARD TITLE SECTION-->
+        <!--<div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Active Bounties
+            </p>
+        </div>-->
+        <!--OVERALL SECTION-->
+        <!--<div class="row my-5 mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">-->
+    <div class="row my-5 mx-auto">
+        <BlazoredPortfolio.Pages.bounties.bounties_components.CmpBountyMenu @bind-Color_Theme_Recieved="Color_Theme_Recieved" @bind-Bounty_Selection_Recieved="BountySelection"></BlazoredPortfolio.Pages.bounties.bounties_components.CmpBountyMenu>
+    </div>
+            @*</div>
+    </div>
+</div>*@
+    @*@if (string.IsNullOrEmpty(UrlData)) {*@
+
+
+    <!--} else {
+        <component type="typeof(@BountySelection)"></component>-->
+    @*<BlazoredPortfolio.Pages.bounties.bounties_components.@BountySelection></BlazoredPortfolio.Pages.bounties.bounties_components.@BountySelection>*@
+    <!--}-->
+<!--END ACTIVE BOUNTY CARD LIST SECTION-->
+<!--///////////////////////////////////////////////////////////////////////////-->
+<!--INACTIVE BOUNTY CARD LIST SECTION-->
 <div class="col-md-11 mx-auto text-center mb-5">
 
     <!--'CARD' INTRO TEXT SECTION-->
     <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
         <!--CARD TITLE SECTION-->
         <div class="row mx-auto">
-            <p class="d-none col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
-                Back to the Past!
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Fulfilled Bounties
             </p>
         </div>
         <!--CARD OVERALL SECTION-->
@@ -153,7 +181,7 @@
                 </div>
                 <div class="row mx-auto">
                     <p class="mx-auto text-center mb-0 p-2">
-                        Sorry, but there's currently no bounties available at this moment.
+                        Sorry, but there's currently no fulfilled bounties available at this moment.
                     </p>
                 </div>
                 <div class="row mx-auto">
@@ -176,7 +204,6 @@
             </div>*@
 
     </div>
-
 </div>
-<!--END BOUNTY CARD LIST SECTION-->
+<!--END ACTIVE BOUNTY CARD LIST SECTION-->
 <!--///////////////////////////////////////////////////////////////////////////-->
