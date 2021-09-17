@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 using BlazoredPortfolio.Shared;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace BlazoredPortfolio.Pages.contact {
     public partial class Contact {
@@ -93,8 +94,8 @@ namespace BlazoredPortfolio.Pages.contact {
                 }
                 ///////////////////////////////////////////////////////
                 //IF USER HAS SOMETHING BOUNTY RELATED...
-                if (tsUrlData.Contains("bounty")) {
-                    var final_tsUrlData = tsUrlData.Substring(tsUrlData.IndexOf('y') + 1);
+                if (tsUrlData.Contains("bountynum")) {
+                    var final_tsUrlData = tsUrlData.Substring(tsUrlData.IndexOf('m') + 1);
                     //FIRST CHECK IF TRIMMED STRING ACTUALLY CONTAINS SOMETHING...
                     if (final_tsUrlData.Length > 0) {
                         //CHECK IF REMAINING CHARACTERS IN RECIEVED STRING ARE ACTUALLY MERELY #'S!
@@ -103,7 +104,7 @@ namespace BlazoredPortfolio.Pages.contact {
                             _autoCheckBS = true;
                             _contactSubject = "Bounty Submission(s)";
                             //TODO: SHOULD I CHECK WHICH BOUNTIES IT RELATES TO OR RESORT TO A NUMBER?
-                            _contactMessage = "Hey, Jeffrey.\nI have a bounty submission for\nbounty #" + final_tsUrlData;
+                            _contactMessage = "Hey, Jeffrey.\nI have something to discuss about\nbounty #" + final_tsUrlData +". [INSERT YOUR MESSAGE HERE]";
                             return;
                         } else {
                             //NOTIFY USER OF INVALID REMAINING URL DATA WHICH AREN'T NUMBERS...
@@ -183,16 +184,27 @@ namespace BlazoredPortfolio.Pages.contact {
         }
 
         //TODO: CURRENTLY INACCESSABLE FOR NOW
-        public void NavToContact() {
-            _contactName = "";
-            _contactEmail = "";
+        public void NavToContactAsync() {
+            _contactName    = "";
+            _contactEmail   = "";
             _contactSubject = "";
             _contactMessage = "";
+
+            _autoCheckCC = false;
+            _autoCheckEM = false;
+            _autoCheckBS = false;
+            _autoCheckFB = false;
+            _autoCheckD  = false;
+
             ContactFormSubmitting = false;
             ContactFormSubmitted = false;
             //uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
             //StateHasChanged();
-            //NavManager.NavigateTo("/contact", true);
+            //THIS 'RETURN' NAVIGATION WILL OCCUR IF USER CLICKED ON LINK W/ URLDATA
+            JS.InvokeAsync<bool>("ClearAllContactSubjects");
+            //await JS.InvokeAsync<bool>("ClearAllContactSubjects");
+            NavManager.NavigateTo("/contact");
+
         }
 
         public void InvalidUrlDataAck(){

@@ -22,6 +22,8 @@
     --general-r-b-dark-shadow:          #565555;
     --contact-dark-r-b-dark-shadow:     #347a8a;
     /*CARD COLORS*/
+    --card-body-light-back-color:       #d4d4d4; /*like a brighter shade of gray #dcdcdc*/
+    --card-body-dark-back-color:        #0b1313; /*like a darker shade of darkslateslate*/
     --card-footer-light-color:          #848383;
     --card-footer-dark-color:           #3c3b3b;
 }
@@ -51,6 +53,10 @@
     border-radius:          20px;
 }
 
+.general-button-light-border{
+
+}
+
 .r-b-corner-light-shadow {
     box-shadow:             1vh 1vh var(--general-r-b-dark-shadow); /*var(--general-light-text-color);*/
     border-radius:          20px; /*NOTE THAT BOX SHADOW DOESN'T SHOW UP W/OUT THIS*/
@@ -69,9 +75,8 @@
     font-weight:            bold;
 }
 
-.card-body-light-style{
-    /*padding-left:   1em;
-    padding-right:  1em;*/
+.card-body-light-style {
+    background-color: var(--card-body-light-back-color);
 }
 
 .card-footer-light-style {
@@ -138,8 +143,7 @@
 }
 
 .card-body-dark-style {
-    /*padding-left:   1em;
-    padding-right:  1em;*/
+    background-color: var(--card-body-dark-back-color);
 }
 
 .card-footer-dark-style {

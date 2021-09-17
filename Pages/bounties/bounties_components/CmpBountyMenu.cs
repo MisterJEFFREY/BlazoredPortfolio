@@ -14,10 +14,21 @@ namespace BlazoredPortfolio.Pages.bounties.bounties_components {
 
 
         #region Methods
-        public void Test_Bounty_Select() {
-            NavManager.NavigateTo("/bounties/bountynum1");
+        ////////////////////////////////////////////////////////////
+        public void ActiveBountyInfo(string tsRouteData) {
+            if (!string.IsNullOrEmpty(tsRouteData)){
+                NavManager.NavigateTo("/bounties/" + tsRouteData);
+            }
             //Bounty_Selection_Recieved = "CmpBounty1";
         }
+        ////////////////////////////////////////////////////////////
+        public void InActiveBountyInfo(string tsRouteData) {
+            if (!string.IsNullOrEmpty(tsRouteData)) {
+                NavManager.NavigateTo("/bounties/" + tsRouteData);
+            }
+            //Bounty_Selection_Recieved = "CmpBounty1";
+        }
+        ////////////////////////////////////////////////////////////
         #endregion (Methods)
 
 
@@ -26,10 +37,10 @@ namespace BlazoredPortfolio.Pages.bounties.bounties_components {
         public string Color_Theme_Recieved { get; set; }
         [Parameter]
         public EventCallback<string> Color_Theme_RecievedChanged { get; set; }
-        [Parameter]
-        public string Bounty_Selection_Recieved { get; set; }
-        [Parameter]
-        public EventCallback<string> Bounty_Selection_RecievedChanged { get; set; }
+        //[Parameter]
+        //public string Bounty_Selection_Recieved { get; set; }
+        //[Parameter]
+        //public EventCallback<string> Bounty_Selection_RecievedChanged { get; set; }
         #endregion (Properties)
 
 

@@ -1,4 +1,6 @@
 ﻿@*Meant for Contact.razor*@
+@inject NavigationManager NavManager
+@inject IJSRuntime JS
 
 @page "/contact/{UrlData?}"
 @page "/contact"
@@ -8,44 +10,43 @@
 
 <!--IF THERE'S ANY URLDATA AND TURNS OUT TO BE INVALID...-->
 @if (UrlDataValid == false) {
-<div class="col-md-11 mx-auto text-center mb-5">
+    <div class="col-md-11 mx-auto text-center mb-5">
 
-    <!--'CARD' INTRO TEXT SECTION-->
-    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
-        <!--CARD TITLE SECTION-->
-        <div class="row mx-auto">
-            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
-                Url Data Warning
-            </p>
-        </div>
-        <!--CARD OVERALL SECTION-->
-        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
-            <!--TEXT ROWS SECTION-->
-            <div class="col-md-10 mx-auto px-0">
-                <!--BULK MAIL ICON SECTION-->
-                <div class="row mx-auto">
-                    <i class="py-3 mx-auto fas fa-exclamation-triangle fa-3x mx-auto" style="color:darkred;"></i>
+        <!--'CARD' INTRO TEXT SECTION-->
+        <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+            <!--CARD TITLE SECTION-->
+            <div class="row mx-auto">
+                <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                    Url Data Warning
+                </p>
+            </div>
+            <!--CARD OVERALL SECTION-->
+            <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+                <!--TEXT ROWS SECTION-->
+                <div class="col-md-10 mx-auto px-0">
+                    <!--BULK MAIL ICON SECTION-->
+                    <div class="row mx-auto">
+                        <i class="py-3 mx-auto fas fa-exclamation-triangle fa-3x mx-auto" style="color:darkred;"></i>
+                    </div>
+                    <div class="row mx-auto">
+                        <p class="mx-auto text-center mb-0 p-2">
+                            The Url Data recieved is not valid for autofilling portions of this contact form!
+                        </p>
+                    </div>
                 </div>
-                <div class="row mx-auto">
-                    <p class="mx-auto text-center mb-0 p-2">
-                        The Url Data recieved is not valid for autofilling portions of this contact form!
-                    </p>
+                <!--END CARD BODY CONTENTS!-->
+            </div>
+
+            <!--CARD FOOTER SECTION-->
+            <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+                <div class="col-md mx-auto py-3">
+                    <button @onclick="InvalidUrlDataAck" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Acknowledged!</button>
                 </div>
             </div>
-            <!--END CARD BODY CONTENTS!-->
-        </div>
 
-        <!--CARD FOOTER SECTION-->
-        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
-            <div class="col-md mx-auto py-3">
-                <button @onclick="InvalidUrlDataAck" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Acknowledged!</button>
-            </div>
         </div>
-
     </div>
-</div>
 }
-
 
 <div class="text-center px-0 col-md-12 mx-auto @(ContactFormSubmitted == false ? "" : "d-none") @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
     <!--EMPTY IFRAME TO PREVENT GOOGLE FORM'S AUTO FORM RESPONSE-->
@@ -54,104 +55,108 @@
     </div>
 
     <form action="https://docs.google.com/forms/d/e/1FAIpQLSdPi6NXNK82pczA1evVC4_TQhHZu1dUCuciDQ49NqbYhpNOrA/formResponse"
-          onsubmit="var convert_timestamp = new Date();document.getElementById('1726805860').value += '\n\n[TIMESTAMP: ' + convert_timestamp + ']\n';"
+          onsubmit="document.getElementById('1726805860').style.overflowY = 'hidden'; var convert_timestamp = new Date(); document.getElementById('1726805860').value += '\n\n[TIMESTAMP: ' + convert_timestamp + ']\n';"
           target="formSubmitFrame"
           id="bootstrapForm"
           method="POST">
-        <fieldset>
-            <h2 class="py-2 mx-auto text-center  @(Color_Theme_Recieved == "Light" ? "light_nav" : "dark_nav")" style="border-top:none; border-radius:15px 15px 0px 0px">Contact The Jeff Form<br><small></small></h2>
-        </fieldset>
+
+        <div class="pb-4 @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="border-radius:15px 15px 0px 0px;">
+
+            <fieldset>
+                <h2 class="py-2 mx-auto text-center  @(Color_Theme_Recieved == "Light" ? "light_nav" : "dark_nav")" style="border-top:none; border-radius:15px 15px 0px 0px">Contact The Jeff Form<br><small></small></h2>
+            </fieldset>
 
 
-        <!-- Field type: "short" id: "1853799674" -->
-        <fieldset class="col-md-6 mx-auto">
-            <legend class="mx-auto text-center" for="1853799674">Name:</legend>
-            <div class="form-group">
-                <input id="1535074244" type="text" name="entry.1535074244" class="form-control text-center
+
+            <!-- Field type: "short" id: "1853799674" -->
+            <fieldset class="col-md-6 mx-auto">
+                <legend class="mx-auto text-center" for="1853799674">Name:</legend>
+                <div class="form-group">
+                    <input id="1535074244" type="text" name="entry.1535074244" class="form-control text-center
                        @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")" @bind="ContactName" required>
-            </div>
-        </fieldset>
+                </div>
+            </fieldset>
 
 
-        <!-- Field type: "short" id: "393217484" -->
-        <fieldset class="col-md-6 mx-auto">
-            <legend class="mx-auto text-center" for="393217484">Email:</legend>
-            <div class="form-group">
-                <input id="126409047" type="text" name="entry.126409047" class="form-control text-center
+            <!-- Field type: "short" id: "393217484" -->
+            <fieldset class="col-md-6 mx-auto">
+                <legend class="mx-auto text-center" for="393217484">Email:</legend>
+                <div class="form-group">
+                    <input id="126409047" type="text" name="entry.126409047" class="form-control text-center
                        @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")" @bind="ContactEmail" required>
-            </div>
-        </fieldset>
+                </div>
+            </fieldset>
 
 
-        <!-- Field type: "choices" id: "1579405966" -->
-        <fieldset>
-            <legend class="mx-auto text-center" for="1579405966">Primary Subject:</legend>
-            <div class="form-group mx-auto text-center">
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="entry.784052716" value="Casual Conversation(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckCC" required>
-                        Casual Conversation(s)
-                    </label>
+            <!-- Field type: "choices" id: "1579405966" -->
+            <fieldset>
+                <legend class="mx-auto text-center" for="1579405966">Primary Subject:</legend>
+                <div class="form-group mx-auto text-center">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="entry.784052716" value="Casual Conversation(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckCC" required>
+                            Casual Conversation(s)
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="entry.784052716" value="Employment Material(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckEM" required>
+                            Employment Material(s)
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="entry.784052716" value="Bounty Submission(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckBS" required>
+                            Bounty Submission(s)
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="entry.784052716" value="Feedback(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckFB" required>
+                            Feedback(s)
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="entry.784052716" value="Donations(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckD" required>
+                            Donations(s)
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="entry.784052716" value="__other_option__" @onchange="On_ContactSubjectChanged" required>
+                        </label>
+                        <input type="text" name="entry.784052716.other_option_response" id="other_option" placeholder="Other Subject" class="text-center @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")">
+                    </div>
                 </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="entry.784052716" value="Employment Material(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckEM" required>
-                        Employment Material(s)
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="entry.784052716" value="Bounty Submission(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckBS" required>
-                        Bounty Submission(s)
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="entry.784052716" value="Feedback(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckFB" required>
-                        Feedback(s)
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="entry.784052716" value="Donations(s)" @onchange="On_ContactSubjectChanged" checked="@AutoCheckD" required>
-                        Donations(s)
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="entry.784052716" value="__other_option__" @onchange="On_ContactSubjectChanged" required>
-                    </label>
-                    <input type="text" name="entry.784052716.other_option_response" placeholder="Other Subject" class="text-center @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")">
-                </div>
-            </div>
-        </fieldset>
+            </fieldset>
 
 
-        <!-- Field type: "paragraph" id: "1080509416" -->
-        <fieldset class="col-md-6 mx-auto">
-            <legend class="mx-auto text-center" for="1080509416">Message:</legend>
-            <div class="form-group">
-                <textarea id="1726805860" name="entry.1726805860" class="form-control
+            <!-- Field type: "paragraph" id: "1080509416" -->
+            <fieldset class="col-md-6 mx-auto">
+                <legend class="mx-auto text-center" for="1080509416">Message:</legend>
+                <div class="form-group">
+                    <textarea id="1726805860" name="entry.1726805860" class="form-control
                           @(Color_Theme_Recieved == "Light" ? " outline-light-border r-b-corner-light-shadow" : "contact-input-outline-style r-b-corner-dark-shadow")" @bind="ContactMessage"
-                          required disabled="@ContactFormSubmitted"></textarea>
-                <!--TODO: WANT THIS TEXTAREA TO AUTO ADJUST ITS HEIGHT UPON PAGE LOAD & INPUT-->
-                @*oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"
-                onload="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"*@
-            </div>
-        </fieldset>
+                              required disabled="@ContactFormSubmitted"></textarea>
+                    <!--TODO: WANT THIS TEXTAREA TO AUTO ADJUST ITS HEIGHT UPON PAGE LOAD & INPUT-->
+                    @*oninput="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"
+                        onload="this.style.height = 'auto'; this.style.height = (this.scrollHeight) + 'px';"*@
+                </div>
+            </fieldset>
 
-        <input type="hidden" name="fvv" value="1">
-        <input type="hidden" name="fbzx" value="-877935654251790784">
-        <!--
-        CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
-        This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
-        Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
-        We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
-    -->
-        <input type="hidden" name="pageHistory" value="0">
-
+            <input type="hidden" name="fvv" value="1">
+            <input type="hidden" name="fbzx" value="-877935654251790784">
+            <!--
+                CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
+                This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
+                Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
+                We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
+            -->
+            <input type="hidden" name="pageHistory" value="0">
+        </div>
         <!--CARD FOOTER SECTION-->
-        <div class="mt-4 row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
             <div class="mx-auto py-1">
                 <input class="my-2 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="submit" value="Submit" @onclick="@(() => BlazorFormCheck())">
 
@@ -165,14 +170,7 @@
 
         </div>
 
-        @*<input class="my-3 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="submit" value="Submit" @onclick="@(() => BlazorFormCheck())">*@
 
-        @*@if (ContactFormSubmitting == true) {
-            <button class="my-3 btn @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="button" disabled>
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                Sending Data...
-            </button>
-        }*@
     </form>
 </div>
 
@@ -188,7 +186,7 @@
             </p>
         </div>
         <!--CARD OVERALL SECTION-->
-        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="border-radius: 0px 0px 15px 15px;">
             <!--BULK MAIL ICON SECTION-->
             @*<div class="col-md-1 mx-auto my-auto py-3">
                     <i class="fas fa-mail-bulk fa-3x"></i>
@@ -220,13 +218,13 @@
             </div>
             <!--END CARD BODY CONTENTS!-->
         </div>
-
-        <!--CARD FOOTER SECTION-->
-        @*<div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
-                <div class="col-md mx-auto py-3">
-                    <button @onclick="NavToContact" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Return To Form</button>
-                </div>
-            </div>*@
+        @*COMMENTED OUT FOR NOW DUE TO NOT BEING*@
+        @*CARD FOOTER SECTION*@
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="col-md mx-auto py-3">
+                <button @onclick="@NavToContactAsync" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">Return To Form</button>
+            </div>
+        </div>
 
     </div>
 </div>

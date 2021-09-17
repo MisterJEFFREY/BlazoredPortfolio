@@ -128,35 +128,13 @@
         </div>
     </div>
 }
-
 <!--END URLDATA ERROR MESSAGE-->
 <!--///////////////////////////////////////////////////////////////////////////-->
 <!--ACTIVE BOUNTY CARD LIST SECTION-->
-<!--<div class="col-md-11 mx-auto text-center mb-5">-->
-
-    <!--'CARD' INTRO TEXT SECTION-->
-    <!--<div class="col-md-11 my-5 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">-->
-        <!--CARD TITLE SECTION-->
-        <!--<div class="row mx-auto">
-            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
-                Active Bounties
-            </p>
-        </div>-->
-        <!--OVERALL SECTION-->
-        <!--<div class="row my-5 mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">-->
     <div class="row my-5 mx-auto">
-        <BlazoredPortfolio.Pages.bounties.bounties_components.CmpBountyMenu @bind-Color_Theme_Recieved="Color_Theme_Recieved" @bind-Bounty_Selection_Recieved="BountySelection"></BlazoredPortfolio.Pages.bounties.bounties_components.CmpBountyMenu>
+        @*@bind-Bounty_Selection_Recieved="BountySelection"*@
+        <BlazoredPortfolio.Pages.bounties.bounties_components.CmpBountyMenu @bind-Color_Theme_Recieved="Color_Theme_Recieved"></BlazoredPortfolio.Pages.bounties.bounties_components.CmpBountyMenu>
     </div>
-            @*</div>
-    </div>
-</div>*@
-    @*@if (string.IsNullOrEmpty(UrlData)) {*@
-
-
-    <!--} else {
-        <component type="typeof(@BountySelection)"></component>-->
-    @*<BlazoredPortfolio.Pages.bounties.bounties_components.@BountySelection></BlazoredPortfolio.Pages.bounties.bounties_components.@BountySelection>*@
-    <!--}-->
 <!--END ACTIVE BOUNTY CARD LIST SECTION-->
 <!--///////////////////////////////////////////////////////////////////////////-->
 <!--INACTIVE BOUNTY CARD LIST SECTION-->
@@ -171,10 +149,10 @@
             </p>
         </div>
         <!--CARD OVERALL SECTION-->
-        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="border-radius:0px 0px 15px 15px">
 
             <!--TEXT ROWS SECTION-->
-            <div class="col-md-10 mx-auto px-0">
+            <div class="col-md-10 mx-auto px-0" >
                 <!--NOTICE ICON SECTION-->
                 <div class="row mx-auto">
                     <i class="py-3 mx-auto fa-3x fas fa-exclamation-circle" style="color:darkred;"></i>

@@ -1,11 +1,11 @@
 ﻿@page "/bounties/bountynum1"
 
+@inject NavigationManager NavManager
 
 <div class="col-md-12 mx-auto text-center mb-5">
     <!--'CARD' INTRO TEXT SECTION-->
     <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
         <!--CARD TITLE SECTION-->
-        <!--THIS STOCK IMAGE DOESN'T NEED ONE SO IT'S SET TO NO DISPLAY-->
         <div class="row mx-auto">
             <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
                 Bounty Number 1
@@ -14,9 +14,220 @@
 
         <!--CARD OVERALL SECTION-->
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
-            <img class="img-fluid" style="min-width:100%; border-radius:15px 15px 0px 0px; @(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")"
-                 src="images/bounty/bounty_specific/zombieville_box_img_1.jpg" />
+
+            <!--TEXT ROWS SECTION-->
+            <div class="col-md-10 mx-auto px-0">
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center my-4 p-2">
+                        <img class="img-fluid @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" )"
+                             style="min-width:100%; border-radius:15px 15px 15px 15px; @(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")"
+                             src="images/bounty/bounty_specific/zombieville_box_img_1.jpg" />
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        ZombieVille 1997 is a DOS game that was released by Psygnosis in an unpolished state.
+                        It is considered abandon-ware now as the game received negative initial reception and was forgotten through the years.
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Due to its unpolished state, the MS-DOS game contains unused/unseen several assets.
+                        Plenty of these materials can be seen via <a href="https://tcrf.net/Zombieville_(1997)" target="_blank" rel="noopener noreferrer">The Cutting room floor.</a> <i class="py-3 mx-auto fas fa-external-link-alt"></i>
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        The MS-DOS game contains many kooky characters, which some are seen in the following slide-show:
+                    </p>
+                </div>
+                <!--///////////////////////////////////////////////////////-->
+                <!--SLIDESHOW CONTENTS-->
+                <div class="row mx-auto justify-content-center my-4">
+                    <div class="col-md-10 mx-auto">
+                        <img class="img-fluid @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" )" style="min-width:100%; border-radius:15px 15px 15px 15px;
+                            @(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")"
+                             src=@("images/bounty/bounty_specific/active_bounty_items/zv_gameplay_pic_" + SlideShow_Index + ".png") />
+                    </div>
+                </div>
+                <!--NOTE: SLIDESHOW CONROLS WILL APPEAR ON BOTTOM OF SLIDESHOW INSTEAD OF LEFT & RIGHT SIDE TO BE MORE MOBILE MINDED-->
+                <div class="row mx-auto justify-content-center my-2">
+                    <div class="ml-auto mr-5 my-auto">
+                        <i class=" py-2 mx-auto fa-3x far fas  @(SlideShow_Index < 2 ? "fas fa-times cursor-invalid px-3" : "fa-caret-left cursor-pointer px-4")
+                           @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")"
+                           @onclick="(() => On_SlideShow_SRC(-1))"></i>
+                    </div>
+                    <div class="mr-auto ml-5 my-auto">
+                        <i class=" py-2 mx-auto fa-3x far fas @(SlideShow_Index > 7 ? "fas fa-times cursor-invalid px-3" : "fa-caret-right cursor-pointer px-4")
+                            @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")"
+                           @onclick="(() => On_SlideShow_SRC(1))"></i>
+                    </div>
+                </div>
+                <!--///////////////////////////////////////////////////////-->
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Because of the general nature of MS-DOS games are usually developed with 'in-house' methods and formats, file ripping isn't done by conventional means.
+                        At this moment, I was able to rip and convert some Zombieville assets to modern formats (ie. musics, dialouges, backgrounds, etc.).
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>
+                            However, the kind of game asset that I'm not able to rip are character sprites.
+                        </b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        It is generally said that if a game cannot have its sprites ripped from the game, then the next step is to screen-shot and paste all sprites into a single sheet.
+                        The reason why I would not proceed with this method is because of the following:
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <ul class="mx-auto text-center p-2" style="list-style: none;">
+                        <li>The character sprites shrink in size based on distance from screen. </li>
+                        <li>Not all characters are programmed to be allowed to be up-close.</li>
+                        <li>Not all characters' actions are programmed to be viewed in all 16 directions.</li>
+                        <li>All hostilie and friendly characters have 16 directions of animations.</li>
+                        <li><b>There are unused characters and Matt's move-sets stored in the files.</b></li>
+                    </ul>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        There are currently 4 unused/unseen characters in Zombieville, and their unused voicelines can be heard through these links:
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <ul class="mx-auto text-center p-2" style="list-style: none;">
+                        <li><a href="https://tcrf.net/Zombieville_(1997)/Unused_Audio#Unused_Stg._Joe_Dialogue" target="_blank" rel="noopener noreferrer">Joe Yamatsu's Dialouge</a><i class="mx-4 fas fa-external-link-alt fa-1x"></i></li>
+                        <li><a href="https://tcrf.net/Zombieville_(1997)/Unused_Audio#UNUSED_MATT_.26_KEKO_DIALOGUE_TEXT" target="_blank" rel="noopener noreferrer">Keko's Dialouge</a><i class="mx-4 fas fa-external-link-alt fa-1x"></i></li>
+                        <li><a href="https://tcrf.net/Zombieville_(1997)/Unused_Audio#Unused_Miller_Dialogue" target="_blank" rel="noopener noreferrer">Mellor's Dialouge</a><i class="mx-4 fas fa-external-link-alt fa-1x"></i></li>
+                        <li><a href="https://tcrf.net/Zombieville_(1997)/Unused_Audio#UNUSED_MATT_.26_JAMES_DIALOGUE_TEXT" target="_blank" rel="noopener noreferrer">James Ford's Dialouge</a><i class="mx-4 fas fa-external-link-alt fa-1x"></i></li>
+                        <li>and lastly,</li>
+                        <li><a href="https://tcrf.net/Zombieville_(1997)#Missing_Weapons" target="_blank" rel="noopener noreferrer">Matt Black's 3 unused weapons move-sets.</a><i class="mx-4 fas fa-external-link-alt fa-1x"></i></li>
+                    </ul>
+                </div>
+                <!--BOUNTY FULFILL REQUIREMENT SECTION-->
+                <div class="row mx-auto">
+                    <h4 class="mx-auto text-center mb-0 p-2">
+                        <b>
+                            To fulfill this bounty, you must agree to and will:
+                        </b>
+                    </h4>
+                </div>
+                <div class="row mx-auto">
+
+                    <ul class="mx-auto text-center p-2" style="list-style: none;">
+                        <li><b>Submit documentation of the de-compression method(s).</b></li>
+                        <li><b>Submit images of the unused character graphics.</b></li>
+                        <li><b>Be publicly credited & allow your works to be posted online.</b></li>
+                        <li><b>Accept this bounty reward of <span style="color:darkgreen">$500 USD</span></b></li>
+                    </ul>
+                </div>
+                <!--END BOUNTY FULFILL REQUIREMENT SECTION-->
+                <!--BOUNTY NOTES SECTION-->
+                <div class="row mx-auto">
+                    <h4 class="mx-auto text-center mb-0 p-2">
+                        <b>
+                            Bounty Notes:
+                        </b>
+                    </h4>
+                </div>
+                <div class="row mx-auto">
+
+                    <ul class="mx-auto text-center p-2" style="list-style: none;">
+                        <li><b>I suspect that the character sprites are located in:</b></li>
+                        <li><b>ZOMB\LEVELDAT\CHARS\MATT for Matt's move-set sprites</b></li>
+                        <li><b>ZOMB\LEVELDAT\* .DAT for everything else...</b></li>
+                        <li><b>I think that FTO files inside ZOMB\LEVELDAT\CHARS contain some sort of file I/O instructions...</b></li>
+                        <li><b>Regarding the unused characters, I also suspect that:</b></li>
+                        <li><b>Keko & James are in the Diner files</b></li>
+                        <li><b>Joe is in the Graveyard files</b></li>
+                        <li><b>Mellor is possiblly in the Base's 1st floor files [not Ground Floor files].</b></li>
+                    </ul>
+                </div>
+                <!--END BOUNTY NOTES SECTION-->
+                <!--BOUNTY INTENTION(S) SECTION-->
+                <div class="row mx-auto">
+                    <h4 class="mx-auto text-center mb-0 p-2">
+                        <b>
+                            Bounty Intention(s):
+                        </b>
+                    </h4>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        The reason why I have requested this bounty is because for the following reasons:
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <ul class="mx-auto text-center p-2" style="list-style: none;">
+                        <li>Documentation and archiving items from the past</li>
+                        <li>Appreciation of efforts within materials, regardless of the reception</li>
+                    </ul>
+                </div>
+                <!--BOUNTY INTENTION(S) SECTION-->
+                <!--DOWNLOAD SECTION-->
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        If you need a copy of the abandon-ware PC game, please click the following button with a computer browser.
+                    </p>
+                </div>
+                <div class="row mx-auto">
+                    <div class="col-md mx-auto py-3">
+                        <a href="https://drive.google.com/drive/folders/16ga2HOr1oB_mLOfUgM2SThN68KciAOTw" target="_blank" rel="noopener noreferrer"
+                           class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                            Download MS-DOS Copy of Zombieville 1997 (European)
+                            <i class="fas fa-external-link-alt fa-1x"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b><i>
+                            This copy of Zombieville is already setup up. Extract the files and click on the batch file to launch DOSBOX and play Zombieville!
+                        </i></b></p>
+                </div>
+                <!--END DOWNLOAD SECTION-->
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        If you need further details regarding this bounty, please contact me.
+                    </p>
+                </div>
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Must accept PayPal and/or Venmo as payment!</b>
+                    </p>
+                </div>
+            </div>
             <!--END CARD BODY CONTENTS!-->
         </div>
-    </div>
+
+            @*CARD FOOTER SECTION*@
+            <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+                <div class="col-md mx-auto py-3">
+                    <button @onclick="ReturnToBountyPage" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                        Return To Bounty Page
+                    </button>
+                </div>
+
+                <div class="col-md mx-auto py-3">
+                    <button @onclick="BountyContact" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                        Contact about this Bounty
+                    </button>
+                </div>
+            </div>
+        </div>
 </div>

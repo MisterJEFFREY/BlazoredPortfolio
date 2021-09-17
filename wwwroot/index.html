@@ -26,27 +26,6 @@
     <!-- Script for Contact Form requires jQuery and jquery-form plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
-
-
-    <!--SCRIPT INTENDED TO CHECK FOR JS COOKIES & RECIEVE VALUE IF EXISTED-->
-    <!--TODO: I DON'T THIS THIS SCRIPT IS BEING EXECUTED AT ALL...WHY?-->
-    <!--<script>
-        //LET THIS BECOME THE GLOBAL VARIABLE...
-        let InitialColorTheme = getCookie("ColorThemeChoice");
-        CheckForJSCookies();
-
-        function CheckForJSCookies() {
-            //let InitialColorTheme = getCookie("ColorThemeChoice");
-            //IF COLOR THEME COOKIE DOES EXIST...
-            if (InitialColorTheme != "") {
-                console.log("Found Color Theme Cookie!\nIt is:" + InitialColorTheme);
-            } else {
-                //IF COLOR THEME COOKIE DOESN'T EXIST...
-                console.log("Did Not Find the Color Theme Cookie!\nWho ate my cookie?");
-                //DEFAULT THAT COLOR THEME COOKIE TO LIGHT THEME!
-                setCookie("ColorThemeChoice", InitialColorTheme, "Light Theme");
-            }
-    </script>-->
 </head>
 
 <body>
@@ -80,7 +59,7 @@
                         Load Speed is dependent on device's resources...
                     </p>
                 </div>
-                <div class="row mx-auto text-center py-3">
+                <div class="row mx-auto card-body-light-style text-center py-3">
                     <div class="mx-auto spinner-border text-success" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>
@@ -130,7 +109,44 @@
             })
         })
     </script>
+    
 
+    <!--SCRIPT INTENDED TO CHECK FOR JS COOKIES & RECIEVE VALUE IF EXISTED-->
+    <!--TODO: UPDATE THIS TO MAKE THE HTML LOADING PAGE RESPONSIVE TO BLAZOR'S COLOR THEME?-->
+    <script>
+        //LET THIS BECOME THE GLOBAL VARIABLE...
+        //document.cookie = "";
+        let InitialColorTheme = document.cookie; //Cookie("ColorThemeChoice");
+        CheckForJSCookies();
+
+        function CheckForJSCookies() {
+            //let InitialColorTheme = getCookie("ColorThemeChoice");
+            //IF COLOR THEME COOKIE DOES EXIST...
+            if (InitialColorTheme != "") {
+                console.log("Found Color Theme JS Cookie!\nIt is: " + InitialColorTheme);
+            } else {
+                //IF COLOR THEME COOKIE DOESN'T EXIST...
+                console.log("Did Not Find the JS Color Theme Cookie!\nWho ate my cookie?");
+                //DEFAULT THAT COLOR THEME COOKIE TO LIGHT THEME!
+                console.log("\nAyways, just made a cookie with 'Light' value as default.");
+                document.cookie = "Light";
+                //setCookie("ColorThemeChoice", InitialColorTheme, "Light Theme");
+            }
+        }
+    </script>
+
+    <script>
+        //UNCHECK ALL CONTACT FORM RADIO BUTTONS
+        function ClearAllContactSubjects() {
+            document.querySelector('input[name="entry.784052716"]:checked').checked = false;
+            //document.getElementById('other_option').attributes.value = "";
+            document.getElementById('other_option').value = "";
+            //document.getElementsByName('entry.784052716.other_option_response').value = "";
+            //document.getElementByName('entry.784052716.other_option_response').attributes.value = "";
+            document.querySelector('input[name="entry.784052716.other_option_response"]:checked').checked = false;
+            console.log("Cleared all Contact Form's Subject Input Fields");
+        }
+    </script>
 
 </body>
 

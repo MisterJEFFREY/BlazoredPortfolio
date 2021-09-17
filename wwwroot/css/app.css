@@ -6,6 +6,11 @@
     cursor:pointer;
 }
 
+.cursor-invalid{
+    color:darkred !important;
+    cursor:not-allowed;
+}
+
 .fa-times-circle:hover {
     color: red;
 }
