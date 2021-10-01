@@ -27,6 +27,25 @@ namespace BlazoredPortfolio.Pages.blog {
             Color_Theme_Recieved = Layout.MainColorTheme;
         }
         //////////////////////////////////////////////////////////////
+        public void ChangeBlog2021ButtonText() {
+            if (Blog2021ButtonText != "Show 2021 Blog Entries") {
+                Blog2021ButtonText = "Show 2021 Blog Entries";
+                return;
+            } else if (Blog2021ButtonText == "Show 2021 Blog Entries") {
+                Blog2021ButtonText = "Hide 2021 Blog Entries";
+                return;
+            }
+        }
+
+        public void ChangeBlog2022ButtonText() {
+            if (Blog2022ButtonText != "Show 2022 Blog Entries") {
+                Blog2022ButtonText = "Show 2022 Blog Entries";
+                return;
+            } else if (Blog2022ButtonText == "Show 2022 Blog Entries") {
+                Blog2022ButtonText = "Hide 2022 Blog Entries";
+                return;
+            }
+        }
         #endregion (Methods)
 
 
@@ -35,6 +54,8 @@ namespace BlazoredPortfolio.Pages.blog {
         public MainLayout Layout { get; set; }
         public string Color_Theme_Recieved { get; set; }
 
+        public string Blog2021ButtonText { get; set; } = "Show 2021 Blog Entries";
+        public string Blog2022ButtonText { get; set; } = "Show 2022 Blog Entries";
         #endregion (Properties)
     }
 }

@@ -81,40 +81,75 @@
 <!--END BLOG LAND MESSAGE SECTION-->
 <!--///////////////////////////////////////////////////////////////////////////-->
 <!--///////////////////////////////////////////////////////////////////////////-->
-<!--CODING CARD LIST SECTION-->
+<!--BLOG CARD LIST SECTION-->
 <div class="col-md-11 mx-auto text-center mb-5">
 
     <!--'CARD' INTRO TEXT SECTION-->
     <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
         <!--CARD TITLE SECTION-->
         <div class="row mx-auto">
-            <p class="d-none col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
-                What would you like to see?
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Blog Entries
             </p>
         </div>
         <!--CARD OVERALL SECTION-->
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="border-radius:15px 15px 15px 15px">
 
             <!--TEXT ROWS SECTION-->
-            <div class="col-md-10 mx-auto px-0">
-                <!--NOTICE ICON SECTION-->
-                <div class="row mx-auto">
-                    <i class="py-3 mx-auto fa-3x fas fa-exclamation-circle" style="color:darkred;"></i>
-                </div>
-                <div class="row mx-auto">
-                    <p class="mx-auto text-center mb-0 p-2">
-                        Sorry, but there's currently no blog parts available at this moment.
-                    </p>
-                </div>
-                <div class="row mx-auto">
-                    <p class="mx-auto text-center mb-0 p-2">
-                        Please come back at another time.
-                    </p>
+            <!--NOTE: THIS SECTION IS DIFFERENT IN WHICH IT WILL USE COL-MD-12 AND THEN COL-MD-10 TO HAVE THE 'FOOTER STYLED' ROWS FULL WIDTH-->
+            <div class="col-md-12 mx-auto px-0">
+                <!--YEAR 2021 BLOGS-->
+                <div class="col-md-10 mx-auto">
+                    <div class="row mx-auto justify-content-center">
+                        @if (Blog2021ButtonText == "Hide 2021 Blog Entries") {
+                            <BlazoredPortfolio.Pages.blog.blog_components.CmpBlogYear2021Menu></BlazoredPortfolio.Pages.blog.blog_components.CmpBlogYear2021Menu>
+                        }
+                    </div>
                 </div>
 
+                <!--TODO: WHAT IF I WERE USE THE FOOTER AS A REGULAR ROW? WOULD IT WORK?-->
+                <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )" 
+                     style="border-radius: 0px; @(Color_Theme_Recieved == "Light" ? "border-bottom: 3px solid var(--general-light-text-color);" : "border-bottom: 3px solid var(--general-dark-text-color);") ">
+                    <div class="col-md mx-auto py-3">
+                        <button @onclick="ChangeBlog2021ButtonText" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                            @Blog2021ButtonText
+                        </button>
+                    </div>
+                </div>
+                <!--END YEAR 2021 BLOGS SECTION-->
+                <!--///////////////////////////////////////////////////////////////////////////////////////////-->
+                <!--YEAR 2022 BLOGS SECTION-->
+                <div class="col-md-12 mx-auto">
+
+                    <div class="row mx-auto">
+                        @if (Blog2022ButtonText == "Hide 2022 Blog Entries") {
+                            <!--NOTICE ICON SECTION-->
+                            <div class="row mx-auto">
+                                <i class="py-3 mx-auto fa-3x fas fa-exclamation-circle" style="color:darkred;"></i>
+                            </div>
+                            <div class="row mx-auto">
+                                <p class="mx-auto text-center mb-0 p-2">
+                                    Sorry, but there's currently no blog entries for this year available at this moment.
+                                </p>
+                            </div>
+                            <div class="row mx-auto">
+                                <p class="mx-auto text-center mb-0 p-2">
+                                    Please come back at another time.
+                                </p>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+                    <div class="col-md mx-auto py-3">
+                        <button @onclick="ChangeBlog2022ButtonText" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                            @Blog2022ButtonText
+                        </button>
+                    </div>
+                </div>
+                <!--END CARD BODY CONTENTS!-->
             </div>
-            <!--END CARD BODY CONTENTS!-->
-        </div>
 
         <!--CARD FOOTER SECTION-->
         @*<div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
@@ -125,7 +160,8 @@
                 </div>
             </div>*@
 
-    </div>
+        </div>
 
+    </div>
 </div>
-<!--END CODING CARD LIST SECTION-->
+<!--END BLOG CARD LIST SECTION-->

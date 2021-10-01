@@ -1,0 +1,171 @@
+﻿@page "/blog/blogentry1/{UrlData?}"
+@page "/blog/blogentry1"
+
+@inject NavigationManager NavManager
+@inject IJSRuntime JSRuntime
+<!--CARD HEADER SECTION-->
+<!--'CARD' INTRO TEXT SECTION-->
+<div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+    <!--CARD TITLE SECTION-->
+    <div class="row mx-auto">
+        <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+            Blog #1 | 09/30/21
+        </p>
+    </div>
+    <!--CARD OVERALL SECTION-->
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="border-radius:0px 0px 15px 15px">
+
+        <!--TEXT ROWS SECTION-->
+        <div class="col-md-10 mx-auto px-0">
+            <!--RETURN TO BLOG/CLOSE TAB SECTION-->
+            <div class="row justify-content-center my-3 mx-auto">
+                @if (IsNewTab == true) {
+                    <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                            @onclick="CloseTab">
+                        Close This New Tab
+                    </button>
+                } else {
+                    <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                            @onclick="NavToBlogs">
+                        Return to Blogs
+                    </button>
+                }
+            </div>
+            <!--END RETURN TO BLOG/CLOSE TAB SECTION-->
+            <!--NOTICE ICON SECTION-->
+            @*<div class="row mx-auto">
+                    <i class="py-3 mx-auto fa-3x fas fa-exclamation-circle" style="color:darkred;"></i>
+                </div>*@
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    The world at this time is currently undergoing some massive changes due to the COVID-19 pandemic.
+                    This pandemic unfortunately brought a lot of negative news to a lot of folks in different parts of the world.
+                    Some of these negative news resulted in COVID-19 related deaths and job losses.
+                </p>
+            </div>
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    I am grateful that I have not been afflicted by COVID-19 this time of writing, but everyone has been affected in some way or another by this pandemic.
+                    However, I am not willing to give up in terms of job hunting and occupational skills.
+                    During these though times, I have been time blessed with free time, which allowed me to partake in developing projects by my own two hands.
+                </p>
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    <b>One of these projects was to develop this portfolio site further.</b>
+                </p>
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    The reason why I wanted to develop this portfolio site was because I was inspired by a recent internship with primarly used the
+                    <span>
+                        <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" target="_blank" rel="noopener noreferrer">Blazor framework </a>
+                        <i class="fas fa-external-link-alt fa-1x"></i>
+                    </span>
+                    Even though I've learned a lot through my previous internship, I wanted to practice further and ended up re-making this
+                    portfolio site into a Blazor Web App. I am glad that you are here in potentially appreciating my efforts.
+                </p>
+            </div>
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    <b>
+                        What do I think about web development?
+                    </b>
+                </p>
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    I personally think that Website/App design is a great way to learn some things and seeing what kind of
+                    Computer Sciece concepts carry over to this aspect. I also enjoy showcasing my works and thoughts online. I hope you as well.
+                </p>
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    <b>Why did you use Blazor Framework instead of X framework?</b>
+                </p>
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    I've re-made this site with Blazor because I was interested in not only in some features that aren't present in <b>'framework-less enviroment'</b>
+                    but further practice outside of my internship. In other words, I am seeking mastery in a couple of frameworks instead of working with all frameworks.
+                    <b>Despite this, what I learn in one framework can be transfered to another. </b>
+                </p>
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    <b>Why did you design your Web App as how it looks now?</b>
+                </p>
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    I was tired of flashy & convoluted website layouts oversaturating the World Wide Web.
+                    Thus, I've sought to make a simple layout & color scheme that is inspired by previous versions of Window GUI.
+                    It might seem a bit odd seeing such kind of 'retro' aesthetic in 2020's, but it does appear as unique. Plus, it's mobile friendly and easy on the eyes!
+                </p>
+            </div>
+
+            <div class="row mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    <b>Want to share any thoughts with Jeff about this blog entry?</b>
+                </p>
+            </div>
+
+            <div class="row mb-4 mx-auto">
+                <button class="btn mx-auto cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                        @onclick='(() => NavToContact("contact/blogentry01"))'>
+                    Contact The Jeff!
+                </button>
+            </div>
+
+        </div>
+        <!--END CARD BODY CONTENTS!-->
+        <!--END RETURN TO BLOG/CLOSE TAB SECTION-->
+
+    </div>
+
+    @*CARD FOOTER SECTION*@
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+        <div class="col-md text-center mx-auto py-3">
+            @if (IsNewTab == true) {
+                <button class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                        @onclick="CloseTab">
+                    Close This New Tab
+                </button>
+            } else {
+                <button class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                        @onclick="NavToBlogs">
+                    Return to Blogs
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@*<div>
+
+
+    <p>
+        You are currently inside the Blog Entry 1
+    </p>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At quis risus sed vulputate odio ut enim blandit. Tristique nulla aliquet enim tortor at auctor urna. Risus feugiat in ante metus dictum. Etiam sit amet nisl purus in mollis. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Orci nulla pellentesque dignissim enim sit amet. Dignissim convallis aenean et tortor. Eget nullam non nisi est sit amet facilisis. Id consectetur purus ut faucibus pulvinar elementum integer. Quis varius quam quisque id. Venenatis a condimentum vitae sapien pellentesque habitant. Id diam vel quam elementum pulvinar etiam. Pharetra massa massa ultricies mi quis hendrerit dolor magna. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel. At elementum eu facilisis sed odio. Molestie nunc non blandit massa enim nec dui.
+
+        Sit amet cursus sit amet dictum sit amet justo donec. Non odio euismod lacinia at quis risus sed. Non odio euismod lacinia at quis. Sed nisi lacus sed viverra. Ac ut consequat semper viverra nam libero. Scelerisque viverra mauris in aliquam sem fringilla ut. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc sed augue lacus viverra vitae congue eu consequat ac. Lacus suspendisse faucibus interdum posuere lorem. Eleifend donec pretium vulputate sapien nec sagittis.
+
+        Facilisis sed odio morbi quis commodo. Eu turpis egestas pretium aenean pharetra magna ac placerat. Aenean pharetra magna ac placerat vestibulum lectus mauris. Mi in nulla posuere sollicitudin aliquam ultrices sagittis. Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Sapien et ligula ullamcorper malesuada proin libero. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Ipsum a arcu cursus vitae congue mauris rhoncus aenean vel. Curabitur gravida arcu ac tortor dignissim convallis aenean et. Id aliquet risus feugiat in ante metus dictum at tempor. Donec pretium vulputate sapien nec sagittis. A scelerisque purus semper eget. Fermentum iaculis eu non diam phasellus vestibulum lorem. Posuere lorem ipsum dolor sit amet. Condimentum vitae sapien pellentesque habitant morbi tristique. Libero enim sed faucibus turpis in eu. Donec ultrices tincidunt arcu non sodales neque sodales. Semper feugiat nibh sed pulvinar proin gravida.
+
+        Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Ornare suspendisse sed nisi lacus sed viverra. Eget dolor morbi non arcu risus quis varius. Ligula ullamcorper malesuada proin libero nunc. Est ullamcorper eget nulla facilisi. Facilisis gravida neque convallis a cras semper. Eu sem integer vitae justo eget magna. Ornare aenean euismod elementum nisi quis eleifend quam. Enim eu turpis egestas pretium aenean pharetra magna ac. Feugiat scelerisque varius morbi enim nunc faucibus. Amet cursus sit amet dictum sit. Commodo elit at imperdiet dui accumsan sit. In vitae turpis massa sed elementum tempus egestas. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Donec pretium vulputate sapien nec sagittis aliquam.
+
+        Sed sed risus pretium quam vulputate dignissim. Consectetur adipiscing elit pellentesque habitant morbi tristique. Vulputate mi sit amet mauris. Varius vel pharetra vel turpis nunc eget lorem dolor sed. Amet dictum sit amet justo donec enim. Ut consequat semper viverra nam. Fames ac turpis egestas maecenas pharetra convallis posuere morbi leo. Tempus egestas sed sed risus pretium quam vulputate. Aliquet risus feugiat in ante. Pretium quam vulputate dignissim suspendisse in est ante in. Mollis nunc sed id semper risus in. Adipiscing diam donec adipiscing tristique.
+    </p>
+</div>*@

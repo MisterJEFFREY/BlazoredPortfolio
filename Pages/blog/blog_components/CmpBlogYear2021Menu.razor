@@ -1,0 +1,68 @@
+﻿@inject NavigationManager NavManager
+
+@inject IJSRuntime JSRuntime
+<!--NOTE: THIS SECTION MUST HAVE A MY VALUE-->
+<div class="col-md mt-4 mb-5">
+    <!--TEXT ROWS SECTION-->
+    <div class="col-md mx-auto px-0">
+        <!--SEPTEMBER 2021 ENTRIES-->
+        <div class="row mx-auto">
+            <h4 class="mx-auto text-center mb-0 p-2">
+                <b>September 2021</b>
+            </h4>
+        </div>
+
+
+        <div class="@(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-dark-shadow" : "dark_general_text outline-dark-border r-b-corner-light-shadow")">
+            @*style="@(Color_Theme_Recieved == "Light" ? "" : "")"*@
+            <!--BLOG #01 SECTION-->
+            <div class="row mx-auto">
+                <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                    Blog #01 | 09/30/21
+                </p>
+            </div>
+
+            <div class="row py-2 mx-auto">
+                @*<i class="py-3 mx-auto fas fa-graduation-cap fa-3x"></i>*@
+                <i class="py-3 mx-auto fas fa-solid fa-globe fa-3x  @(Color_Theme_Recieved == "Light" ? "light_general_text" : "dark_general_text")"></i>
+            </div>
+
+            <div class="row py-2 mx-auto">
+                <p class="mx-auto text-center mb-0 p-2">
+                    Hello, World Wide Web!
+                </p>
+            </div>
+            <!--BLOG CARD FOOTER-->
+            <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+                <div class="col-md mx-auto py-3">
+                    <button @onclick='(() => NavToBlogPage("blogentry1"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                        Read This Entry
+                        @*<a href="https://venmo.com/code?user_id=2558575947808768794" target="_blank" rel="noopener noreferrer">Via Venmo</a>*@
+                    </button>
+                </div>
+
+                <div class="col-md mx-auto py-3">
+                    <button @onclick='(() => NavToBlogPageNTAsync("blogentry1/nt"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                        Read In New Tab <i class="fas fa-external-link-alt fa-1x"></i>
+                        @*<a href="https://venmo.com/code?user_id=2558575947808768794" target="_blank" rel="noopener noreferrer">Via Venmo</a>*@
+                    </button>
+
+
+
+                    @*<a class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                           href="blog/entry1/nt" target="_blank" rel="noopener noreferrer">
+                            Read In New Tab <i class="fas fa-external-link-alt fa-1x"></i>
+                        </a>*@
+
+                    <!--<button type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                    New Tab Entry <i class="fas fa-external-link-alt fa-1x"></i>-->
+                    @*<a href="https://venmo.com/code?user_id=2558575947808768794" target="_blank" rel="noopener noreferrer">Via Venmo</a>*@
+                    <!--</button>-->
+                </div>
+            </div>
+            <!--END BLOG #01 SECTION-->
+        </div>
+
+        <!--END SEPTEMBER 2021 ENTRIES-->
+    </div>
+</div>
