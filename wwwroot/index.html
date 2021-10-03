@@ -148,6 +148,22 @@
         }
     </script>
 
+    <!--COPY URL TO CLIPBOARD TEST-->
+    <script>
+        function CopyURLToClipboard(tsPassedURL) {
+        console.log("\nInside the Clipboard JS Function!\n");
+            //HELP SRC: https://www.c-sharpcorner.com/article/understand-javascript-interop-in-blazor/
+            //CHECK TO MAKE SURE PASSED STRING IS NOT NULL OR EMPTY!
+            if (!!tsPassedURL) {
+                console.log("Recieved Data is: " + tsPassedURL);
+                navigator.clipboard.writeText(tsPassedURL);
+                return true;
+            }
+            console.log("Uh oh...something went wrong with passing URL from Blazor Method!\n");
+            return true;
+        }
+    </script>
+
 </body>
 
 </html>

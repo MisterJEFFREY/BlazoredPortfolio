@@ -86,6 +86,10 @@
     font-size:              0.75em;
 }
 
+.site-log-light-style {
+    border-bottom: 3px solid var(--general-light-text-color);
+}
+
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*.cookie-msg-text-div-light-border {
@@ -156,6 +160,10 @@
 .contact-input-outline-style {
     border: 3px solid var(--contact-dark-r-b-dark-shadow);
     border-radius: 20px;
+}
+
+.site-log-dark-style {
+    border-bottom: 3px solid var(--general-dark-text-color);
 }
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 

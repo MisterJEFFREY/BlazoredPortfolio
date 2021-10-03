@@ -145,6 +145,47 @@
                 </button>
             }
         </div>
+
+        <div class="col-md text-center mx-auto py-3">
+            <!--IF THE COPYURL BUTTON HASN'T BEEN CLICKED OR THERE'S AN ERROR AFTER CLICKING...-->
+            @if (JustCopied2Clipboard == false && URLCopyButtonText == "Copy Blog URL ") {
+                <button class="btn cursor-pointer
+                    @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                        @onclick="(()=> CopyUrlToClipboard())">
+                    @URLCopyButtonText <i class="fas fa-share fa-1x"></i>
+                </button>
+            } else @if (JustCopied2Clipboard == true && URLCopyButtonText == "Copied Blog URL! ") {
+                <button class="btn cursor-pointer
+                            @(Color_Theme_Recieved == "Light" ? "light_general_text btn-success r-b-corner-dark-shadow" : "dark_general_text btn-outline-success r-b-corner-light-shadow")"
+                        disabled>
+                    <b>@URLCopyButtonText</b>
+                </button>
+            } else {
+                //IF THERE IS AN ERROR FROM AFTER CLICKING THE BUTTON...
+                <button class="btn cursor-pointer
+                            @(Color_Theme_Recieved == "Light" ? "light_general_text btn-danger r-b-corner-dark-shadow" : "dark_general_text btn-outline-danger r-b-corner-light-shadow")"
+                        disabled>
+                    <b>@URLCopyButtonText</b>
+                </button>
+            }
+            <!--//////////////////////////////////////////////////////////////////////-->
+            @*@if (JustCopied2Clipboard == true && URLCopyButtonText == "Copied Blog URL! ") {
+                <button class="btn cursor-pointer
+                    @(Color_Theme_Recieved == "Light" ? "light_general_text btn-success r-b-corner-dark-shadow" : "dark_general_text btn-outline-success r-b-corner-light-shadow")"
+                        disabled>
+                    @URLCopyButtonText <i class="fas fa-share fa-1x"></i>
+                </button>
+            }*@
+            @*<button class="btn cursor-pointer
+                @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")
+                @(URLCopyButtonText == "Copy URL Failed! " ? "btn-outline-danger" : "")
+                @(URLCopyButtonText == "Copied Blog URL! " ? "btn-outline-success" : "")
+                    "
+                @onclick="CopyUrlToClipboard" disabled="@JustCopied2Clipboard">
+            @URLCopyButtonText <i class="fas fa-share fa-1x"></i>
+        </button>*@
+        </div>
+
     </div>
 </div>
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BlazoredPortfolio.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+//using System.Threading;
 
 namespace BlazoredPortfolio.Pages.blog.blog_components.blog_pages {
     public partial class CmpBlog01 {
@@ -60,6 +61,42 @@ namespace BlazoredPortfolio.Pages.blog.blog_components.blog_pages {
                 NavManager.NavigateTo(tsRouteData);
             }
         }
+
+        //COPY URL TO CLIPBOARD TEST
+        private async Task CopyUrlToClipboard() {
+            string temp_url             = NavManager.Uri.ToString();
+            var JSCopyResult            = await JSRuntime.InvokeAsync<object>("CopyURLToClipboard", temp_url);
+            bool JSCopyResultBool       = Convert.ToBoolean(JSCopyResult.ToString());
+            if (JSCopyResultBool == true) {
+                URLCopyButtonText       = "Copied Blog URL! ";
+                JustCopied2Clipboard    = true;
+            } else {
+                URLCopyButtonText       = "Copy URL Failed! ";
+            }
+            StateHasChanged();
+            //NOTE TO SELF: USING VAR INSTEAD OF INT FOR TASK.DELAY WILL 
+            //NOT DELAY THE TASK AS INTENDED! IN OTHER WORDS, IT WOULD BE IGNORED
+            //& DELAYED UNTIL 2ND CLICK.
+            var rand                    = new Random();
+            int random_delay_amount     = rand.Next(1500, 2500);
+            await Task.Delay(random_delay_amount);
+            //ResetCopyURLButton();
+            //Thread.Sleep(random_delay_amount);
+
+            URLCopyButtonText = "Copy Blog URL ";
+            JustCopied2Clipboard = false;
+            //await JSRuntime.InvokeVoidAsync("CopyToClipboard");
+        }
+
+        public void Copy2ClipBoardResult(string tsJSResult) {
+
+        }
+
+        public void ResetCopyURLButton() {
+            URLCopyButtonText = "Copy Blog URL ";
+            JustCopied2Clipboard = false;
+        }
+
         #endregion (Methods)
 
 
@@ -72,6 +109,9 @@ namespace BlazoredPortfolio.Pages.blog.blog_components.blog_pages {
         public string? UrlData              { get; set; }
         public bool UrlDataValid            { get => _urlDataValid; set => _urlDataValid = value; }
         public bool IsNewTab                { get; set; } = false;
+
+        public bool JustCopied2Clipboard    { get; set; } = false;
+        public string URLCopyButtonText     { get; set; } = "Copy Blog URL ";
         #endregion (Properties)
     }
 }
