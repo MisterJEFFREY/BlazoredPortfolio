@@ -156,14 +156,14 @@
                 </button>
             } else @if (JustCopied2Clipboard == true && URLCopyButtonText == "Copied Blog URL! ") {
                 <button class="btn cursor-pointer
-                            @(Color_Theme_Recieved == "Light" ? "light_general_text btn-success r-b-corner-dark-shadow" : "dark_general_text btn-outline-success r-b-corner-light-shadow")"
+                            @(Color_Theme_Recieved == "Light" ? "light_general_text btn-success r-b-corner-dark-shadow" : "dark_general_text btn-success r-b-corner-light-shadow")"
                         disabled>
                     <b>@URLCopyButtonText</b>
                 </button>
             } else {
                 //IF THERE IS AN ERROR FROM AFTER CLICKING THE BUTTON...
                 <button class="btn cursor-pointer
-                            @(Color_Theme_Recieved == "Light" ? "light_general_text btn-danger r-b-corner-dark-shadow" : "dark_general_text btn-outline-danger r-b-corner-light-shadow")"
+                            @(Color_Theme_Recieved == "Light" ? "light_general_text btn-danger r-b-corner-dark-shadow" : "dark_general_text btn-danger r-b-corner-light-shadow")"
                         disabled>
                     <b>@URLCopyButtonText</b>
                 </button>
