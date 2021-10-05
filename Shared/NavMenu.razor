@@ -1,23 +1,20 @@
 ﻿@inject Blazored.LocalStorage.ILocalStorageService localStore
 
+@*@inject IJSRuntime JS*@
+@inject NavigationManager NavManager
+
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark @(ColorTheme == "Light" ? "light_nav" : "dark_nav") box-shadow mb-3 fixed-top">
     @*bg-dark*@
     <div class="container">
         <a class="navbar-brand @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text") cursor-pointer" asp-area="" asp-page="/Index" href="/" Match="NavLinkMatch.All">Contact The Jeff</a>
-        <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse " @onclick="CollapseNavMenu">
             <ul class="navbar-nav flex-grow-1  justify-content-around">
-                @*<li class="nav-item">
-                    <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="" Match="NavLinkMatch.All">Home</a>
-                </li>*@
-                @*<li class="nav-item">
-                    <a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="blog">Blog</a>
-                </li>*@
                 <!--TEST TO SEE IF I CAN CONTROL THE COLOR THEMES WHEN USING NAVLINK TAG-->
                 <li class="nav-item text-center my-auto">
-                    <NavLink href="/blog" class="nav-link " >
+                    <NavLink href="/blog" class="nav-link ">
                         <span class="@(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")">Blog</span>
                     </NavLink>
                 </li>
@@ -25,38 +22,43 @@
                     <NavLink href="/coding" class="nav-link ">
                         <span class="@(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")">Coding</span>
                     </NavLink>
-                    @*<a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="coding">Coding</a>*@
                 </li>
                 <li class="nav-item text-center my-auto">
                     <NavLink href="/bounties" class="nav-link ">
                         <span class="@(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")">Bounties</span>
                     </NavLink>
-                    @*<a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="bounties">Bounties</a>*@
                 </li>
                 <li class="nav-item text-center my-auto">
                     <NavLink href="/resume" class="nav-link ">
                         <span class="@(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")">Resume</span>
                     </NavLink>
-                    @*<a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="resume">Resume</a>*@
                 </li>
-                <li class="nav-item text-center my-auto">
-                    <NavLink href="/contact" class="nav-link ">
-                        <span class="@(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")">Contact</span>
-                    </NavLink>
-                    @*<a class="nav-link @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" href="contact">Contact</a>*@
-                </li>
-
-
+                <!--TODO: 10/04/21 LET'S SEE IF THIS WORKS...-->
+                @if (DisabledContact == false) {
+                    <li class="nav-item text-center my-auto">
+                        <NavLink href="/contact" class="nav-link" > @*@onclick="ClearContactData"*@
+                            <span class="@(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")">Contact</span>
+                        </NavLink>
+                    </li>
+                } else {
+                    <li class="nav-item text-center my-auto">
+                        <NavLink class="nav-link active cursor-invalid" disabled>
+                            <span class="@(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")">Contact</span>
+                        </NavLink>
+                    </li>
+                }
                 <!--THEME TOGGLE SWITCH-->
                 <li class="nav-item text-center my-auto py-2">
                     <input type="checkbox" class="btn-check d-none" id="btn-check" autocomplete="off" checked="@ColorThemeInitiallyChecked" @onchange="eventArgs => {ToggleThemeSwitch(eventArgs.Value.ToString() );}">
                     <!--NOTE: THIS BUTTON'S STYLE HAS BEEN ALTERED TO PREVENT ITS BORDER FROM CLIPPING W/ CONTACT OUTLINE WHEN NAVBAR IS COLLAPSED-->
                     <label class="btn my-auto @(ColorTheme == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow") cursor-pointer" for="btn-check" style="padding: 0.150rem .75rem !important;">
-                    @ColorThemeDisplayText <span class="invisible">@(ColorTheme == "Light" ? "" : "i")</span>Theme</label>
+                        @ColorThemeDisplayText <span class="invisible">@(ColorTheme == "Light" ? "" : "i")</span>Theme
+                    </label>
                     <!--PREVIOUS VERSION OF THEME CHECKBOX-->
                     <!--<div class="form-check form-switch nav-link">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="@ColorThemeInitiallyChecked" @onchange="eventArgs => {ToggleThemeSwitch(eventArgs.Value.ToString() );}">
-                        <label class="form-check-label @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" for="flexSwitchCheckDefault">@ColorThemeDisplayText Theme</label>--> @*@ColorThemeDisplayText*@
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="@ColorThemeInitiallyChecked" @onchange="eventArgs => {ToggleThemeSwitch(eventArgs.Value.ToString() );}">
+            <label class="form-check-label @(ColorTheme == "Light" ? "light_general_text" : "dark_general_text")" for="flexSwitchCheckDefault">@ColorThemeDisplayText Theme</label>-->
+                    @*@ColorThemeDisplayText*@
                     <!--</div>-->
                 </li>
             </ul>

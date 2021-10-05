@@ -4,6 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Components;
+using BlazoredPortfolio.Shared;
+using BlazoredPortfolio.Pages.contact;
+using Microsoft.JSInterop;
+
 namespace BlazoredPortfolio.Shared {
     public partial class NavMenu {
 
@@ -31,8 +35,50 @@ namespace BlazoredPortfolio.Shared {
             }
         }
 
+        protected override void OnParametersSet() {
+            CurrentURL = NavManager.Uri.ToString();
+            //IF DEPLOYING LOCALLY...
+            if (CurrentURL.Contains("44346")) {
+                var TrimmedURL = CurrentURL.Substring(CurrentURL.IndexOf("44346") + 1);
+                if (TrimmedURL.Contains("/contact")) {
+                    DisabledContact = true;
+                } else {
+                    DisabledContact = false;
+                }
+                return;
+            } 
+
+            //IF DEPLOYING ONLINE...
+            if (CurrentURL.Contains(".site")) {
+                var TrimmedURL = CurrentURL.Substring(CurrentURL.IndexOf(".site") + 1);
+                if (TrimmedURL.Contains("/contact")) {
+                    DisabledContact = true;
+                } else {
+                    DisabledContact = false;
+                }
+                return;
+            } else {
+                DisabledContact = false;
+                return;
+            }
+            
+
+            //if (CurrentURL.Contains("/contact")) {
+            //    DisabledContact = true;
+            //} else {
+            //    DisabledContact = false;
+            //}
+        }
+        //protected override void OnParametersSet() {
+        //    CurrentURL = NavManager.Uri.ToString();
+        //    if (CurrentURL.Contains("contact")) {
+        //        DisabledContact = true;
+        //    } else {
+        //        DisabledContact = false;
+        //    }
+        //}
         //public async Task<bool> CheckForDarkThemeCookie() {
-           
+
         //    var CheckSessionCookie = await localStore.GetItemAsync<string>("SAVED_COLOR_THEME");
         //    if (!string.IsNullOrEmpty(CheckSessionCookie)) {
         //        Console.WriteLine("\nCHECKED FOR SESSION SESSION COOKIE AND IT IS: " + CheckSessionCookie);
@@ -71,6 +117,39 @@ namespace BlazoredPortfolio.Shared {
         void CollapseNavMenu() {
             collapseNavMenu = true;
         }
+
+        //IF USER CLICKS ON URL DATA THAT DIRECTS TO CONTACT PAGE AND THEN CLICKS ON CONTACT PAGE
+        //EITHER CLEAR DATA OR DON'T REDIRECT
+        //public void ClearContactData() {
+        //    Contact CallContactFunc = new Contact();
+        //    //UNFORTUNATELY THIS DOESN'T WORK AS THERE'S A RENDER ERROR WITH JS
+        //    //CallContactFunc.NavToContactAsync();
+        //    //CallContactFunc
+        //    //JS.InvokeAsync<bool>("ClearAllContactSubjects");
+        //    CallContactFunc._contactName = "";
+        //    CallContactFunc._contactEmail = "";
+        //    CallContactFunc._contactSubject = "";
+        //    CallContactFunc._contactMessage = "";
+        //    //CallContactFunc.ContactMessage = "";
+        //    //CallContactFunc._contactMessage = String.Empty;
+        //    //CallContactFunc.ContactMessage = String.Empty;
+        //    CallContactFunc._autoCheckCC = false;
+        //    CallContactFunc._autoCheckEM = false;
+        //    CallContactFunc._autoCheckBS = false;
+        //    CallContactFunc._autoCheckFB = false;
+        //    CallContactFunc._autoCheckD = false;
+
+        //    CallContactFunc.ContactFormSubmitting = false;
+        //    CallContactFunc.ContactFormSubmitted = false;
+        //    //uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+
+        //    //THIS 'RETURN' NAVIGATION WILL OCCUR IF USER CLICKED ON LINK W/ URLDATA
+        //    JS.InvokeAsync<bool>("ClearAllContactSubjects");
+        //    //JS.InvokeAsync<bool>("ClearAllTextAreas");
+        //    //NavManager.NavigateTo("/contact");
+        //    //JS.InvokeAsync<bool>("ClearAllContactSubjects");
+        //    //StateHasChanged();
+        //}
         ////////////////////////////////////////////////////
 
         #endregion (Methods)
@@ -85,6 +164,9 @@ namespace BlazoredPortfolio.Shared {
         [Parameter] public EventCallback<string> ColorThemeChanged { get; set; }
         public string ColorThemeDisplayText { get => colorTheme; set => colorTheme = value; }
         public bool ColorThemeInitiallyChecked { get; set; }
+
+        public string CurrentURL { get; set; }
+        public bool DisabledContact { get; set; } = false;
         #endregion (Properties)
 
     }

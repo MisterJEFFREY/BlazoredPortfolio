@@ -157,8 +157,16 @@
         </div>
         <!--CARD FOOTER SECTION-->
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
-            <div class="mx-auto py-1">
-                <input class="my-2 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="submit" value="Submit" @onclick="@(() => BlazorFormCheck())">
+            <div class="row mx-auto py-1">
+                <div class="col-md text-center mx-auto">
+                    <input class="my-2 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="submit" value="Submit" @onclick="@(() => BlazorFormCheck())">
+                </div>
+
+                <div class="col-md text-center mx-auto">
+                    <input class="my-2 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="button" value="Clear Form" @onclick="@(() => NavToContactAsync())">
+                </div>
+                @*<input class="my-2 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="submit" value="Submit" @onclick="@(() => BlazorFormCheck())">
+                <input class="my-2 btn cursor-pointer @(ContactFormSubmitting == true ? "d-none" : "")  @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="button" value="Clear Form" @onclick="@(() => NavToContactAsync())">*@
 
                 @if (ContactFormSubmitting == true) {
                     <button class="my-2 btn @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")" type="button" disabled>
