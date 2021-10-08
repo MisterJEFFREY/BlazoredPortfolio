@@ -110,7 +110,7 @@ namespace BlazoredPortfolio.Pages.contact {
                 //////////////////////////////////////////////////////
                 //IF USER CAME FROM GAME URL...
                 if (tsUrlData.Contains("game")) {
-                    var final_tsUrlData = tsUrlData.Substring(tsUrlData.IndexOf('y') + 1);
+                    var final_tsUrlData = tsUrlData.Substring(tsUrlData.IndexOf('e') + 1);
                     //FIRST CHECK IF TRIMMED STRING ACTUALLY CONTAINS SOMETHING...
                     if (final_tsUrlData.Length > 0) {
                         //CHECK IF REMAINING CHARACTERS IN RECIEVED STRING ARE ACTUALLY MERELY #'S!
