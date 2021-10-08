@@ -1,4 +1,7 @@
 ﻿@page "/coding"
+
+@inject NavigationManager NavManager
+
 <!--CODING STOCK IMAGE SECTION-->
 <div class="col-md-11 mx-auto text-center mb-5">
     <!--'CARD' INTRO TEXT SECTION-->
@@ -56,7 +59,7 @@
                 </div>
                 <div class="row mx-auto">
                     <p class="mx-auto text-center mb-0 p-2">
-                        This sections contains some code snippets & game projects that I've worked on!
+                        Feel free to gander some code snippets & game projects that I've worked on!
                     </p>
                 </div>
 
@@ -126,3 +129,31 @@
 
 </div>
 <!--END CODING CARD LIST SECTION-->
+<!--/////////////////////////////////////////////////////////-->
+<!--GAMES LIST SECTION-->
+<div class="col-md-11 mx-auto text-center mb-5">
+
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+
+        <!--CARD TITLE SECTION-->
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Homemade Games
+            </p>
+        </div>
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto">
+
+            <!--CONTENTS SECTION-->
+            <div class="row mx-auto px-4">
+                <BlazoredPortfolio.Pages.coding.coding_components.CmpGamesMenu></BlazoredPortfolio.Pages.coding.coding_components.CmpGamesMenu>
+               
+              
+            </div>
+            <!--END CARD BODY CONTENTS!-->
+        </div>
+    </div>
+
+</div>
+<!--END GAMES LIST SECTION-->

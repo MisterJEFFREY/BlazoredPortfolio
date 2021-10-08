@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using BlazoredPortfolio.Shared;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazoredPortfolio.Pages.coding {
-    public partial class Coding {
+
+namespace BlazoredPortfolio.Pages.coding.coding_components {
+    public partial class CmpGamesMenu {
+
 
 
         #region Fields
@@ -28,6 +30,11 @@ namespace BlazoredPortfolio.Pages.coding {
         }
         //////////////////////////////////////////////////////////////
 
+        public void NavToPage(string tsRouteData) {
+            if (!String.IsNullOrEmpty(tsRouteData)) {
+                NavManager.NavigateTo("/coding/" + tsRouteData);
+            }
+        }
         #endregion (Methods)
 
 

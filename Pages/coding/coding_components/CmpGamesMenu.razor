@@ -1,0 +1,99 @@
+﻿@inject NavigationManager NavManager
+
+<!--GAME CARD #01: HOT POTATO-->
+<div style="height:fit-content;"
+     class="col-md-4 px-0 my-4 mx-auto @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow")">
+
+    <!--CARD TITLE SECTION-->
+    <div class="row mx-auto">
+        <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+            Hot Potato
+        </p>
+    </div>
+    <!--CARD OVERALL CONTENTS-->
+    <div class="row px-4 mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="border-radius:15px 15px 15px 15px">
+        <!--ATTRACTION IMAGE SECTION-->
+        <div class="row my-4 mx-auto">
+            <img class="img-fluid @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" ) "
+                 src="images/coding/games_attract/games_attraction_pic_1.png"
+                 style="@(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")" />
+        </div>
+
+        <div class="row mx-auto">
+            <p class="mx-auto text-center mb-0 p-2">
+                A 1-Player tennis match with a bomb and a hammer!
+            </p>
+        </div>
+
+        <div class="row mx-auto">
+            <p class="mx-auto text-center mb-0 p-2">
+                This game was intended to be used in an academic workshop to showcase certain components of game-design.
+            </p>
+        </div>
+
+    </div>
+    <!--CARD FOOTER SECTION-->
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+        <div class="col-md mx-auto py-3">
+            <button @onclick='(() => NavToPage("/game1"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                See More
+            </button>
+        </div>
+    </div>
+</div>
+<!--END GAME CARD #01: HOT POTATO-->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--GAME CARD #02: LAST SHERIFFS-->
+<div style="height:fit-content;"
+     class="col-md-4 px-0 my-4 mx-auto @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+
+    <!--CARD TITLE SECTION-->
+    <div class="row mx-auto">
+        <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+            The Last Sheriffs
+        </p>
+    </div>
+    <!--CARD OVERALL CONTENTS-->
+    <div class="row px-4 mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")" style="border-radius:15px 15px 15px 15px">
+        <!--ATTRACTION IMAGE SECTION-->
+        <div class="row my-4 mx-auto">
+            <img class="img-fluid @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" ) "
+                 src="images/coding/games_attract/games_attraction_pic_2.png"
+                 style="@(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")" />
+        </div>
+
+        <div class="row mx-auto">
+            <p class="mx-auto text-center mb-0 p-2">
+                A 1-Player sidescroller Western Themed Shooter!
+            </p>
+        </div>
+
+        <div class="row mx-auto">
+            <p class="mx-auto text-center mb-0 p-2">
+                Originally intended to be ambitious, but COVID-19 forced to shrink to the state of:
+            </p>
+        </div>
+
+        <div class="row mx-auto">
+            <p class="mx-auto text-center mb-0 p-2">
+                <b>"PROOF OF CONCEPT"</b>
+            </p>
+        </div>
+
+    </div>
+    <!--CARD FOOTER SECTION-->
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+        <div class="col-md mx-auto py-3">
+            <button @onclick='(() => NavToPage("/game2"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                See More
+            </button>
+        </div>
+    </div>
+</div>
+<!--END GAME CARD #02: LAST SHERIFFS-->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////-->

@@ -1,0 +1,454 @@
+﻿@page "/coding/game2"
+
+@inject NavigationManager NavManager
+
+
+<div class="col-md-12 mx-auto text-center mb-5">
+    <!--'CARD' INTRO TEXT SECTION-->
+    <div class="col-md-11 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+        <!--CARD TITLE SECTION-->
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                Homemade Game #2
+            </p>
+        </div>
+
+
+        <!--CARD OVERALL SECTION-->
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+
+            <!--TEXT ROWS SECTION-->
+            <div class="col-md-10 mx-auto px-0">
+
+                <div class="row mx-auto">
+                    <h3 class="mx-auto text-center my-4 p-2">
+                        <b>The Last Sheriffs</b>
+                    </h3>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Game Play Screen Shots</b>
+                    </p>
+                </div>
+                <!--///////////////////////////////////////////////////////-->
+                <!--SLIDESHOW CONTENTS-->
+                <div class="row mx-auto justify-content-center my-4">
+                    <div class="col-md-10 mx-auto">
+                        <img class="img-fluid @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" )" style="min-width:100%; border-radius:15px 15px 15px 15px;
+                            @(Color_Theme_Recieved == "Light" ? "" : " filter: brightness(80%);")"
+                             src=@("images/coding/games_attract/last_sheriffs/games_project_2_image_" + SlideShow_Index + ".png") />
+                    </div>
+                </div>
+                <!--///////////////////////////////////////////////////////-->
+                <!--NOTE: SLIDESHOW CONROLS WILL APPEAR ON BOTTOM OF SLIDESHOW INSTEAD OF LEFT & RIGHT SIDE TO BE MORE MOBILE MINDED-->
+                <div class="row mx-auto justify-content-center my-2">
+                    <div class="ml-auto mr-5 my-auto">
+                        <i class=" py-2 mx-auto fa-3x far fas  @(SlideShow_Index < 2 ? "fas fa-times cursor-invalid px-3" : "fa-caret-left cursor-pointer px-4")
+                           @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")"
+                           @onclick="(() => On_SlideShow_SRC(-1))"></i>
+                    </div>
+                    <div class="mr-auto ml-5 my-auto">
+                        <i class=" py-2 mx-auto fa-3x far fas @(SlideShow_Index > 6 ? "fas fa-times cursor-invalid px-3" : "fa-caret-right cursor-pointer px-4")
+                            @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")"
+                           @onclick="(() => On_SlideShow_SRC(1))"></i>
+                    </div>
+                </div>
+                <!--///////////////////////////////////////////////////////-->
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        This oddball game project was a software test project that was intended to emulate and follow <b>software engineering protocols.</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        The goal was show how some develop utilize and design multiple art, audio, & coding assets to create an entertainment product for educational,
+                        exercise, and experimental purposes, all within a very short time frame of about 3 months. <b>3 months from square one to functional state.</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Unfortunately, <span style="color:red;">Covid-19 </span>has brought unexpected obstacles that forced the product to develop as merely as potential <b>"proof of concept". </b>
+                        Despite Covid-19 increasing our academic workloads, my team managed to fulfill in most of our software engineering goals and <b>provide a satisfactory product to the emulated client.</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        I'm further impressed that they were willing to understand and attempt to work in the project despite how <b> unfamiliar the programming language and environment was.</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        The classmates that wanted to be publicly credited for helping me with the project are the following:
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-0">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Allison Hardy</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-0">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        For making enemy bank robbing ai, helping with the enemy chaser ai, and for supporting me through the though semester!
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-0">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Jeremy Guivea</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-0">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        For assisting with the Gunsawiki!
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-0">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Amanda Larson</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-0">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        For helping with item pickups and proofreading our works!
+                    </p>
+                </div>
+
+                @*<div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Game Play Video</b>
+                    </p>
+                </div>*@
+
+                <!--GAMEPLAY VIDEO SECTION-->
+                <div class="col-md-11 mx-auto mb-3">
+                    <div class="@(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" )" style="min-width:100%; border-radius:15px 15px 15px 15px;">
+                        <!--CARD TITLE SECTION-->
+                        <div class="row mx-auto">
+                            <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+                                Last Sheriffs Gameplay
+                            </p>
+                        </div>
+
+                        <!--SHOULD ONLY DISPLAY WHEN THERE'S NO VIDEO ERROR & IT'S LOADING-->
+                        <div class="@(VideoLoaded == false && VideoError == false ? "" : "d-none")">
+                            <div class="row mx-auto">
+                                <p class="mx-auto text-center mb-0 p-2">
+                                    Video Is Loading
+                                </p>
+                            </div>
+                            <div class="row mx-auto py-3">
+                                <div class="mx-auto spinner-border text-success" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="row mx-auto">
+                                <p class="mx-auto text-center mb-0 p-2">
+                                    Thanks for waiting...
+                                </p>
+                            </div>
+                        </div>
+
+                        <!--VIDEO SECTION-->
+                        <div class="@(VideoLoaded == false && VideoError == false ? "d-none" : "") row px-4 my-4 mx-auto  ">
+                            @*Play="OnPlay"*@
+                            @*  TODO: 10/07/2021 For some reason, ErrorEvent fires as soon as page loads, which doesn't make sense...
+                    ErrorEvent="VideoErrorEvent"*@
+                            <div class="mx-auto @(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")" 
+                                 style=" border-radius:15px 15px 15px 15px; min-width:100%;">
+                                <BlazoredVideo CanPlayEvent="VideoIsReady"
+                                               ErrorEvent="VideoErrorEvent"
+                                               class="img-fluid"
+                                               style="border-radius:15px 15px 15px 15px; min-height:100%; min-width:100%;"
+                                               controls="controls">
+                                    <source src="https://drive.google.com/uc?export=download&amp;id=1cooWz-BpQJYRBgn4P-S2Jfgogwe4I9jh" type="video/mp4">
+                                </BlazoredVideo>
+                            </div>
+                            <!--<video id="VIDEO" class=" img-fluid" controls=""  >--> @*oncanplay="@VideoIsReady()"*@
+                            <!--<source src="https://drive.google.com/uc?export=download&amp;id=1Y7HUYahCNnQqItq5343N0-sE3UtLh2f8" type="video/mp4">
+                </video>-->
+                        </div>
+
+
+                        @*TODO: 10/07/2021 For some reason, this is still displayed even though there's no error!"*@
+                        <!--VIDEO ERROR SECTION-->
+                        <div class="@(VideoError == false ? "d-none" : "") row px-4 mx-auto">
+                            <div class="row mx-auto">
+                                <i class="py-3 mx-auto fa-3x fas fa-exclamation-circle" style="color:darkred;"></i>
+                            </div>
+                            <div class="row mx-auto">
+                                <p class="mx-auto text-center mb-0 p-2">
+                                    There was an error with the gameplay video.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!--VIDEO FOOTER-->
+                        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+                            <p class="mx-auto text-center mb-0 p-2">
+                                <i><b>All Copyrighted assets belong to their respectful owners.</b></i>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                @*<div class="row px-4 mx-auto">
+            <video controls="" class="@(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" )" style="min-width:100%; border-radius:15px 15px 15px 15px;">
+                <source src="https://drive.google.com/uc?export=download&amp;id=1Y7HUYahCNnQqItq5343N0-sE3UtLh2f8" type="video/mp4">
+            </video>
+        </div>*@
+
+                @*<div class="row mx-auto">
+            <p class="mx-auto text-center mb-0 p-2">
+                <i><b>All Copyrighted assets belong to their respectful owners.</b></i>
+            </p>
+        </div>*@
+
+                <!--END GAMEPLAY VIDEO SECTION-->
+                @*<div class="row px-4 mx-auto">
+            <video controls="" class="@(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" )" style="min-width:100%; border-radius:15px 15px 15px 15px;">
+                <source src="https://drive.google.com/uc?export=download&amp;id=1cooWz-BpQJYRBgn4P-S2Jfgogwe4I9jh" type="video/mp4">
+            </video>
+        </div>*@
+
+                @*<div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <i><b>All Copyrighted assets belong to their respectful owners.</b></i>
+                    </p>
+                </div>*@
+
+                <!--CONTROLS SECTION-->
+                <div class="row mx-auto">
+                    <i class="py-3 mx-auto fa-3x far fa-keyboard"></i>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <u>Controls for this game as follows:</u>
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Menu Keys</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        W Key: Moves Cursor Up
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        A Key: Moves Cursor Left
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        S Key: Moves Cursor Down
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        D Key: Moves Cursor Right
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        J Key: Select Menu Item
+                    </p>
+                </div>
+
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Game Play Keys</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        A Key: Move Left
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        D Key: Move Right
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        J Key: Hip Fire
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        R Key: Reload Individual Round
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        K Key: Aim Weapon
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        J+K Keys: Aim Fire
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        M Key: Jump
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        N Key: Tap to Sprint
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Shift: Crouch
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        P Key: Restart
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Misc Keys</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        F1: Window Resolution x1
+                    </p>
+                </div>
+
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        F1: Window Resolution x1
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        F2: Window Resolution x2
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        F3: Window Resolution x3
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        F4 Key: Switches to FullScreen/Windowed
+                    </p>
+                </div>
+
+                <div class="row mx-auto mb-1">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        ESC Key: Quit to Desktop
+                    </p>
+                </div>
+                <!--END CONTROLS SECTION-->
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Background Information</b>
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Since the game is in a "proof of concept" state, please note the following:
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Local Multi-player was planned, but not implemented. Don't start a game with Multi-player.
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Weapon Switching was planned, but not implemented.
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        Melee weapons were considered for the scenario of running out of ammunition. If you're out of ammunitions,<b> press P Key or die [in-game].</b>
+                        ...and more elements not fully ironed out.
+                    </p>
+                </div>
+
+                <div class="row mx-auto">
+                    <p class="mx-auto text-center mb-0 p-2">
+                        This project is NOT projected to leave in its early stage as there's other computer projects I must attend to instead.
+                    </p>
+                </div>
+
+                <div class="row mx-auto justify-content-center mb-4">
+                    @*https://drive.google.com/drive/folders/16ga2HOr1oB_mLOfUgM2SThN68KciAOTw*@
+
+                    <a href="https://drive.google.com/file/d/1gjHayxBrJyzELJG-Bc54w7eKAjHQS5OM/view" target="_blank" rel="noopener noreferrer"
+                       class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                        Download The Last Sheriffs
+                        <i class="fas fa-external-link-alt fa-1x"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <!--END CARD CONTENTS-->
+        @*CARD FOOTER SECTION*@
+        <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+            <div class="col-md mx-auto py-3">
+                <button @onclick="ReturnToCodePage" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                    Return To Code Page
+                </button>
+            </div>
+
+            <div class="col-md mx-auto py-3">
+                <button @onclick="GameContact" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                    Contact about this Game
+                </button>
+            </div>
+        </div>
+        <!--END FOOTER SECTION-->
+    </div>
+</div>

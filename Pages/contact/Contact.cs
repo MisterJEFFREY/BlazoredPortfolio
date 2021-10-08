@@ -107,6 +107,29 @@ namespace BlazoredPortfolio.Pages.contact {
                     else { _urlDataValid = false; return; }
 
                 }
+                //////////////////////////////////////////////////////
+                //IF USER CAME FROM GAME URL...
+                if (tsUrlData.Contains("game")) {
+                    var final_tsUrlData = tsUrlData.Substring(tsUrlData.IndexOf('y') + 1);
+                    //FIRST CHECK IF TRIMMED STRING ACTUALLY CONTAINS SOMETHING...
+                    if (final_tsUrlData.Length > 0) {
+                        //CHECK IF REMAINING CHARACTERS IN RECIEVED STRING ARE ACTUALLY MERELY #'S!
+                        bool RemainingCharsAreNums = final_tsUrlData.All(char.IsDigit);
+                        if (RemainingCharsAreNums) {
+                            _autoCheckCC = true;
+                            _contactSubject = "Casual Conversation(s)";
+                            _contactMessage = "Hello there!\nI've came across your Game Entry #" + final_tsUrlData + "\nand [INSERT YOUR MESSAGE HERE]";
+                            return;
+                        } else {
+                            //NOTIFY USER OF INVALID REMAINING URL DATA WHICH AREN'T NUMBERS...
+                            _urlDataValid = false;
+                            return;
+                        }
+                    }
+                    //NOTIFY USER OF INVALID REMAINING URL DATA, WHICH WAS EMPTY AFTER BEING TRIMMED!
+                    else { _urlDataValid = false; return; }
+
+                }
                 ///////////////////////////////////////////////////////
                 //IF USER WAS ON WEB APP AND REQUESTED RESUME PASSWORD...
                 if (tsUrlData.Contains("rsmpwdreq")) {
