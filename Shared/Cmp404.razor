@@ -1,0 +1,41 @@
+﻿@inject NavigationManager NavManager
+
+
+@*'CARD' INTRO TEXT SECTION*@
+<div class="col-md-5 mx-auto px-0 @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+    @*CARD TITLE SECTION*@
+    <div class="row mx-auto">
+        <p class="col-md mx-auto text-center mb-0 py-2 @(Color_Theme_Recieved == "Light" ? "card-title-light-style" : "card-title-dark-style")">
+            Page 404 Routing Error
+        </p>
+    </div>
+    @*CARD OVERALL SECTION*@
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-body-light-style" : "card-body-dark-style")">
+        <div class="row mx-auto">
+            <i class="py-3 mx-auto fas fa-exclamation-triangle fa-3x mx-auto" style="color:darkred;"></i>
+        </div>
+
+        <div class="row mx-auto">
+            <p class="row mx-auto text-center mb-0 px-2 py-4">
+                Sorry, there's nothing found at this address:
+            </p>
+        </div>
+
+        <div class="row mx-auto">
+            <p class="col-md mx-auto text-center mb-0 px-2 py-4" style="color:red; word-break: break-all;">
+                @InvalidURL
+            </p>
+        </div>
+
+
+
+    </div>
+    @*CARD FOOTER SECTION*@
+    <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
+        <div class="col-md mx-auto py-1">
+            <p class="mx-auto text-center mb-0 p-2">
+                Please Check the URL and try again!
+            </p>
+        </div>
+    </div>
+</div>
