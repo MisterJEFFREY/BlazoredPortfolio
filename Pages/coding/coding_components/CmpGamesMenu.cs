@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 using BlazoredPortfolio.Shared;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 
 namespace BlazoredPortfolio.Pages.coding.coding_components {
@@ -33,6 +34,13 @@ namespace BlazoredPortfolio.Pages.coding.coding_components {
         public void NavToPage(string tsRouteData) {
             if (!String.IsNullOrEmpty(tsRouteData)) {
                 NavManager.NavigateTo("/coding/" + tsRouteData);
+            }
+        }
+
+        public async Task NavToPageNTAsync(string tsRouteData) {
+            if (!string.IsNullOrEmpty(tsRouteData)) {
+                await JSRuntime.InvokeAsync<object>("open", "coding/" + tsRouteData, "_blank");
+                //NavManager.NavigateTo("/blog/" + tsRouteData);
             }
         }
         #endregion (Methods)

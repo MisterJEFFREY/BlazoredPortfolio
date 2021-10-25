@@ -7,6 +7,7 @@ using BlazoredPortfolio.Shared;
 using Microsoft.AspNetCore.Components;
 using Blazored.Video;
 using Blazored.Video.Support;
+using Microsoft.JSInterop;
 
 namespace BlazoredPortfolio.Pages.coding.coding_components.games_components {
     public partial class CmpGame2 {
@@ -14,11 +15,18 @@ namespace BlazoredPortfolio.Pages.coding.coding_components.games_components {
         #region Fields
         public int _slideShow_Index = 1;
 
+        public bool _urlDataValid = true;
+        public string _urlDataErrorMsg;
         #endregion (Fields)
 
         #region Methods
         ///////IMPORTANT METHODS TO RECIEVE COLOR THEMES DYNAMICALLY
         protected override async Task OnInitializedAsync() {
+            if (!string.IsNullOrEmpty(UrlData)) {
+                UrlData = UrlData.ToLower() ?? "";
+                ////
+                CheckUrlDataContext(UrlData);
+            }
             OnParametersSet();
         }
 
@@ -30,6 +38,18 @@ namespace BlazoredPortfolio.Pages.coding.coding_components.games_components {
             Color_Theme_Recieved = Layout.MainColorTheme;
         }
 
+        public void CheckUrlDataContext(string tsUrlData) {
+            if (tsUrlData.Contains("nt")) {
+                IsNewTab = true;
+            }
+
+        }
+        //IF USER OPENED THIS BLOG IN NEW PAGE...
+        public void CloseTab() {
+            if (IsNewTab == true) {
+                JSRuntime.InvokeVoidAsync($"window.close");
+            }
+        }
         public void ReturnToCodePage() {
             NavManager.NavigateTo("/coding");
         }
@@ -70,6 +90,14 @@ namespace BlazoredPortfolio.Pages.coding.coding_components.games_components {
 
         public bool VideoLoaded { get; set; } = false;
         public bool VideoError { get; set; } = false;
+
+        [Parameter]
+        public string? UrlData { get; set; }
+        public bool UrlDataValid { get => _urlDataValid; set => _urlDataValid = value; }
+        public bool IsNewTab { get; set; } = false;
+
+        public bool JustCopied2Clipboard { get; set; } = false;
+        public string URLCopyButtonText { get; set; } = "Copy Game 2 URL ";
         #endregion (Properties)
     }
 }

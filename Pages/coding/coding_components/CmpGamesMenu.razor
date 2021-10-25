@@ -1,8 +1,9 @@
 ﻿@inject NavigationManager NavManager
 
+@inject IJSRuntime JSRuntime
 <!--GAME CARD #01: HOT POTATO-->
 <div style="height:fit-content;"
-     class="col-md-4 px-0 my-4 mx-auto @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow")">
+     class="col-md-5 px-0 my-4 mx-auto @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow")">
 
     <!--CARD TITLE SECTION-->
     <div class="row mx-auto">
@@ -35,8 +36,13 @@
     <!--CARD FOOTER SECTION-->
     <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
         <div class="col-md mx-auto py-3">
-            <button @onclick='(() => NavToPage("/game1"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+            <button @onclick='(() => NavToPage("game1"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
                 See More
+            </button>
+        </div>
+        <div class="col-md mx-auto py-3">
+            <button @onclick='(() => NavToPageNTAsync("game1/nt"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                See In New Tab <i class="fas fa-external-link-alt fa-1x"></i>
             </button>
         </div>
     </div>
@@ -48,7 +54,7 @@
 <!--/////////////////////////////////////////////////////////////////////////////////////////////////-->
 <!--GAME CARD #02: LAST SHERIFFS-->
 <div style="height:fit-content;"
-     class="col-md-4 px-0 my-4 mx-auto @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
+     class="col-md-5 px-0 my-4 mx-auto @(Color_Theme_Recieved == "Light" ? "light_general_text outline-light-border r-b-corner-light-shadow" : "dark_general_text outline-dark-border r-b-corner-dark-shadow" )">
 
     <!--CARD TITLE SECTION-->
     <div class="row mx-auto">
@@ -87,8 +93,13 @@
     <!--CARD FOOTER SECTION-->
     <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
         <div class="col-md mx-auto py-3">
-            <button @onclick='(() => NavToPage("/game2"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+            <button @onclick='(() => NavToPage("game2"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
                 See More
+            </button>
+        </div>
+        <div class="col-md mx-auto py-3">
+            <button @onclick='(() => NavToPageNTAsync("game2/nt"))' type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
+                See In New Tab <i class="fas fa-external-link-alt fa-1x"></i>
             </button>
         </div>
     </div>

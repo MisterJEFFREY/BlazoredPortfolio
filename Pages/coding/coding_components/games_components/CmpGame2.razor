@@ -1,7 +1,8 @@
-﻿@page "/coding/game2"
+﻿@page "/coding/game2/{UrlData?}"
+@page "/coding/game2"
 
 @inject NavigationManager NavManager
-
+@inject IJSRuntime JSRuntime
 
 <div class="col-md-12 mx-auto text-center mb-5">
     <!--'CARD' INTRO TEXT SECTION-->
@@ -24,6 +25,21 @@
                     <h3 class="mx-auto text-center my-4 p-2">
                         <b>The Last Sheriffs</b>
                     </h3>
+                </div>
+
+                <!--RETURN TO CODING/CLOSE TAB SECTION-->
+                <div class="row justify-content-center my-3 mx-auto">
+                    @if (IsNewTab == true) {
+                        <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                                @onclick="CloseTab">
+                            Close This New Tab
+                        </button>
+                    } else {
+                        <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                                @onclick="ReturnToCodePage">
+                            Return to Blogs
+                        </button>
+                    }
                 </div>
 
                 <div class="row mx-auto">
@@ -384,8 +400,6 @@
                     </p>
                 </div>
                 <!--END CONTROLS SECTION-->
-
-
                 <!--BACKGROUND INFO-->
                 <div class="row mx-auto">
                     <i class="py-3 mx-auto fa-3x fas fa-info-circle"></i>
@@ -443,10 +457,18 @@
         <!--END CARD CONTENTS-->
         @*CARD FOOTER SECTION*@
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
-            <div class="col-md mx-auto py-3">
-                <button @onclick="ReturnToCodePage" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
-                    Return To Code Page
-                </button>
+            <div class="col-md text-center mx-auto py-3">
+                @if (IsNewTab == true) {
+                    <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                            @onclick="CloseTab">
+                        Close This New Tab
+                    </button>
+                } else {
+                    <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                            @onclick="ReturnToCodePage">
+                        Return to Coding
+                    </button>
+                }
             </div>
 
             <div class="col-md mx-auto py-3">

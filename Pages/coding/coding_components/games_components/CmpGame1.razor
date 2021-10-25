@@ -1,7 +1,8 @@
-﻿@page "/coding/game1"
+﻿@page "/coding/game1/{UrlData?}"
+@page "/coding/game1"
 
 @inject NavigationManager NavManager
-
+@inject IJSRuntime JSRuntime
 
 <div class="col-md-12 mx-auto text-center mb-5">
     <!--'CARD' INTRO TEXT SECTION-->
@@ -24,6 +25,22 @@
                     <h3 class="mx-auto text-center my-4 p-2">
                         <b>Hot Potatoe</b>
                     </h3>
+                </div>
+
+
+                <!--RETURN TO CODING/CLOSE TAB SECTION-->
+                <div class="row justify-content-center my-3 mx-auto">
+                    @if (IsNewTab == true) {
+                        <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                                @onclick="CloseTab">
+                            Close This New Tab
+                        </button>
+                    } else {
+                        <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                                @onclick="ReturnToCodePage">
+                            Return to Blogs
+                        </button>
+                    }
                 </div>
 
                 <div class="row mx-auto">
@@ -69,10 +86,10 @@
                 </div>
 
                 @*<div class="row mx-auto">
-            <p class="mx-auto text-center mb-0 p-2">
-                <b>Game Play Video</b>
-            </p>
-        </div>*@
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <b>Game Play Video</b>
+                    </p>
+                </div>*@
 
                 <!--GAMEPLAY VIDEO SECTION-->
                 <div class="col-md-11 mx-auto mb-3">
@@ -107,7 +124,7 @@
                         <div class="@(VideoLoaded == false && VideoError == false ? "d-none" : "") row px-4 my-4 mx-auto  ">
                             @*Play="OnPlay"*@
                             @*  TODO: 10/07/2021 For some reason, ErrorEvent fires as soon as page loads, which doesn't make sense...
-                    ErrorEvent="VideoErrorEvent"*@
+                            ErrorEvent="VideoErrorEvent"*@
                             <div class="@(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow")" style=" border-radius:15px 15px 15px 15px;">
                                 <BlazoredVideo CanPlayEvent="VideoIsReady"
                                                ErrorEvent="VideoErrorEvent"
@@ -119,7 +136,7 @@
                             </div>
                             <!--<video id="VIDEO" class=" img-fluid" controls=""  >--> @*oncanplay="@VideoIsReady()"*@
                             <!--<source src="https://drive.google.com/uc?export=download&amp;id=1Y7HUYahCNnQqItq5343N0-sE3UtLh2f8" type="video/mp4">
-                </video>-->
+                        </video>-->
                         </div>
 
 
@@ -146,16 +163,16 @@
                     </div>
                 </div>
                 @*<div class="row px-4 mx-auto">
-            <video controls="" class="@(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" )" style="min-width:100%; border-radius:15px 15px 15px 15px;">
-                <source src="https://drive.google.com/uc?export=download&amp;id=1Y7HUYahCNnQqItq5343N0-sE3UtLh2f8" type="video/mp4">
-            </video>
-        </div>*@
+                    <video controls="" class="@(Color_Theme_Recieved == "Light" ? "outline-light-border r-b-corner-light-shadow" : "outline-dark-border r-b-corner-dark-shadow" )" style="min-width:100%; border-radius:15px 15px 15px 15px;">
+                        <source src="https://drive.google.com/uc?export=download&amp;id=1Y7HUYahCNnQqItq5343N0-sE3UtLh2f8" type="video/mp4">
+                    </video>
+                </div>*@
 
                 @*<div class="row mx-auto">
-            <p class="mx-auto text-center mb-0 p-2">
-                <i><b>All Copyrighted assets belong to their respectful owners.</b></i>
-            </p>
-        </div>*@
+                    <p class="mx-auto text-center mb-0 p-2">
+                        <i><b>All Copyrighted assets belong to their respectful owners.</b></i>
+                    </p>
+                </div>*@
 
                 <!--END GAMEPLAY VIDEO SECTION-->
 
@@ -280,16 +297,32 @@
             </div>
         </div>
         <!--END CARD CONTENTS-->
-
         @*CARD FOOTER SECTION*@
+
+
+        <!--RETURN TO BLOG/CLOSE TAB SECTION-->
         <div class="row mx-auto @(Color_Theme_Recieved == "Light" ? "card-footer-light-style" : "card-footer-dark-style" )">
-            <div class="col-md mx-auto py-3">
+            @*<div class="col-md mx-auto py-3">
                 <button @onclick="ReturnToCodePage" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
                     Return To Code Page
                 </button>
+            </div>*@
+
+            <div class="col-md text-center mx-auto py-3">
+                @if (IsNewTab == true) {
+                    <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                            @onclick="CloseTab">
+                        Close This New Tab
+                    </button>
+                } else {
+                    <button class="btn cursor-pointe @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-dark r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")"
+                            @onclick="ReturnToCodePage">
+                        Return to Coding
+                    </button>
+                }
             </div>
 
-            <div class="col-md mx-auto py-3">
+            <div class="col-md text-center mx-auto py-3">
                 <button @onclick="GameContact" type="button" class="btn cursor-pointer @(Color_Theme_Recieved == "Light" ? "light_general_text btn-outline-light r-b-corner-dark-shadow" : "dark_general_text btn-outline-light r-b-corner-light-shadow")">
                     Contact about this Game
                 </button>
