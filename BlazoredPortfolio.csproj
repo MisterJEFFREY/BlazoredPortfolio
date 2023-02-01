@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\custom_js\**" />
+    <Content Remove="wwwroot\custom_js\**" />
+    <EmbeddedResource Remove="wwwroot\custom_js\**" />
+    <None Remove="wwwroot\custom_js\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Pages\Counter.razor" />
     <Content Remove="Pages\FetchData.razor" />
   </ItemGroup>
