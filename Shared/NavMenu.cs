@@ -46,7 +46,7 @@ namespace BlazoredPortfolio.Shared {
                     DisabledContact = false;
                 }
                 return;
-            }
+            } 
 
             //IF DEPLOYING ONLINE...
             if (CurrentURL.Contains(".site")) {
@@ -61,7 +61,7 @@ namespace BlazoredPortfolio.Shared {
                 DisabledContact = false;
                 return;
             }
-
+            
 
             //if (CurrentURL.Contains("/contact")) {
             //    DisabledContact = true;
@@ -99,17 +99,13 @@ namespace BlazoredPortfolio.Shared {
             //CHECK IF THE THEME TOGGLE IS ACTUALLY CHECKED
             if (tbColorThemeToggle == "True") {
                 await ColorThemeChanged.InvokeAsync("Dark");
-                //await JSRuntime.InvokeAsync<object>("methods.print", tbColorThemeToggle);
-                await JS.InvokeAsync<bool>("JSColorCookie", "Dark");
-                //return;
+                return;
             } else {
                 await ColorThemeChanged.InvokeAsync("Light");
-                await JS.InvokeAsync<bool>("JSColorCookie", "Light");
-                //return;
+                return;
             }
-            
-            return;
         }
+
         public void On_ColorThemeChanged(string tsValue) {
             colorTheme = tsValue;
         }
@@ -160,9 +156,6 @@ namespace BlazoredPortfolio.Shared {
 
 
         #region Properties
-        //VARIABLES MEANT FOR COLOR THEME SWITCHING
-        [CascadingParameter]
-        public MainLayout Layout { get; set; }
         //INTENDED FOR NAVBAR/////////////////////////////////////////
         bool collapseNavMenu = true;
         string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
