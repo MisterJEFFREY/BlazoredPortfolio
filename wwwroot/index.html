@@ -75,91 +75,23 @@
 
 
 
-    <!--<div id="app">Loading...</div>-->
-    <!--<div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>-->
-    <!--<script src="_framework/blazor.webassembly.js"></script>-->
-    
-    <script>
-        //01-26-22 TODO: WILL NEED TO WORK ON THIS TO DETECT MOBILE PHONES - 
-        //Note that my phone, moto g6 play w/ 3gb ram takes about 10 seconds to load my blazor wasm....
-        var Html2BlazorDelay = 0000;
-        var memory = 0;
-        //device - memory
-        try {
-            memory = navigator.deviceMemory;
-            //Should return one of the following in GiB:
-            //0.25, 0.5, 1, 2, 4, 8.
-            if (memory != undefined) {
-                console.log("This device has at least " + memory + "GiB of RAM.");
-            } else {
-                console.log("User is either using Firefox or other unsupported browser...");
-                //If this is the case, should I just default to 3 second delay and then if passed
-            }
-            
-        } catch (err){
-            console.log("This device barely has any ram and/or something went horribly wrong....");
-            console.log("The error is the following: \n" + err);
-        }
-        /////////
-        //UPDATE: I should probably add a check for if this page somehow failed to load within x seconds or something else,
-        //show a section that tells user to manually reload the page...
+            <!--<div id="app">Loading...</div>-->
+            <!--<div id="blazor-error-ui">
+                An unhandled error has occurred.
+                <a href="" class="reload">Reload</a>
+                <a class="dismiss">🗙</a>
+            </div>-->
+            <script src="_framework/blazor.webassembly.js"></script>
 
-
-
-                /*
-         Gib    Seconds (delay)
-         8gb    = 3 
-         4gb    = 2
-         2gb    = 0
-         1gb    = 0
-         0.5gb  = 0
-         0.25gb = 0 
-         */
-
-        if (memory >= 4) { };
-
-        console.log("I'll add the blazor.web.js in about: " + Html2BlazorDelay + " seconds!");
-        var time_0 = performance.now();
-        
-        setTimeout(function () {
-            //var script = document.createElement('script');
-            //script.type = 'text/javascript';
-
-            //script.src = '_framework/blazor.webassembly.js';
-            // document.body.appendChild(script);
-            //console.time("Ive added the blazor.web.js in about: ");
-            //console.log("I've added the blazor.web.js in about: " + Html2BlazorDelay + " seconds!");
-            $('<script src="_framework/blazor.webassembly.js"><\/script>').appendTo(document.body);
-            var time_1 = performance.now();
-            console.log("The loading of blazor.wasm.js took: " + ((time_1 - time_0) * 0.001).toFixed(3) + " seconds");
-            //console.timeEnd("Ive added the blazor.web.js in about: ");
-            //^NOTE THAT THIS WAS NOT THE ORIGINAL ATTEMPT TO 'DELAY' THE SCRIPT.
-            //Accidently deleted the original attempt by undoing pending changes.
-
-            //The original attempt was something like so
-            //document.getElementsByTagName("body")[0] += "<script src='_framework/blazor.webassembly.js'><\/script>";
-            //But I can't seem to find out the exact why I originaly did this...
-
-
-        }, Html2BlazorDelay);
-
-        //setInterval(function () { alert("Hello") }, 3000);
-    </script>
-
-    <!--SINCE BLAZOR DOESN'T CHANGE HTML COLORS DIRECTLY, I'LL HAVE TO RESORT TO THIS WAY...-->
-    <!--SRC:https://stackoverflow.com/a/58281171 -->
-    <!--<script>
-        window.applyStyleForBody = function (style) {
-            document.documentElement.style[style.attrib] = style.value;
-        }
-    </script>-->
-
-    <!--SCRIPT INTENDED TO COMMUNICATE FROM CONTACT FORM TO G SERVICE-->
-    <script>
+            <!--SINCE BLAZOR DOESN'T CHANGE HTML COLORS DIRECTLY, I'LL HAVE TO RESORT TO THIS WAY...-->
+            <!--SRC:https://stackoverflow.com/a/58281171 -->
+            <!--<script>
+                window.applyStyleForBody = function (style) {
+                    document.documentElement.style[style.attrib] = style.value;
+                }
+            </script>-->
+            <!--SCRIPT INTENDED TO COMMUNICATE FROM CONTACT FORM TO G SERVICE-->
+            <script>
         $('#bootstrapForm').submit(function (event) {
             event.preventDefault()
             var extraData = {}
@@ -175,23 +107,21 @@
                 }
             })
         })
-    </script>
-    
+            </script>
 
-    <!--SCRIPT INTENDED TO CHECK FOR JS COOKIES & RECIEVE VALUE IF EXISTED-->
-    <!--TODO: UPDATE THIS TO MAKE THE HTML LOADING PAGE RESPONSIVE TO BLAZOR'S COLOR THEME?-->
-    <script>
+
+            <!--SCRIPT INTENDED TO CHECK FOR JS COOKIES & RECIEVE VALUE IF EXISTED-->
+            <!--TODO: UPDATE THIS TO MAKE THE HTML LOADING PAGE RESPONSIVE TO BLAZOR'S COLOR THEME?-->
+            <script>
         //LET THIS BECOME THE GLOBAL VARIABLE...
         //document.cookie = "";
         let InitialColorTheme = document.cookie; //Cookie("ColorThemeChoice");
-        console.log(InitialColorTheme);
         CheckForJSCookies();
 
         function CheckForJSCookies() {
             //let InitialColorTheme = getCookie("ColorThemeChoice");
             //IF COLOR THEME COOKIE DOES EXIST...
             if (InitialColorTheme != "") {
-                console.log("First load of or reloading site!");
                 console.log("Found Color Theme JS Cookie!\nIt is: " + InitialColorTheme);
             } else {
                 //IF COLOR THEME COOKIE DOESN'T EXIST...
@@ -202,9 +132,9 @@
                 //setCookie("ColorThemeChoice", InitialColorTheme, "Light Theme");
             }
         }
-    </script>
+            </script>
 
-    <script>
+            <script>
         //UNCHECK ALL CONTACT FORM RADIO BUTTONS
         function ClearAllContactSubjects() {
             document.querySelector('input[name="entry.784052716"]:checked').checked = false;
@@ -215,10 +145,10 @@
             document.querySelector('input[name="entry.784052716.other_option_response"]:checked').checked = false;
             console.log("Cleared all Contact Form's Subject Input Fields");
         }
-    </script>
+            </script>
 
-    <!--COPY URL TO CLIPBOARD TEST-->
-    <script>
+            <!--COPY URL TO CLIPBOARD TEST-->
+            <script>
         function CopyURLToClipboard(tsPassedURL) {
         console.log("\nInside the Clipboard JS Function!\n");
             //HELP SRC: https://www.c-sharpcorner.com/article/understand-javascript-interop-in-blazor/
@@ -231,31 +161,7 @@
             console.log("Uh oh...something went wrong with passing URL from Blazor Method!\n");
             return true;
         }
-    </script>
-            
-    <!--TEST for setting javascript cookie for color theme: 01/09/2022-->
-    <script>
-        function JSColorCookie(tsPassedColorString) {
-            let InitialColorTheme = document.cookie; //Cookie("ColorThemeChoice");
-            console.log(InitialColorTheme);
-            console.log("Oh hey!\nThe theme has been requested to change! Let's see about that JS cookie...");
-            //IF COLOR THEME COOKIE DOES EXIST...
-            if (InitialColorTheme != "") {
-
-                console.log("Good news!\nFound Color Theme JS Cookie!\nIt is intially: " + InitialColorTheme);
-                document.cookie = tsPassedColorString;
-                console.log("The color theme is now: " + document.cookie);
-
-            } else {
-                //IF COLOR THEME COOKIE DOESN'T EXIST...
-                console.log("Did Not Find the JS Color Theme Cookie!\nWho ate my cookie?");
-                //DEFAULT THAT COLOR THEME COOKIE TO LIGHT THEME!
-                console.log("\nAyways, just made a cookie with 'Light' value as default.");
-                document.cookie = "Light";
-                //setCookie("ColorThemeChoice", InitialColorTheme, "Light Theme");
-            }
-        }
-    </script>
+            </script>
 
 </body>
 
